@@ -27,7 +27,9 @@ tags:
 
 以此类推，观察这个 logo 的其他部分，除了上图，下面那两个两条杠就分别一个矩形，两个和矩形等高的半圆形就可以；最下面的直接矩形；广东工业大学这几个字我就直接截图了，如果还用 css3 来弄我就真心找虐了；英文就直接用 css3 的旋转用 transform 属性就好；最难的就是外轮廓的花瓣，想了很久，后来使用了多个 1/4 圆，和旋转兼叠加形成，当然，还要用到一个我没过的 css 属性，就是 clip，这个属性是专门用来截断的，可能大家用的比较少，这里给一个规范：
 
-> clip : auto | rect ( number number number number ) 取值：auto :　 默认值。对象无剪切
+{% note info %}
+clip : auto | rect ( number number number number ) 取值：auto :　 默认值。对象无剪切
+{% endnote %}
 
 然后 number 和大多数的 css 简写一样，都是上右下左，大家可以试试看。
 

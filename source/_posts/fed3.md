@@ -80,10 +80,11 @@ if (document.addEventListener) {
 [微信 JS-SDK 说明文档](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html)
 
 新的方式比之前的方式复杂一些，如果你想要你的页面可以在微信内分享，必须满足以下条件：
-
-> 1. 你有一个已备案的域名
-> 2. 你有一个微信公众号（服务号或订阅号都行）
-> 3. 你有相关的后台服务来生成签名（php、java、nodejs 以及 python）
+{% note primary %}
+1. 你有一个已备案的域名
+2. 你有一个微信公众号（服务号或订阅号都行）
+3. 你有相关的后台服务来生成签名（php、java、nodejs 以及 python）
+   {% endnote %}
 
 前两个比较容易理解，这里我就不展开了，后面所谓的签名到底是什么呢，这里我用一个浅显易懂的流程来向大家说明一下微信 jssdk 是怎么运作的：
 
@@ -126,12 +127,16 @@ function randomString(len) {
 
 ### （三）签名
 
-> **签名算法**：参与签名的字段包括 noncestr（随机字符串）, 有效的 jsapi_ticket, timestamp（时间戳）, url（当前网页的 URL，不包含#及其后面部分） 。对所有待签名参数按照字段名的 ASCII 码从小到大排序（字典序）后，使用 URL 键值对的格式（即 key1=value1&key2=value2…）拼接成字符串 string1。这里需要注意的是所有参数名均为小写字符。对 string1 作 sha1 加密，字段名和字段值都采用原始值，不进行 URL 转义。
+{% note info %}
+**签名算法**：参与签名的字段包括 noncestr（随机字符串）, 有效的 jsapi_ticket, timestamp（时间戳）, url（当前网页的 URL，不包含#及其后面部分） 。对所有待签名参数按照字段名的 ASCII 码从小到大排序（字典序）后，使用 URL 键值对的格式（即 key1=value1&key2=value2…）拼接成字符串 string1。这里需要注意的是所有参数名均为小写字符。对 string1 作 sha1 加密，字段名和字段值都采用原始值，不进行 URL 转义。
+{% endnote %}
 
 在上述介绍的 jssdk 运作流程中，2、3、4 步骤其实都是直接放在后台实现的，这也是为什么我说需要后台服务的缘故，具体的后台代码 demo 微信文档里面已经给出了，下面贴一个链接：
 [http://demo.open.weixin.qq.com/jssdk/sample.zip](http://demo.open.weixin.qq.com/jssdk/sample.zip)
 
-> 备注：链接中包含 php、java、nodejs 以及 python 的示例代码供第三方参考，第三方切记要对获取的 accesstoken 以及 jsapi_ticket 进行缓存以确保不会触发频率限制，另外注意生成的签名有效时间为 2 小时，2 小时后就要重新生成
+{% note warning %}
+备注：链接中包含 php、java、nodejs 以及 python 的示例代码供第三方参考，第三方切记要对获取的 accesstoken 以及 jsapi_ticket 进行缓存以确保不会触发频率限制，另外注意生成的签名有效时间为 2 小时，2 小时后就要重新生成
+{% endnote %}
 
 ### （四）使用 jssdk
 
@@ -147,4 +152,5 @@ wx.config({
     jsApiList: [] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
 });
 ```
-jsApiList请大家直接在[微信JS-SDK说明文档](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html)里面找到对应的使用方法即可，这里就不再赘述
+
+jsApiList 请大家直接在[微信 JS-SDK 说明文档](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html)里面找到对应的使用方法即可，这里就不再赘述
