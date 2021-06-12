@@ -307,7 +307,7 @@ navbar:
     - { key: "archive", link: "/archives/", icon: "iconfont icon-archive-fill" }
     - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
     - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
-    - { key: "个人简历", link: "https://resume.mrfangge.com/", icon: "iconfont icon-user-fill" }
+    - { key: "个人简历", link: "https://www.mrfangge.com/resume/", icon: "iconfont icon-user-fill" }
     #- { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
 
 # 搜索功能，基于 hexo-generator-search 插件，若已安装其他搜索插件请关闭此功能，以避免生成多余的索引文件
@@ -889,7 +889,7 @@ links:
     - {
       title: "个人简历",
       intro: "作者个人简历",
-      link: "https://resume.mrfangge.com/",
+      link: "https://www.mrfangge.com/resume/",
       avatar: "/img/favicon.png"
     }
 
@@ -906,7 +906,7 @@ links:
   # 评论插件
   # Comment plugin
   comments:
-    enable: false
+    enable: true
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis
