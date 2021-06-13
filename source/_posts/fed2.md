@@ -38,6 +38,7 @@ clip : auto | rect ( number number number number ) 取值：auto :　 默认值�
 基本上确定了要怎么画，就开始正式写代码了，过程中最纠结的就是要不断地调角度和高度等这些很微小的数据，因为用到旋转的关系，所以即使你旋转一度，所以定位上都要随之改变一些，当然像我比较懒的话，就直接开一个调试面板（其实也不是懒，如果真心调一下，刷一下，我觉得亲你就没必要继续做下去了，除非你是强迫症），然后直接修改 css 看效果，都修改后一次性改代码就好。
 
 [项目地址](https://github.com/fangge/css3logo)
+[可变颜色效果](https://www.mrfangge.com/css3logo/css3logo.html)
 
 DEMO：
 
