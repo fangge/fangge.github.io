@@ -2,6 +2,7 @@
 title: Hexo+Github Action构建Github Page博客
 index_img: /img/blog/fed4.jpg
 banner_img: /img/blog/fed4.jpg
+excerpt: 利用Github Action+Hexo 构建github page博客
 categories:
   - 前端
 tags:
@@ -164,3 +165,8 @@ jobs:
 ![](/img/blog/20210613180630.jpg)
 
 当成功后，master就能看到新生成的blog文件，至此，整个博客的发布流程就完全搞定了，Enjoy it！
+
+{% note light %}
+1. ``hexo server``之后发现没有热更新，不太习惯，可以自行安装``hexo-browsersync``
+2. Hexo有丰富的免费主题库，我自己用的是[Fluid](https://hexo.fluid-dev.com/docs/)，挺舒服的，大家可以试试
+{% endnote %}
