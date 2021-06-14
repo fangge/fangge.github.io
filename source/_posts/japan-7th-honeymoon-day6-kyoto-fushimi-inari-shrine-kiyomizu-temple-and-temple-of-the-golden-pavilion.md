@@ -15,13 +15,13 @@ hide: true
 
 {% note primary %}
 日本 7 日蜜月游游记连载：
-<a href="https://www.mrfangge.com/2016/02/09/japan-7th-honeymoon-day0-departure/">Day0：出发</a>
-<a href="https://www.mrfangge.com/2016/02/11/japans-7-day-honeymoon-day1-tsukiji-edo-tokyo-museum-sensoji-temple-and-sky-tree/">Day1：筑地市场、江户东京博物馆、浅草寺和天空树</a>
-<a href="https://www.mrfangge.com/2016/02/16/japans-7-day-honeymoon-day2-yoyogi-park-meiji-shrine-tokyo-tower-and-akiba-hara/">Day2：代代木公园、明治神宫、秋叶原和东京塔</a>
-<a href="https://www.mrfangge.com/2016/02/18/japan-7th-honeymoon-day3-lake-kawaguchi-mount-fuji/">Day3：河口湖、富士山</a>
-<a href="https://www.mrfangge.com/2016/02/20/japan-on-the-7th-honeymoon-day4-hakone-yumoto-osaka-shinsaibashi-and-dotombori/">Day4：箱根、大阪心斋桥和道顿崛</a>
-<a href="https://www.mrfangge.com/2016/02/21/japan-7th-honeymoon-day5-osaka-castle-park-kyoto-nara-park/">Day5：大阪城公园、京都奈良公园</a>
-<a href="https://www.mrfangge.com/2016/02/23/japan-7th-honeymoon-day6-kyoto-fushimi-inari-shrine-kiyomizu-temple-and-temple-of-the-golden-pavilion/"><strong>Day6：京都伏见稻荷大社、清水寺和金阁寺</strong></a>
+<a href="/2016/02/08/japan-7th-honeymoon-day0-departure/">Day0：出发</a>
+<a href="/2016/02/11/japans-7-day-honeymoon-day1-tsukiji-edo-tokyo-museum-sensoji-temple-and-sky-tree/">Day1：筑地市场、江户东京博物馆、浅草寺和天空树</a>
+<a href="/2016/02/16/japans-7-day-honeymoon-day2-yoyogi-park-meiji-shrine-tokyo-tower-and-akiba-hara/">Day2：代代木公园、明治神宫、秋叶原和东京塔</a>
+<a href="/2016/02/18/japan-7th-honeymoon-day3-lake-kawaguchi-mount-fuji/">Day3：河口湖、富士山</a>
+<a href="/2016/02/20/japan-on-the-7th-honeymoon-day4-hakone-yumoto-osaka-shinsaibashi-and-dotombori/">Day4：箱根、大阪心斋桥和道顿崛</a>
+<a href="/2016/02/21/japan-7th-honeymoon-day5-osaka-castle-park-kyoto-nara-park/">Day5：大阪城公园、京都奈良公园</a>
+<a href="/2016/02/23/japan-7th-honeymoon-day6-kyoto-fushimi-inari-shrine-kiyomizu-temple-and-temple-of-the-golden-pavilion/"><strong>Day6：京都伏见稻荷大社、清水寺和金阁寺</strong></a>
 {% endnote %}
 
 <p>这是我们在日本最后一天旅游的行程了，7天的时间一下子就过去了，真的太不舍了，京都的行程还是比较好安排的，刚好我们要去的<strong>伏见稻荷大社、清水寺和金阁寺</strong>就基本在一条线路上，从下往上依次是伏见稻荷大社、清水寺、金阁寺，所以大家在规划线路的时候，可以按照这个顺序来规划。</p>

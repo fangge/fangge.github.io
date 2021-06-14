@@ -15,13 +15,13 @@ hide: true
 
 {% note primary %}
 日本 7 日蜜月游游记连载：
-<a href="https://www.mrfangge.com/2016/02/09/japan-7th-honeymoon-day0-departure/">Day0：出发</a>
-<a href="https://www.mrfangge.com/2016/02/11/japans-7-day-honeymoon-day1-tsukiji-edo-tokyo-museum-sensoji-temple-and-sky-tree/">Day1：筑地市场、江户东京博物馆、浅草寺和天空树</a>
-<a href="https://www.mrfangge.com/2016/02/16/japans-7-day-honeymoon-day2-yoyogi-park-meiji-shrine-tokyo-tower-and-akiba-hara/">Day2：代代木公园、明治神宫、秋叶原和东京塔</a>
-<a href="https://www.mrfangge.com/2016/02/18/japan-7th-honeymoon-day3-lake-kawaguchi-mount-fuji/"><strong>Day3：河口湖、富士山</strong></a>
-<a href="https://www.mrfangge.com/2016/02/20/japan-on-the-7th-honeymoon-day4-hakone-yumoto-osaka-shinsaibashi-and-dotombori/">Day4：箱根、大阪心斋桥和道顿崛</a>
-<a href="https://www.mrfangge.com/2016/02/21/japan-7th-honeymoon-day5-osaka-castle-park-kyoto-nara-park/">Day5：大阪城公园、京都奈良公园</a>
-<a href="https://www.mrfangge.com/2016/02/23/japan-7th-honeymoon-day6-kyoto-fushimi-inari-shrine-kiyomizu-temple-and-temple-of-the-golden-pavilion/">Day6：京都伏见稻荷大社、清水寺和金阁寺</a>
+<a href="/2016/02/08/japan-7th-honeymoon-day0-departure/">Day0：出发</a>
+<a href="/2016/02/11/japans-7-day-honeymoon-day1-tsukiji-edo-tokyo-museum-sensoji-temple-and-sky-tree/">Day1：筑地市场、江户东京博物馆、浅草寺和天空树</a>
+<a href="/2016/02/16/japans-7-day-honeymoon-day2-yoyogi-park-meiji-shrine-tokyo-tower-and-akiba-hara/">Day2：代代木公园、明治神宫、秋叶原和东京塔</a>
+<a href="/2016/02/18/japan-7th-honeymoon-day3-lake-kawaguchi-mount-fuji/"><strong>Day3：河口湖、富士山</strong></a>
+<a href="/2016/02/20/japan-on-the-7th-honeymoon-day4-hakone-yumoto-osaka-shinsaibashi-and-dotombori/">Day4：箱根、大阪心斋桥和道顿崛</a>
+<a href="/2016/02/21/japan-7th-honeymoon-day5-osaka-castle-park-kyoto-nara-park/">Day5：大阪城公园、京都奈良公园</a>
+<a href="/2016/02/23/japan-7th-honeymoon-day6-kyoto-fushimi-inari-shrine-kiyomizu-temple-and-temple-of-the-golden-pavilion/">Day6：京都伏见稻荷大社、清水寺和金阁寺</a>
 {% endnote %}
 
 <p>不知不觉来到了第三天，时间过得真是太快了，今天我们主要的行程时间都会花费在路上，今天的目的地就是富士山，夫人兴奋了半天，因为富士山的目的就是为了能看到雪，也可以欣赏到富士山的美丽身姿，一大早我们就出发了，因为我们的酒店订在了河口湖，这里是我们刚开始规划的时候遇到的第一个坑。</p>

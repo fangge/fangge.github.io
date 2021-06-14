@@ -10,18 +10,18 @@ tags:
   - 日本
   - 自由行
 date: 2016-02-08 16:01:20
-hide: false
+hide: true
 ---
 
 {% note primary %}
 日本 7 日蜜月游游记连载：
-<a href="https://www.mrfangge.com/2016/02/09/japan-7th-honeymoon-day0-departure/"><strong>Day0：出发</strong></a>
-<a href="https://www.mrfangge.com/2016/02/11/japans-7-day-honeymoon-day1-tsukiji-edo-tokyo-museum-sensoji-temple-and-sky-tree/">Day1：筑地市场、江户东京博物馆、浅草寺和天空树</a>
-<a href="https://www.mrfangge.com/2016/02/16/japans-7-day-honeymoon-day2-yoyogi-park-meiji-shrine-tokyo-tower-and-akiba-hara/">Day2：代代木公园、明治神宫、秋叶原和东京塔</a>
-<a href="https://www.mrfangge.com/2016/02/18/japan-7th-honeymoon-day3-lake-kawaguchi-mount-fuji/">Day3：河口湖、富士山</a>
-<a href="https://www.mrfangge.com/2016/02/20/japan-on-the-7th-honeymoon-day4-hakone-yumoto-osaka-shinsaibashi-and-dotombori/">Day4：箱根、大阪心斋桥和道顿崛</a>
-<a href="https://www.mrfangge.com/2016/02/21/japan-7th-honeymoon-day5-osaka-castle-park-kyoto-nara-park/">Day5：大阪城公园、京都奈良公园</a>
-<a href="https://www.mrfangge.com/2016/02/23/japan-7th-honeymoon-day6-kyoto-fushimi-inari-shrine-kiyomizu-temple-and-temple-of-the-golden-pavilion/">Day6：京都伏见稻荷大社、清水寺和金阁寺</a>
+<a href="/2016/02/08/japan-7th-honeymoon-day0-departure/"><strong>Day0：出发</strong></a>
+<a href="/2016/02/11/japans-7-day-honeymoon-day1-tsukiji-edo-tokyo-museum-sensoji-temple-and-sky-tree/">Day1：筑地市场、江户东京博物馆、浅草寺和天空树</a>
+<a href="/2016/02/16/japans-7-day-honeymoon-day2-yoyogi-park-meiji-shrine-tokyo-tower-and-akiba-hara/">Day2：代代木公园、明治神宫、秋叶原和东京塔</a>
+<a href="/2016/02/18/japan-7th-honeymoon-day3-lake-kawaguchi-mount-fuji/">Day3：河口湖、富士山</a>
+<a href="/2016/02/20/japan-on-the-7th-honeymoon-day4-hakone-yumoto-osaka-shinsaibashi-and-dotombori/">Day4：箱根、大阪心斋桥和道顿崛</a>
+<a href="/2016/02/21/japan-7th-honeymoon-day5-osaka-castle-park-kyoto-nara-park/">Day5：大阪城公园、京都奈良公园</a>
+<a href="/2016/02/23/japan-7th-honeymoon-day6-kyoto-fushimi-inari-shrine-kiyomizu-temple-and-temple-of-the-golden-pavilion/">Day6：京都伏见稻荷大社、清水寺和金阁寺</a>
 {% endnote %}
 
 <h2 id="写在之前"><a href="#写在之前" class="headerlink" title="写在之前"></a><span style="text-decoration: underline;">写在之前</span></h2><p>好久没写游记了，以前在网易博客那里一直有坚持，后来就落下了，这次从日本回来，觉得还是要坚持回来，新的一年了，就以这次日本蜜月游为开篇吧，这次去日本因为我们都有事情忙的关系，基本上算是没做过什么功课就直接去日本了，当时两人的心里还是有点忐忑的，请不要问我们是怎么走下来7天行程的，因为……</p>
