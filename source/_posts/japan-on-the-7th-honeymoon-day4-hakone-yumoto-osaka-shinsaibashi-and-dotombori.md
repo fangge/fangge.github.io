@@ -15,13 +15,13 @@ hide: true
 
 {% note primary %}
 日本 7 日蜜月游游记连载：
-<a href="https://www.mrfangge.com/09/japan-7th-honeymoon-day0-departure/">Day0：出发</a>
-<a href="https://www.mrfangge.com/11/japans-7-day-honeymoon-day1-tsukiji-edo-tokyo-museum-sensoji-temple-and-sky-tree/">Day1：筑地市场、江户东京博物馆、浅草寺和天空树</a>
-<a href="https://www.mrfangge.com/16/japans-7-day-honeymoon-day2-yoyogi-park-meiji-shrine-tokyo-tower-and-akiba-hara/">Day2：代代木公园、明治神宫、秋叶原和东京塔</a>
-<a href="https://www.mrfangge.com/18/japan-7th-honeymoon-day3-lake-kawaguchi-mount-fuji/">Day3：河口湖、富士山</a>
-<a href="https://www.mrfangge.com/20/japan-on-the-7th-honeymoon-day4-hakone-yumoto-osaka-shinsaibashi-and-dotombori/"><strong>Day4：箱根、大阪心斋桥和道顿崛</strong></a>
-<a href="https://www.mrfangge.com/21/japan-7th-honeymoon-day5-osaka-castle-park-kyoto-nara-park/">Day5：大阪城公园、京都奈良公园</a>
-<a href="https://www.mrfangge.com/23/japan-7th-honeymoon-day6-kyoto-fushimi-inari-shrine-kiyomizu-temple-and-temple-of-the-golden-pavilion/">Day6：京都伏见稻荷大社、清水寺和金阁寺</a>
+<a href="/2016/02/08/japan-7th-honeymoon-day0-departure/">Day0：出发</a>
+<a href="/2016/02/11/japans-7-day-honeymoon-day1-tsukiji-edo-tokyo-museum-sensoji-temple-and-sky-tree/">Day1：筑地市场、江户东京博物馆、浅草寺和天空树x</a>
+<a href="/2016/02/16/japans-7-day-honeymoon-day2-yoyogi-park-meiji-shrine-tokyo-tower-and-akiba-hara/">Day2：代代木公园、明治神宫、秋叶原和东京塔</a>
+<a href="/2016/02/18/japan-7th-honeymoon-day3-lake-kawaguchi-mount-fuji/">Day3：河口湖、富士山</a>
+<a href="/2016/02/20/japan-on-the-7th-honeymoon-day4-hakone-yumoto-osaka-shinsaibashi-and-dotombori/"><strong>Day4：箱根、大阪心斋桥和道顿崛</strong></a>
+<a href="/2016/02/21/japan-7th-honeymoon-day5-osaka-castle-park-kyoto-nara-park/">Day5：大阪城公园、京都奈良公园</a>
+<a href="/2016/02/23/japan-7th-honeymoon-day6-kyoto-fushimi-inari-shrine-kiyomizu-temple-and-temple-of-the-golden-pavilion/">Day6：京都伏见稻荷大社、清水寺和金阁寺</a>
 {% endnote %}
 
 <p>前一天晚上研究好开车线路后，我们就退房启程去大阪了，今天注定也是奔波的一天，因为从富士山又要回到市区了，所以花在路途的时间会比较多，富士山，希望我们下次再见吧。回到河口湖站，就有很多大巴可以乘坐，刚开始宗雷给我们的行程是大概有两种方案：</p>
