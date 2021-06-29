@@ -10,7 +10,7 @@ tags:
 date: 2021-06-29 10:43:35
 index_img: /img/blog/fed5.jpg
 banner_img: /img/blog/fed5.jpg
-excerpt: 利用Ant Design Charts打造自己的开发数据图表
+excerpt: 利用WakaTime 数据打造自己的开发数据图表
 ---
 
 ![wakatime-dashboard-pro](/img/blog/b9cc66cd-cb04-4900-afbe-3daf8d0ff0e5.png)
