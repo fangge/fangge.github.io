@@ -58,7 +58,7 @@ Antd Charts某些图表的配置并不能通用，在官方文档上没有指出
 ## 安装和使用步骤
 
 1. 登录[WakaTime](https://wakatime.com/)，按照使用方法在你的 IDE 上安装好插件和配置**wakatime key**
-2. 利用[wakatime-sync](https://github.com/superman66/wakatime-sync)将你的每天的数据同步到 gist 中（_原理是利用[Github Action](https://docs.github.com/en/actions)每天定时请求 wakatime 的免费 api，获取 json 文件后再上传到 gist 中_）
+2. 利用[wakatime-sync](https://github.com/superman66/wakatime-sync)将你的每天的数据同步到 gist 中（*原理是利用[Github Action](https://docs.github.com/en/actions)每天定时请求 wakatime 的免费 api，获取 json 文件后再上传到 gist 中*）
 3. clone 这个项目并安装
 
 ```bash
