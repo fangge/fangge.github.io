@@ -30,6 +30,8 @@ alias gau='git add --update'
 alias gav='git add --verbose'
 alias gap='git apply'
 alias gcp='git add . && git commit --m "修改问题" && git push'
+alias gpl='git pull'
+alias gp='git push'
 
 alias gb='git branch'
 alias gba='git branch -a'
