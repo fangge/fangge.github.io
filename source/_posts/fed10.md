@@ -114,4 +114,4 @@ alias gdw='git diff --word-diff'
 
 ## 完美
 之后``Ctrl+~``你就可以看到已经切换终端成功了，顺便舒服地用上快捷命令
-
+![](/img/blog/fed10_3.png)
