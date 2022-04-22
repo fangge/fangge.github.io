@@ -15,9 +15,9 @@ excerpt: window环境设置git快捷命令，且修改Vscode的默认终端
 
 ## 设置alias
 
-找到Git的安装目录下的``aliases.sh``文件
+找到Git的安装目录下的``bash.bashrc``文件
 ```bash
-Git安装目录\etc\profile.d\aliases.sh
+Git安装目录\etc\bash.bashrc
 ```
 直接用编辑器打开并插入如下代码
 
