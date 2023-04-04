@@ -13,6 +13,7 @@ banner_img: /img/blog/fed5.jpg
 excerpt: 利用WakaTime 数据打造自己的开发数据图表
 ---
 ![wakatime-dashboard-pro](/img/blog/fed11.png)
+[项目地址](https://github.com/fangge/wakatime-dashboard-pro)
 [项目 Demo](https://wakatime.mrfangge.com/)
 
 ---
@@ -38,3 +39,8 @@ excerpt: 利用WakaTime 数据打造自己的开发数据图表
 
 就这么简单的几个问答，就把这次我想要更新的功能更新好了，所以说这次chatgpt的对于生产力的变革，可以说是颠覆性的，在不远的未来会影响到我们的方方面面，完全可以让一个不熟悉行业的人，快速上手行业，如果有恰当的关键词和问答训练，得到的答案会更加专业
 
+
+# 项目更新日志
+1. [2023.4.4更新](/2023/04/04/fed11/)
+2. [2021.11.20更新](/2021/11/20/fed6/)
+3. [WakaTime Dashboard Pro](/2021/06/29/fed5/)

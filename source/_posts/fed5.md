@@ -14,6 +14,7 @@ excerpt: 利用WakaTime 数据打造自己的开发数据图表
 ---
 
 ![wakatime-dashboard-pro](/img/blog/b9cc66cd-cb04-4900-afbe-3daf8d0ff0e5.png)
+[项目地址](https://github.com/fangge/wakatime-dashboard-pro)
 [项目 Demo](https://wakatime.mrfangge.com/)
 
 ---
@@ -107,3 +108,8 @@ npm run build && npm run dev
 
 ## 项目总结
 这次的折腾，也是逼自己以产品化思维，用户角度去开发一个项目的过程，本质上是为了让自己可以多用代码去做一些自己想做的事情，找回一些写代码的激情，哈哈，代码渣渣欢迎大家fork这个项目并提交你们的改进方案呀~
+
+# 项目更新日志
+1. [2023.4.4更新](/2023/04/04/fed11/)
+2. [2021.11.20更新](/2021/11/20/fed6/)
+3. [WakaTime Dashboard Pro](/2021/06/29/fed5/)
