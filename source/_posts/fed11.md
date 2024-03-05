@@ -1,17 +1,46 @@
 ---
-title: 前端图片压缩方案
+title: WakaTime Dashboard Pro - 更新日志
 categories:
   - 前端
 tags:
   - 前端开发
+  - HTML
+  - CSS
   - Javascript
-  - 图片压缩
-date: 2024-03-05 23:25:50
-index_img: /img/blog/fed11.jpg
-banner_img: /img/blog/fed11.jpg
-excerpt: 纯前端压缩方案的探讨
+date: 2023-04-04 14:17:10
+index_img: /img/blog/fed5.jpg
+banner_img: /img/blog/fed5.jpg
+excerpt: 利用WakaTime 数据打造自己的开发数据图表
 ---
-> 文章灵感：感谢张鑫旭大大的[【做了个纯前端JPG/PNG尺寸缩放+压缩的在线工具】](https://www.zhangxinxu.com/wordpress/2023/09/js-jpg-png-compress-tinyimg-mini/)
+![wakatime-dashboard-pro](/img/blog/fed11.png)
+[项目地址](https://github.com/fangge/wakatime-dashboard-pro)
+[项目 Demo](https://wakatime.mrfangge.com/)
 
-之前在公司业务中，发现低代码生成的页面里面的图片总是会尺寸超标，导致页面加载速度变慢，图片上传组件即使有硬性限制死图片的上传大小，但是也需要运营自行再去tinypng等等在线压缩网站再压缩一次才上传，极其不方便，刚好之前拜读了张鑫旭的纯前端压缩的介绍，所以就改造了一下公司的上传组件，下面介绍一下基本原理和代码实现
+---
 
+时隔那么久，想着再次更新一下自己的这个项目
+> 温馨提示: 此项目中的你自行设置的action里面的`ACCESS_TOKEN`可能会过期，大家记得去[【Github的token页】](https://github.com/settings/tokens)去重新生成更新一下
+
+先说一下这次的修改点
+1. 改为pnpm包管理，安装依赖更加快速
+2. 折线图改成虚线，并增加对应时间点的样式
+3. 图表如果刚好当天是没有任何项目的（也就是对应结构中的projects没有值），依然添加对应的时间点
+4. 图表增加项目图例，可以方便筛选每个项目的开发时间
+5. 增加时间范围内的项目总结：总共项目时长、花费时间最长的一天、花费时间最长和最短的项目
+
+最近ChatGpt很火，刚好一直觉得Ant Design Chart的文档不算很好阅读，就想着直接通过问Chatgpt的方式直接修改代码，可以看看我是是怎么修改的
+
+![问答参考](/img/blog/chat1.png)
+![问答参考](/img/blog/chat2.png)
+![问答参考](/img/blog/chat3.png)
+![问答参考](/img/blog/chat4.png)
+![问答参考](/img/blog/chat5.png)
+![问答参考](/img/blog/chat6.png)
+
+就这么简单的几个问答，就把这次我想要更新的功能更新好了，所以说这次chatgpt的对于生产力的变革，可以说是颠覆性的，在不远的未来会影响到我们的方方面面，完全可以让一个不熟悉行业的人，快速上手行业，如果有恰当的关键词和问答训练，得到的答案会更加专业
+
+
+# 项目更新日志
+1. [2023.4.4更新](/2023/04/04/fed11/)
+2. [2021.11.20更新](/2021/11/20/fed6/)
+3. [WakaTime Dashboard Pro](/2021/06/29/fed5/)

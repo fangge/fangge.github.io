@@ -16,6 +16,9 @@ excerpt: 利用WakaTime 数据打造自己的开发数据图表
 前篇WakaTime Dashboard介绍：
 > [WakaTime Dashboard Pro](/2021/06/29/fed5/)
 
+[项目地址](https://github.com/fangge/wakatime-dashboard-pro)
+[项目 Demo](https://wakatime.mrfangge.com/)
+
 距离上一次更新项目已经有一段时间，这次主要重新介绍一下这个项目可能会遇到的一些问题和做出的一些更新
 
 ## 使用问题
@@ -32,3 +35,8 @@ excerpt: 利用WakaTime 数据打造自己的开发数据图表
 ## 相关更新
 因为工作原因时长需要写周报，所以给项目底部加上了项目周报功能，周报显示的就是你当前选择日期范围内的项目汇总，时间段取的就是开发过这个项目的第一天和最后一天，而且顺便为表格增加了编辑功能，大家可以方便更新周报中的项目详情，欢迎大家继续对我的渣代码提出[宝贵意见](https://github.com/fangge/wakatime-dashboard-pro/pulls)
 ![周报生成器你懂的](/img/blog/1637425411607.jpg)
+
+# 项目更新日志
+1. [2023.4.4更新](/2023/04/04/fed11/)
+2. [2021.11.20更新](/2021/11/20/fed6/)
+3. [WakaTime Dashboard Pro](/2021/06/29/fed5/)
