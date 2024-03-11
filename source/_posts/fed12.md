@@ -6,6 +6,9 @@ tags:
   - 前端开发
   - Javascript
   - 图片压缩
+  - UPNG
+  - canvas
+  - input
 date: 2024-03-05 23:25:50
 index_img: /img/blog/fed11.jpg
 banner_img: /img/blog/fed11.jpg
