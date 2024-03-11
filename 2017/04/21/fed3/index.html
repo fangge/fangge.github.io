@@ -1,0 +1,788 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.jpg">
+  <link rel="icon" href="/img/icon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Mrfangge">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="本篇适合从没有接触过微信jssdk的同学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信jssdk使用流程">
+<meta property="og:url" content="http://example.com/2017/04/21/fed3/index.html">
+<meta property="og:site_name" content="MrFangge">
+<meta property="og:description" content="本篇适合从没有接触过微信jssdk的同学">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/blog/banner.jpg">
+<meta property="article:published_time" content="2017-04-21T01:46:25.000Z">
+<meta property="article:modified_time" content="2021-06-12T17:01:00.000Z">
+<meta property="article:author" content="Mrfangge">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="Javascript">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/blog/banner.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>微信jssdk使用流程 - MrFangge</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"f455b828229a15d57c7e8fe6f3bddcff","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?f455b828229a15d57c7e8fe6f3bddcff";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Mrfangge</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blog/banner.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="微信jssdk使用流程"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2017-04-21 09:46" pubdate>
+          2017年4月21日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          1.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          12 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">微信jssdk使用流程</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2021年6月13日 凌晨
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>本篇适合从没有接触过微信 jssdk 的同学</p>
+</blockquote>
+<h2 id="旧的分享代码"><a href="#旧的分享代码" class="headerlink" title="旧的分享代码"></a>旧的分享代码</h2><p>在经历了一段时间普通用户的鬼哭狼嚎后（微信的分享突然不能用了），微信终于推出了正式的 jssdk，再重新贴一下旧的微信的分享代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//给微信设置分享文案</span><br><span class="hljs-keyword">var</span> onBridgeReady = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">var</span> appId = <span class="hljs-string">&#x27;&#x27;</span>;<br>  <span class="hljs-comment">// 发送给好友;</span><br>  <span class="hljs-title class_">WeixinJSBridge</span>.<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;menu:share:appmessage&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">argv</span>) &#123;<br>    <span class="hljs-keyword">var</span> imgUrl = sharePic;<br>    <span class="hljs-keyword">var</span> link = shareUrl;<br>    <span class="hljs-keyword">var</span> title = shareTitle;<br>    <span class="hljs-keyword">var</span> shareDesc = shareTxt;<br>    <span class="hljs-title class_">WeixinJSBridge</span>.<span class="hljs-title function_">invoke</span>(<br>      <span class="hljs-string">&#x27;sendAppMessage&#x27;</span>,<br>      &#123;<br>        <span class="hljs-attr">img_url</span>: imgUrl,<br>        <span class="hljs-attr">img_width</span>: <span class="hljs-string">&#x27;640&#x27;</span>,<br>        <span class="hljs-attr">img_height</span>: <span class="hljs-string">&#x27;640&#x27;</span>,<br>        <span class="hljs-attr">link</span>: link,<br>        <span class="hljs-attr">desc</span>: shareDesc,<br>        <span class="hljs-attr">title</span>: title,<br>      &#125;,<br>      <span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) &#123;<br>        <span class="hljs-comment">//分享成功后回调函数</span><br>      &#125;<br>    );<br>  &#125;);<br>  <span class="hljs-comment">// 分享到朋友圈;</span><br>  <span class="hljs-title class_">WeixinJSBridge</span>.<span class="hljs-title function_">on</span>(<span class="hljs-string">&#x27;menu:share:timeline&#x27;</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">argv</span>) &#123;<br>    <span class="hljs-keyword">var</span> imgUrl = sharePic;<br>    <span class="hljs-keyword">var</span> link = shareUrl;<br>    <span class="hljs-keyword">var</span> title = shareTitle;<br>    <span class="hljs-keyword">var</span> shareDesc = shareTxt;<br>    <span class="hljs-title class_">WeixinJSBridge</span>.<span class="hljs-title function_">invoke</span>(<br>      <span class="hljs-string">&#x27;shareTimeline&#x27;</span>,<br>      &#123;<br>        <span class="hljs-attr">img_url</span>: imgUrl,<br>        <span class="hljs-attr">img_width</span>: <span class="hljs-string">&#x27;640&#x27;</span>,<br>        <span class="hljs-attr">img_height</span>: <span class="hljs-string">&#x27;640&#x27;</span>,<br>        <span class="hljs-attr">link</span>: link,<br>        <span class="hljs-attr">desc</span>: shareDesc,<br>        <span class="hljs-attr">title</span>: shareDesc,<br>      &#125;,<br>      <span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) &#123;<br>        <span class="hljs-comment">//分享成功后回调函数</span><br>      &#125;<br>    );<br>  &#125;);<br>&#125;;<br><span class="hljs-keyword">if</span> (<span class="hljs-variable language_">document</span>.<span class="hljs-property">addEventListener</span>) &#123;<br>  <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;WeixinJSBridgeReady&#x27;</span>, onBridgeReady, <span class="hljs-literal">false</span>);<br>&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-variable language_">document</span>.<span class="hljs-property">attachEvent</span>) &#123;<br>  <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">attachEvent</span>(<span class="hljs-string">&#x27;WeixinJSBridgeReady&#x27;</span>, onBridgeReady);<br>  <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">attachEvent</span>(<span class="hljs-string">&#x27;onWeixinJSBridgeReady&#x27;</span>, onBridgeReady);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>微信发布了新的 jssdk 后，官方宣称的是大家以后都只能用新的代码了，可是经过测试，上面这一段旧的代码还是可以用的，只要你的页面所在的域名是在微信的“白名单”内，如果加上以上代码后可以正常分享，那么就证明你的域名是在微信的白名单内</p>
+<h2 id="新的-jssdk-使用方法"><a href="#新的-jssdk-使用方法" class="headerlink" title="新的 jssdk 使用方法"></a>新的 jssdk 使用方法</h2><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html">微信 JS-SDK 说明文档</a></p>
+<p>新的方式比之前的方式复杂一些，如果你想要你的页面可以在微信内分享，必须满足以下条件：</p>
+<div class="note note-primary">
+            <ol><li>你有一个已备案的域名</li><li>你有一个微信公众号（服务号或订阅号都行）</li><li>你有相关的后台服务来生成签名（php、java、nodejs 以及 python）</li></ol>
+          </div>
+
+<p>前两个比较容易理解，这里我就不展开了，后面所谓的签名到底是什么呢，这里我用一个浅显易懂的流程来向大家说明一下微信 jssdk 是怎么运作的：</p>
+<ol>
+<li>获取当前时间（10 位，精确到秒）、公众号 AppID 和 AppSecret、页面地址、随机字符串</li>
+<li>通过 <a target="_blank" rel="noopener" href="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=**%E5%85%AC%E4%BC%97%E5%8F%B7AppID**&secret=**%E5%85%AC%E4%BC%97%E5%8F%B7AppSecret**%E5%8F%96%E5%BE%97">https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=**公众号AppID**&amp;secret=**公众号AppSecret**取得</a> ACCESS_TOKEN</li>
+<li>通过 <a target="_blank" rel="noopener" href="https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=**ACCESS_TOKEN**&type=jsapi%E5%8F%96%E5%BE%97">https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=**ACCESS_TOKEN**&amp;type=jsapi取得</a> jsapi_ticket（有效期为 7200s，也就是 2h）</li>
+<li>用获得的当前时间、页面地址、随机字符串和 jsapi_ticket 生成签名</li>
+<li>用公众号 AppID、当前时间、随机字符串和签名来配置 jssdk 并使用</li>
+</ol>
+<hr>
+<p>那么来详细解释一下流程中的一些点：</p>
+<h3 id="（一）已备案的域名和公众号"><a href="#（一）已备案的域名和公众号" class="headerlink" title="（一）已备案的域名和公众号"></a>（一）已备案的域名和公众号</h3><p>注册公众号并且认证这里就不展开了，大家直接去<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/">https://mp.weixin.qq.com/</a> 了解即可，可是为什么需要已备案的域名呢？因为如果你需要使用 jssdk，需要登录微信公众平台进入“公众号设置”的“功能设置”里填写“JS 接口安全域名”，这里的域名所需要的是已备案的域名，设置完成后，才能开通相对应的接口权限。</p>
+<blockquote>
+<p>服务号只有两个域名白名单，订阅号有三个</p>
+</blockquote>
+<p>对于权限来说，服务号比订阅号多了一些权限（因为服务号可以验证，订阅号不能），比如微信支付、卡券等等，还有就是读取用户的相关信息等，这个大家可以自行根据需求选择公众号类型</p>
+<h3 id="（二）随机字符串"><a href="#（二）随机字符串" class="headerlink" title="（二）随机字符串"></a>（二）随机字符串</h3><p>可以用以下函数生成任意长度的字符串</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//生成随机字符串</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">randomString</span>(<span class="hljs-params">len</span>) &#123;<br>  len = len || <span class="hljs-number">32</span>;<br>  <span class="hljs-keyword">var</span> chars =<br>    <span class="hljs-string">&#x27;ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678&#x27;</span>; <span class="hljs-comment">/****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/</span><br>  <span class="hljs-keyword">var</span> maxPos = chars.<span class="hljs-property">length</span>;<br>  <span class="hljs-keyword">var</span> pwd = <span class="hljs-string">&#x27;&#x27;</span>;<br>  <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; len; i++) &#123;<br>    pwd += chars.<span class="hljs-title function_">charAt</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * maxPos));<br>  &#125;<br>  <span class="hljs-keyword">return</span> pwd;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="（三）签名"><a href="#（三）签名" class="headerlink" title="（三）签名"></a>（三）签名</h3><div class="note note-info">
+            <p><strong>签名算法</strong>：参与签名的字段包括 noncestr（随机字符串）, 有效的 jsapi_ticket, timestamp（时间戳）, url（当前网页的 URL，不包含#及其后面部分） 。对所有待签名参数按照字段名的 ASCII 码从小到大排序（字典序）后，使用 URL 键值对的格式（即 key1&#x3D;value1&amp;key2&#x3D;value2…）拼接成字符串 string1。这里需要注意的是所有参数名均为小写字符。对 string1 作 sha1 加密，字段名和字段值都采用原始值，不进行 URL 转义。</p>
+          </div>
+
+<p>在上述介绍的 jssdk 运作流程中，2、3、4 步骤其实都是直接放在后台实现的，这也是为什么我说需要后台服务的缘故，具体的后台代码 demo 微信文档里面已经给出了，下面贴一个链接：<br><a target="_blank" rel="noopener" href="http://demo.open.weixin.qq.com/jssdk/sample.zip">http://demo.open.weixin.qq.com/jssdk/sample.zip</a></p>
+<div class="note note-warning">
+            <p>备注：链接中包含 php、java、nodejs 以及 python 的示例代码供第三方参考，第三方切记要对获取的 accesstoken 以及 jsapi_ticket 进行缓存以确保不会触发频率限制，另外注意生成的签名有效时间为 2 小时，2 小时后就要重新生成</p>
+          </div>
+
+<h3 id="（四）使用-jssdk"><a href="#（四）使用-jssdk" class="headerlink" title="（四）使用 jssdk"></a>（四）使用 jssdk</h3><p>配置的代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript">wx.<span class="hljs-title function_">config</span>(&#123;<br>    <span class="hljs-attr">debug</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。</span><br>    <span class="hljs-attr">appId</span>: <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-comment">// 必填，公众号的唯一标识</span><br>    <span class="hljs-attr">timestamp</span>: , <span class="hljs-comment">// 必填，生成签名的时间戳</span><br>    <span class="hljs-attr">nonceStr</span>: <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-comment">// 必填，生成签名的随机串</span><br>    <span class="hljs-attr">signature</span>: <span class="hljs-string">&#x27;&#x27;</span>,<span class="hljs-comment">// 必填，签名，见附录1</span><br>    <span class="hljs-attr">jsApiList</span>: [] <span class="hljs-comment">// 必填，需要使用的JS接口列表，所有JS接口列表见附录2</span><br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<p>jsApiList 请大家直接在<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html">微信 JS-SDK 说明文档</a>里面找到对应的使用方法即可，这里就不再赘述</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" class="print-no-link">#前端开发</a>
+      
+        <a href="/tags/Javascript/" class="print-no-link">#Javascript</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>微信jssdk使用流程</div>
+      <div>http://example.com/2017/04/21/fed3/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mrfangge</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2017年4月21日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2017/07/22/fed/" title="标签组件探索">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">标签组件探索</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2014/01/01/fed2/" title="广工校徽CSS3版">
+                        <span class="hidden-mobile">广工校徽CSS3版</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"ca096b4f24f20ec89959","clientSecret":"c0a4526825a218a7980c1c2e19792b053ba2f858","repo":"gpcomment","owner":"fangge","admin":["fangge"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'b4a6150f63c555b5a2da6d94fad0f190'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       记录生命足迹 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

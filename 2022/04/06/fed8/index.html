@@ -1,0 +1,762 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.jpg">
+  <link rel="icon" href="/img/icon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Mrfangge">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="日常UI练手">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tab效果实现">
+<meta property="og:url" content="http://example.com/2022/04/06/fed8/index.html">
+<meta property="og:site_name" content="MrFangge">
+<meta property="og:description" content="日常UI练手">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/blog/tab.png">
+<meta property="article:published_time" content="2022-04-06T07:11:25.000Z">
+<meta property="article:modified_time" content="2024-03-11T10:18:06.840Z">
+<meta property="article:author" content="Mrfangge">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="Javascript">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/blog/tab.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>tab效果实现 - MrFangge</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"f455b828229a15d57c7e8fe6f3bddcff","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?f455b828229a15d57c7e8fe6f3bddcff";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Mrfangge</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blog/tab.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="tab效果实现"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-04-06 15:11" pubdate>
+          2022年4月6日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          1.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          13 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">tab效果实现</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2024年3月11日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>在网上看到了一个这样的Tab组件效果，非常喜欢，于是想着用代码把它实现出来<br><img src="/img/blog/tab.gif" srcset="/img/loading.gif" lazyload alt="效果如图"><br>先大概分析一下这个动效图有哪些抓人的点</p>
+<ul>
+<li>未激活前tab项目的图标是半透明</li>
+<li>当激活后，图标左移完全显示并显示对应的文案</li>
+<li>不同tab切换的时候，激活的背景会顺滑平</li>
+</ul>
+<p>自己的代码实现如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;tab&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;active&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">t</span>=<span class="hljs-string">&quot;1649231592227&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;icon&quot;</span> <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 1024 1024&quot;</span> <span class="hljs-attr">version</span>=<span class="hljs-string">&quot;1.1&quot;</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="hljs-attr">p-id</span>=<span class="hljs-string">&quot;1698&quot;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;32&quot;</span> <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;32&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M1014.613212 543.119765c-3.970428 3.806699-9.076726 5.699816-14.172791 5.699816-5.372358 0-10.744715-2.108011-14.766308-6.293333l-64.539922-67.24145 0 523.543917c0 11.307533-9.15859 20.466124-20.466124 20.466124l-265.261433 0c-11.307533 0-20.466124-9.15859-20.466124-20.466124 0-11.2973 9.15859-20.466124 20.466124-20.466124l244.795309 0 0-545.729196-367.233895-382.614188-367.223662 382.593721 0 545.749662 224.329185 0L370.07357 672.353105c0-11.307533 9.168824-20.466124 20.466124-20.466124l244.86694 0c11.2973 0 20.466124 9.15859 20.466124 20.466124 0 11.2973-9.168824 20.466124-20.466124 20.466124l-224.400816 0 0 306.009486c0 11.307533-9.15859 20.466124-20.466124 20.466124l-265.261433 0c-11.2973 0-20.466124-9.15859-20.466124-20.466124L104.812137 475.264331l-64.550155 67.251683c-7.828292 8.15575-20.783349 8.42181-28.939099 0.593518s-8.42181-20.783349-0.593518-28.939099L498.201739 6.293333c3.857864-4.021593 9.18929-6.293333 14.766308-6.293333 5.566786 0 10.898211 2.27174 14.756075 6.293333l487.482607 507.887332C1023.035022 522.336416 1022.768963 535.291472 1014.613212 543.119765z&quot;</span> <span class="hljs-attr">p-id</span>=<span class="hljs-string">&quot;1699&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">path</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">t</span>=<span class="hljs-string">&quot;1649231612539&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;icon&quot;</span> <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 1024 1024&quot;</span> <span class="hljs-attr">version</span>=<span class="hljs-string">&quot;1.1&quot;</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="hljs-attr">p-id</span>=<span class="hljs-string">&quot;1944&quot;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;32&quot;</span> <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;32&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M961.870987 319.751465l0-150.640905L64.175625 169.110559l0 652.838655 897.695363 0 0-342.705246c0-11.307533 9.15859-20.466124 20.466124-20.466124 11.2973 0 20.466124 9.15859 20.466124 20.466124l0 363.17137c0 11.2973-9.168824 20.466124-20.466124 20.466124L43.709501 862.881462c-11.307533 0-20.466124-9.168824-20.466124-20.466124l0-693.770903c0-11.307533 9.15859-20.466124 20.466124-20.466124l938.62761 0c11.2973 0 20.466124 9.15859 20.466124 20.466124l0 182.025707c0 6.815219-3.40761 13.190417-9.066493 16.986883l-428.499238 287.589974c-6.753821 4.523013-15.533788 4.635577-22.379707 0.276293l-383.361201-243.587807c-9.537214-6.057973-12.361539-18.706037-6.293333-28.243251 6.057973-9.537214 18.706037-12.361539 28.243251-6.303566l372.074134 236.414431L961.870987 319.751465z&quot;</span> <span class="hljs-attr">p-id</span>=<span class="hljs-string">&quot;1945&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">path</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">t</span>=<span class="hljs-string">&quot;1649231635404&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;icon&quot;</span> <span class="hljs-attr">viewBox</span>=<span class="hljs-string">&quot;0 0 1024 1024&quot;</span> <span class="hljs-attr">version</span>=<span class="hljs-string">&quot;1.1&quot;</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="hljs-attr">p-id</span>=<span class="hljs-string">&quot;2190&quot;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;32&quot;</span> <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;32&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">&quot;M936.723238 911.36571c0 11.307533-9.168824 20.466124-20.466124 20.466124l-778.24483 0c-5.638417 0-11.031241-2.322905-14.899338-6.436596-3.868097-4.103458-5.863545-9.629311-5.525853-15.257495 3.346211-55.688323 25.521257-99.3221 67.804269-133.37773 35.344996-28.478612 79.94068-46.01808 119.286804-61.490469 48.115857-18.920932 89.836051-35.32453 102.371552-64.120366 1.964748-23.300682 1.811252-41.382503 1.627057-62.186318-0.030699-3.121084-0.051165-6.2831-0.071631-9.526981-18.839067-18.798135-38.189787-58.748009-45.199435-94.215802-6.702656-3.428076-12.852726-8.575306-18.051121-15.20633-10.19213-13.006222-16.823154-31.732725-19.698644-55.667857-2.732228-22.75833 4.082992-40.164768 13.323447-51.451836-25.050536-103.947444-17.692964-183.03878 21.908986-235.227396 33.42118-44.032866 88.577385-67.057255 163.954119-68.438719 0.122797-0.010233 0.245593-0.010233 0.378623-0.010233 49.415456 0 86.448908 13.323447 105.789395 37.749766 35.05847 6.938016 61.715597 24.774243 79.316463 53.109592 18.992563 30.566156 26.513864 72.357981 22.349007 124.208906-2.967588 37.043684-11.102872 69.789483-16.833387 89.273233 8.964162 11.2973 15.451924 28.468378 12.770861 50.786687-2.87549 23.935132-9.496282 42.661635-19.698644 55.667857-5.188162 6.610558-11.317767 11.747555-17.999956 15.185864-4.553713 23.8942-13.609972 44.933375-19.156292 56.333006-6.098905 12.545734-14.807241 27.792996-25.009603 37.974893-0.020466 3.295046-0.051165 6.508227-0.081864 9.670244-0.184195 20.742417-0.337691 38.762839 1.616824 61.971423 12.525268 28.795836 54.081733 45.199435 101.992929 64.120366 49.89641 19.698644 106.444311 42.027186 144.245242 85.98842 7.367805 8.575306 6.395664 21.48943-2.169409 28.867468-8.575306 7.367805-21.499663 6.395664-28.867468-2.179642-31.200606-36.296671-80.534198-55.770188-128.240733-74.599022-55.882751-22.062482-108.654652-42.896996-126.275985-90.26584-0.63445-1.698688-1.033539-3.479241-1.197268-5.290493-2.40477-26.677593-2.220574-47.225581-2.036379-68.970838 0.061398-6.129604 0.112564-12.463869 0.112564-19.084661 0-7.490601 4.093225-14.367219 10.652618-17.959024 7.562233-5.464455 31.568996-45.455261 35.723619-84.320431 1.043772-9.772574 8.892531-17.426905 18.685571-18.225083 2.619664-0.214894 13.20065-7.592932 17.068747-39.765679 1.985214-16.526395-6.057973-22.338774-6.139837-22.400173-8.145517-4.952802-11.757788-14.858406-8.749268-23.914666 15.717983-47.286979 33.9226-140.837632 2.466168-191.481056-12.555967-20.210297-31.968086-31.886221-59.341526-35.69292-6.293333-0.86981-11.819187-4.625344-14.960737-10.140964-9.148357-16.055674-37.493939-25.654286-75.847455-25.684986-62.104453 1.176802-106.485243 18.757203-131.914402 52.260248-16.833387 22.195511-26.196639 52.239781-27.803229 89.303932-1.524726 35.017538 3.816932 76.318176 15.871479 122.745578 2.27174 8.728802-1.442862 17.918092-9.138124 22.615067-0.051165 0.030699-8.114818 5.863545-6.129604 22.38994 3.868097 32.172747 14.449084 39.550785 17.068747 39.765679 9.803273 0.798179 17.641799 8.452509 18.685571 18.225083 4.123924 38.670741 28.928866 78.784344 36.767392 84.299965 6.579859 3.581572 10.69355 10.478655 10.69355 17.97949 0 6.54916 0.051165 12.811794 0.102331 18.869766 0.184195 21.816888 0.36839 42.426275-2.056845 69.185732-0.153496 1.811252-0.562818 3.591805-1.197268 5.290493-17.621333 47.38931-70.608128 68.223824-126.69554 90.286306-38.404682 15.103999-78.119195 30.719652-108.593254 55.268768-27.557636 22.205745-43.766806 48.709375-50.019207 82.263585l755.210207 0C927.554414 890.899586 936.723238 900.06841 936.723238 911.36571z&quot;</span> <span class="hljs-attr">p-id</span>=<span class="hljs-string">&quot;2191&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">path</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;hover-on&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-tag">nav</span> &#123;<br>  <span class="hljs-attribute">width</span>: <span class="hljs-number">500px</span>;<br>  <span class="hljs-attribute">height</span>: <span class="hljs-number">105px</span>;<br>  <span class="hljs-attribute">margin</span>: <span class="hljs-number">50px</span> auto <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">box-sizing</span>: border-box;<br>  <span class="hljs-attribute">display</span>: flex;<br>  <span class="hljs-attribute">align-items</span>: center;<br>  <span class="hljs-attribute">justify-content</span>: space-around;<br>  <span class="hljs-attribute">background</span>: <span class="hljs-number">#432fbf</span>;<br>  <span class="hljs-attribute">border-bottom-right-radius</span>: <span class="hljs-number">40px</span>;<br>  <span class="hljs-attribute">border-bottom-left-radius</span>: <span class="hljs-number">40px</span>;<br>  <span class="hljs-attribute">position</span>:relative;<br>  <span class="hljs-selector-class">.hover-on</span>&#123;<br>    <span class="hljs-attribute">display</span>:block;<br>    <span class="hljs-attribute">width</span>:<span class="hljs-number">155px</span>;<br>    <span class="hljs-attribute">height</span>:<span class="hljs-number">60px</span>;<br>    <span class="hljs-attribute">border-radius</span>:<span class="hljs-number">10px</span>;<br>    <span class="hljs-attribute">content</span>:<span class="hljs-string">&quot;&quot;</span>;<br>    <span class="hljs-attribute">position</span>:absolute;<br>    <span class="hljs-attribute">left</span>:<span class="hljs-number">15px</span>;<br>    <span class="hljs-attribute">background</span>:<span class="hljs-number">#5E4ECB</span>;<br>    <span class="hljs-attribute">z-index</span>:<span class="hljs-number">10</span>;<br>    <span class="hljs-attribute">transition</span><span class="hljs-selector-pseudo">:left</span> <span class="hljs-selector-class">.2s</span> linear<br>  &#125;<br>&#125;<br><span class="hljs-selector-tag">nav</span> <span class="hljs-selector-tag">a</span> &#123;<br>  <span class="hljs-attribute">display</span>: flex;<br>  <span class="hljs-attribute">align-items</span>: center;<br>  <span class="hljs-attribute">justify-content</span>: center;<br>  <span class="hljs-attribute">text-decoration</span>: none;<br>  <span class="hljs-attribute">position</span>:relative;<br>  <span class="hljs-attribute">cursor</span>:pointer;<br>  <span class="hljs-attribute">z-index</span>:<span class="hljs-number">99</span>;<br>  svg &#123;<br>    fill: <span class="hljs-number">#fff</span>;<br>    <span class="hljs-attribute">height</span>: <span class="hljs-number">30px</span>;<br>    <span class="hljs-attribute">width</span>:<span class="hljs-number">30px</span>;<br>    <span class="hljs-attribute">opacity</span>:.<span class="hljs-number">5</span>;<br>    <span class="hljs-attribute">margin-left</span>:<span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">transition</span>:all .<span class="hljs-number">5s</span> linear;<br>    <span class="hljs-attribute">position</span>:absolute;<br>    <span class="hljs-attribute">left</span>:<span class="hljs-number">50%</span>;<br>    <span class="hljs-attribute">margin-left</span>:-<span class="hljs-number">15px</span>;<br>  &#125;<br>  &amp;<span class="hljs-selector-class">.active</span> &#123;<br>    svg&#123;<br>      <span class="hljs-attribute">margin-right</span>:<span class="hljs-number">10px</span>;<br>      <span class="hljs-attribute">opacity</span>:<span class="hljs-number">1</span>;<br>      <span class="hljs-attribute">position</span>:static;<br>      <span class="hljs-attribute">transform</span>:none;<br>    &#125;<br>    &amp;<span class="hljs-selector-pseudo">::after</span>&#123;<br>      <span class="hljs-attribute">opacity</span>:<span class="hljs-number">1</span>;<br>    &#125;<br>  &#125;<br>  &amp;<span class="hljs-selector-pseudo">::after</span> &#123;<br>    <span class="hljs-attribute">display</span>:block;<br>    <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;&quot;</span>;<br>    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">24px</span>;<br>    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;<br>    <span class="hljs-attribute">opacity</span>:<span class="hljs-number">0</span>;<br>    <span class="hljs-attribute">transition</span>:opacity .<span class="hljs-number">2s</span> linear<br>  &#125;<br>  &amp;<span class="hljs-selector-pseudo">:nth-of-type</span>(<span class="hljs-number">1</span>) &#123;<br>    &amp;<span class="hljs-selector-pseudo">::after</span> &#123;<br>      <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;Home&quot;</span>;<br>    &#125;<br>  &#125;<br>  &amp;<span class="hljs-selector-pseudo">:nth-of-type</span>(<span class="hljs-number">2</span>) &#123;<br>    &amp;<span class="hljs-selector-pseudo">::after</span> &#123;<br>      <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;Inbox&quot;</span>;<br>    &#125;<br>  &#125;<br>  &amp;<span class="hljs-selector-pseudo">:nth-of-type</span>(<span class="hljs-number">3</span>) &#123;<br>    &amp;<span class="hljs-selector-pseudo">::after</span> &#123;<br>      <span class="hljs-attribute">content</span>: <span class="hljs-string">&quot;Profile&quot;</span>;<br>    &#125;<br>  &#125;<br>&#125;<br><span class="hljs-keyword">@keyframes</span> showIn&#123;<br>  <span class="hljs-number">0%</span> &#123;<span class="hljs-attribute">opacity</span>:<span class="hljs-number">0</span>&#125;<br>  <span class="hljs-number">100%</span> &#123;<span class="hljs-attribute">opacity</span>:<span class="hljs-number">1</span>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> btns = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByTagName</span>(<span class="hljs-string">&quot;a&quot;</span>);<br><span class="hljs-keyword">var</span> navLeft = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;tab&quot;</span>).<span class="hljs-property">offsetLeft</span>;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;navLeft&quot;</span>, navLeft);<br><span class="hljs-keyword">var</span> hover = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByClassName</span>(<span class="hljs-string">&quot;hover-on&quot;</span>)[<span class="hljs-number">0</span>];<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; btns.<span class="hljs-property">length</span>; i++) &#123;<br>  <span class="hljs-keyword">var</span> btn = btns[i];<br>  btn.<span class="hljs-property">index</span> = i;<br>  btn.<span class="hljs-property">onclick</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;按钮左侧距离&#x27;</span>,<span class="hljs-variable language_">this</span>.<span class="hljs-property">offsetLeft</span>)<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> j = <span class="hljs-number">0</span>; j &lt; btns.<span class="hljs-property">length</span>; j++) &#123;<br>      btns[j].<span class="hljs-property">className</span> = <span class="hljs-string">&quot;&quot;</span>;<br>    &#125;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">className</span> = <span class="hljs-string">&quot;active&quot;</span>;<br>    hover.<span class="hljs-property">style</span>.<span class="hljs-property">left</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">offsetLeft</span>-<span class="hljs-number">40</span> + <span class="hljs-string">&quot;px&quot;</span>;<br>  &#125;;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<p>总体基本还原了动图的效果，但是还是对实现有些不满意，首先是文字的渐变有些过慢，所以在移除当前tab的时候，文字的渐隐和图标会有一段重合的时间，不够美观，大家如果有其他更优雅的方法也欢迎在评论区附上你们的代码</p>
+<iframe src="https://codepen.io/fangge/full/zYpRmpM" style="width:100%;height:300px">
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" class="print-no-link">#前端开发</a>
+      
+        <a href="/tags/HTML/" class="print-no-link">#HTML</a>
+      
+        <a href="/tags/CSS/" class="print-no-link">#CSS</a>
+      
+        <a href="/tags/Javascript/" class="print-no-link">#Javascript</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>tab效果实现</div>
+      <div>http://example.com/2022/04/06/fed8/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mrfangge</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年4月6日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/04/11/fed9/" title="字节面试复盘">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">字节面试复盘</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/03/fed7/" title="MacOS M1芯片 安装NVM">
+                        <span class="hidden-mobile">MacOS M1芯片 安装NVM</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"ca096b4f24f20ec89959","clientSecret":"c0a4526825a218a7980c1c2e19792b053ba2f858","repo":"gpcomment","owner":"fangge","admin":["fangge"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '326ca505d52f2ae0632ecab37eefa10d'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       记录生命足迹 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

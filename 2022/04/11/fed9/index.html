@@ -1,0 +1,801 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.jpg">
+  <link rel="icon" href="/img/icon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Mrfangge">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="面试复盘总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字节面试复盘">
+<meta property="og:url" content="http://example.com/2022/04/11/fed9/index.html">
+<meta property="og:site_name" content="MrFangge">
+<meta property="og:description" content="面试复盘总结">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/blog/fed9.webp">
+<meta property="article:published_time" content="2022-04-10T17:29:34.000Z">
+<meta property="article:modified_time" content="2024-03-11T10:18:06.840Z">
+<meta property="article:author" content="Mrfangge">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="Javascript">
+<meta property="article:tag" content="面试">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/blog/fed9.webp">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>字节面试复盘 - MrFangge</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"f455b828229a15d57c7e8fe6f3bddcff","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?f455b828229a15d57c7e8fe6f3bddcff";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Mrfangge</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blog/fed9.webp') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="字节面试复盘"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-04-11 01:29" pubdate>
+          2022年4月11日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          1.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          14 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">字节面试复盘</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2024年3月11日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>最近想走出舒适圈，所以重启了一下求职之路，其实做前端这么久，自己明白自己的基础很薄弱，可能整个职业生涯也比较佛，大部分时间都是得过且过，觉得不能再浪费生命了，还是得支棱起来，好好地努力一下，争取一下更好的生活，闲话不说，主要说一下面试遇到的一些问题，还有面试官给的一些题目</p>
+<h2 id="编程题目"><a href="#编程题目" class="headerlink" title="编程题目"></a>编程题目</h2><p>可能首先还是以题目切入为主吧，也说明了自己在 js 基础知识掌握方面很薄弱，其实问题都很简单，就是还是不够细心，需要面试官提醒</p>
+<h3 id="题目一"><a href="#题目一" class="headerlink" title="题目一"></a>题目一</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-number">10</span>;<br><span class="hljs-keyword">var</span> obj = &#123;<br>  <span class="hljs-attr">a</span>: <span class="hljs-number">20</span>,<br>  <span class="hljs-attr">log0</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">var</span> a;<br>    <span class="hljs-keyword">if</span> (a) &#123;<br>      a = <span class="hljs-number">100</span>;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      a = <span class="hljs-number">200</span>;<br>    &#125;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span>);<br>    <span class="hljs-keyword">var</span> a = <span class="hljs-number">30</span>;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);<br>  &#125;,<br>  <span class="hljs-attr">log1</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(a);<br>  &#125;,<br>&#125;;<br>obj.<span class="hljs-title function_">log0</span>();<br>obj.<span class="hljs-title function_">log1</span>();<br></code></pre></td></tr></table></figure>
+
+<p>这题非常基础，主要考的是变量提升、变量作用域和 this 的指向问题</p>
+<ol>
+<li>第一个<code>a</code>，因为 log0 里面刚开始有定义一个<code>var a</code>，所以刚开始 a 是 undefined，也就走到第二个<code>a=200</code>，所以打印出来<u><strong>200</strong></u></li>
+<li>第二个<code>this.a</code>，this 指向的是 obj 里面的 a 变量，所以打印出来是<u><strong>20</strong></u></li>
+<li>第三个<code>a</code>因为前面重新定义了<code>a=30</code>，所以打印出来是<u><strong>30</strong></u></li>
+<li>而第四个因为没有<code>this</code>，所以指向的是全局的 a 变量，所以是最开始的<u><strong>10</strong></u></li>
+</ol>
+<p>这一题自己就犯了一个错误，第一个 a 以为 var 了之后，就会到 100，完全忘了没赋值就是 undefined，还得面试官提醒，真是太逊了，我感觉这里面试官其实就已经知道我基础不是很稳了</p>
+<div class="note note-success">
+            <p>正确答案：<br>200<br>20<br>30<br>10</p>
+          </div>
+
+<h3 id="题目二"><a href="#题目二" class="headerlink" title="题目二"></a>题目二</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;script start&#x27;</span>);<br><span class="hljs-built_in">setTimeout</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;script 1&#x27;</span>);<br>&#125;, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">resolve, reject</span>) &#123;<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;script 2&#x27;</span>);<br>  <span class="hljs-title function_">resolve</span>();<br>&#125;)<br>  .<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;script 3&#x27;</span>);<br>  &#125;)<br>  .<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;script 4&#x27;</span>);<br>  &#125;);<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;script end&#x27;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>这题其实是蒙对的，面试官也指出了这点，这题主要考的是 js 中的宏任务和微任务，但是我之前确实没有了解过这部分的知识，这里重新巩固了一下，所有 js 中</p>
+<div class="note note-info">
+            <p>先同步后异步，先微后宏，微任务的执行时机比宏任务早</p>
+          </div>
+
+<p>1、微任务有哪些<br>Promise<br>await 和 async</p>
+<p>2、宏任务有哪些<br>setTimeout<br>setInterval<br>DOM 事件<br>AJAX 请求</p>
+<p>所以我们再来看这个题目</p>
+<ol>
+<li><code>script start</code>肯定是第一个的这个毫无疑问</li>
+<li>接下来因为<code>script 1&#39;</code>是包在<code>setTimeout</code>这个宏任务中，所以对比其他 console，会先放在<code>Promise</code>这个微任务后面执行</li>
+<li>来到<code>Promise</code>后，先执行里面的<code>script 2</code>，然后 resolve 之后，就会走到 then 的<code>script 3</code>，这里也考了一个 Promise 对象的知识点，就是这个 then 其实也是一个<a target="_blank" rel="noopener" href="https://es6.ruanyifeng.com/#docs/promise#Promise-prototype-then">Promise 对象</a>，链式调用法的缘故也就顺势执行了<code>script 4</code><br><img src="/img/blog/fed9_1.png" srcset="/img/loading.gif" lazyload alt="Promise对象中的then链式用法"></li>
+<li>接着就执行<code>script end</code></li>
+<li>最后再执行被挂起的宏任务<code>script 1</code></li>
+</ol>
+<div class="note note-success">
+            <p>正确答案<br>script start<br>script 2<br>script end<br>script 3<br>script 4<br>script 1</p>
+          </div>
+
+<h3 id="题目三"><a href="#题目三" class="headerlink" title="题目三"></a>题目三</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> data = [<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R1&#x27;</span>, <span class="hljs-attr">parentId</span>: <span class="hljs-literal">null</span> &#125;,<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R2&#x27;</span>, <span class="hljs-attr">parentId</span>: <span class="hljs-literal">null</span> &#125;,<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R1-1&#x27;</span>, <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R1&#x27;</span> &#125;,<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R1-2&#x27;</span>, <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R1&#x27;</span> &#125;,<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R1-3&#x27;</span>, <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R1&#x27;</span> &#125;,<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R2-1&#x27;</span>, <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R2&#x27;</span> &#125;,<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R2-2&#x27;</span>, <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R2&#x27;</span> &#125;,<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R1-1-1&#x27;</span>, <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R1-3&#x27;</span> &#125;,<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R1-2-3&#x27;</span>, <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R1-1-1&#x27;</span> &#125;,<br>];<br></code></pre></td></tr></table></figure>
+
+<p>希望输出类似下面的结构</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs javascript">[<br>  &#123;<br>    <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R1&#x27;</span>,<br>    <span class="hljs-attr">parentId</span>: <span class="hljs-literal">null</span>,<br>    <span class="hljs-attr">children</span>: [<br>      &#123;<br>        <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R1-1&#x27;</span>,<br>        <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R1&#x27;</span>,<br>      &#125;,<br>      &#123;<br>        <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R1-2&#x27;</span>,<br>        <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R1&#x27;</span>,<br>      &#125;,<br>      &#123;<br>        <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R1-3&#x27;</span>,<br>        <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R1&#x27;</span>,<br>        <span class="hljs-attr">children</span>: [<br>          &#123;<br>            <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R1-1-1&#x27;</span>,<br>            <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R1-3&#x27;</span>,<br>            <span class="hljs-attr">children</span>: [<br>              &#123;<br>                <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R1-2-3&#x27;</span>,<br>                <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R1-1-1&#x27;</span>,<br>              &#125;,<br>            ],<br>          &#125;,<br>        ],<br>      &#125;,<br>    ],<br>  &#125;,<br>  &#123;<br>    <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R2&#x27;</span>,<br>    <span class="hljs-attr">parentId</span>: <span class="hljs-literal">null</span>,<br>    <span class="hljs-attr">children</span>: [<br>      &#123;<br>        <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R2-1&#x27;</span>,<br>        <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R2&#x27;</span>,<br>      &#125;,<br>      &#123;<br>        <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R2-2&#x27;</span>,<br>        <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R2&#x27;</span>,<br>      &#125;,<br>    ],<br>  &#125;,<br>];<br></code></pre></td></tr></table></figure>
+
+<p>这题因为之前算法复习的不够，所以虽然最后基本写出来了，但是用的时间太久了，我觉得也给面试官一个不好的印象，回来后也是自己先试着重新写了一次</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> data = [<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R1&#x27;</span>, <span class="hljs-attr">parentId</span>: <span class="hljs-literal">null</span> &#125;,<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R2&#x27;</span>, <span class="hljs-attr">parentId</span>: <span class="hljs-literal">null</span> &#125;,<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R1-1&#x27;</span>, <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R1&#x27;</span> &#125;,<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R1-2&#x27;</span>, <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R1&#x27;</span> &#125;,<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R1-3&#x27;</span>, <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R1&#x27;</span> &#125;,<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R2-1&#x27;</span>, <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R2&#x27;</span> &#125;,<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R2-2&#x27;</span>, <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R2&#x27;</span> &#125;,<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R1-1-1&#x27;</span>, <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R1-3&#x27;</span> &#125;,<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R1-2-3&#x27;</span>, <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R1-1-1&#x27;</span> &#125;,<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;R1-2-3-5&#x27;</span>, <span class="hljs-attr">parentId</span>: <span class="hljs-string">&#x27;R1-2-3&#x27;</span> &#125;,<br>];<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">getParentIndex</span>(<span class="hljs-params">id</span>) &#123;<br>  <span class="hljs-keyword">return</span> data.<span class="hljs-title function_">findIndex</span>(<span class="hljs-function">(<span class="hljs-params">pinfo</span>) =&gt;</span> pinfo.<span class="hljs-property">id</span> == id);<br>&#125;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">getResultArr</span>(<span class="hljs-params">arr</span>) &#123;<br>  <span class="hljs-keyword">const</span> inArr = arr;<br>  inArr.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">if</span> (item.<span class="hljs-property">parentId</span>) &#123;<br>      <span class="hljs-comment">// 获取匹配的父节点</span><br>      <span class="hljs-keyword">let</span> parentIndex = data.<span class="hljs-title function_">findIndex</span>(<span class="hljs-function">(<span class="hljs-params">pinfo</span>) =&gt;</span> pinfo.<span class="hljs-property">id</span> == item.<span class="hljs-property">parentId</span>);<br>      <span class="hljs-keyword">if</span> (parentIndex &gt; -<span class="hljs-number">1</span>) &#123;<br>        <span class="hljs-keyword">let</span> parentObj = data[parentIndex];<br>        <span class="hljs-comment">// 判断是否有children属性</span><br>        <span class="hljs-keyword">if</span> (parentObj.<span class="hljs-property">children</span>) &#123;<br>          <span class="hljs-keyword">if</span> (<br>            <span class="hljs-comment">// 判断chirldren中是否有已有对应的结点</span><br>            parentObj.<span class="hljs-property">children</span>.<span class="hljs-title function_">findIndex</span>(<span class="hljs-function">(<span class="hljs-params">target</span>) =&gt;</span> target.<span class="hljs-property">id</span> == item.<span class="hljs-property">id</span>) == -<span class="hljs-number">1</span><br>          ) &#123;<br>            parentObj.<span class="hljs-property">children</span>.<span class="hljs-title function_">push</span>(item);<br>          &#125;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>          parentObj.<span class="hljs-property">children</span> = [item];<br>        &#125;<br>      &#125;<br>    &#125;<br>  &#125;);<br>  <span class="hljs-keyword">return</span> inArr.<span class="hljs-title function_">filter</span>(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> item.<span class="hljs-property">children</span> &amp;&amp; item.<span class="hljs-property">parentId</span> == <span class="hljs-literal">null</span>);<br>&#125;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;我的解法&#x27;</span>, <span class="hljs-title function_">getResultArr</span>(data));<br></code></pre></td></tr></table></figure>
+<p>后来经过大神提醒，这道题其实就是算法中很经典的<u><strong>[数组转树]</strong></u>问题，网上已经有很多大神的分析贴了，大家也可以看看这篇<a target="_blank" rel="noopener" href="https://juejin.cn/post/6983904373508145189#heading-8">【面试了十几个高级前端，竟然连（扁平数据结构转Tree）都写不出来】</a>，也可以对解决这个问题的所有方法做个了解，包括怎么优化等等，看完就觉得真是学海无涯啊</p>
+<h2 id="其他面试问题总结"><a href="#其他面试问题总结" class="headerlink" title="其他面试问题总结"></a>其他面试问题总结</h2><p>因为是一面，其实面试官主要还是围绕自己的简历来提问的，虽然之前提前准备了许多，但是对自己的项目还是没有深挖，把一些亮点更好地展示出来</p>
+<ul>
+<li>你有什么亮点项目，你对这些项目做了哪些事情</li>
+<li>为什么在技术上选型React，你觉得有什么优势</li>
+<li>在开发组件的时候，你们是怎么解决组件之间的联动的</li>
+<li>整个页面的组件搭建，整体是什么流程</li>
+<li>你对页面性能做了哪些优化<br>…..</li>
+</ul>
+<p>自己觉得回答的时候还是比较虚，没有去认真思考我的简历中为什么要写这个项目，这个项目可以怎么吸引面试官，之后得好好修改简历才行</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" class="print-no-link">#前端开发</a>
+      
+        <a href="/tags/Javascript/" class="print-no-link">#Javascript</a>
+      
+        <a href="/tags/%E9%9D%A2%E8%AF%95/" class="print-no-link">#面试</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>字节面试复盘</div>
+      <div>http://example.com/2022/04/11/fed9/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mrfangge</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年4月11日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/04/22/fed10/" title="Windows环境设置Git 快捷命令【alias】">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Windows环境设置Git 快捷命令【alias】</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/04/06/fed8/" title="tab效果实现">
+                        <span class="hidden-mobile">tab效果实现</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"ca096b4f24f20ec89959","clientSecret":"c0a4526825a218a7980c1c2e19792b053ba2f858","repo":"gpcomment","owner":"fangge","admin":["fangge"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'dae62927368ab92ded82e4f79f3fd666'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       记录生命足迹 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,807 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.jpg">
+  <link rel="icon" href="/img/icon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Mrfangge">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="利用WakaTime 数据打造自己的开发数据图表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WakaTime Dashboard Pro">
+<meta property="og:url" content="http://example.com/2021/06/29/fed5/index.html">
+<meta property="og:site_name" content="MrFangge">
+<meta property="og:description" content="利用WakaTime 数据打造自己的开发数据图表">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/blog/fed5.jpg">
+<meta property="article:published_time" content="2021-06-29T02:43:35.000Z">
+<meta property="article:modified_time" content="2024-03-11T10:18:06.839Z">
+<meta property="article:author" content="Mrfangge">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="Javascript">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/blog/fed5.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>WakaTime Dashboard Pro - MrFangge</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"f455b828229a15d57c7e8fe6f3bddcff","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?f455b828229a15d57c7e8fe6f3bddcff";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Mrfangge</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blog/fed5.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="WakaTime Dashboard Pro"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-06-29 10:43" pubdate>
+          2021年6月29日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          1.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">WakaTime Dashboard Pro</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2024年3月11日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p><img src="/img/blog/b9cc66cd-cb04-4900-afbe-3daf8d0ff0e5.png" srcset="/img/loading.gif" lazyload alt="wakatime-dashboard-pro"><br><a target="_blank" rel="noopener" href="https://github.com/fangge/wakatime-dashboard-pro">项目地址</a><br><a target="_blank" rel="noopener" href="https://wakatime.mrfangge.com/">项目 Demo</a></p>
+<hr>
+<p>之前一直有使用一个开源项目， <strong>superman66</strong>大神的<a target="_blank" rel="noopener" href="https://github.com/superman66/wakatime-dashboard">wakatime-dashboard</a> ，大致介绍一下这个项目，就是利用另一个同步的项目：<a target="_blank" rel="noopener" href="https://github.com/superman66/wakatime-sync">wakatime-sync</a>，每天将你的 WakaTime 的数据同步到你的 github 的 gist 上，然后再读取 gist 上的 json 数据，用图表去展示你的代码使用情况，非常喜欢 wakatime 这个统计工具，是因为自己很喜欢回顾之前做的项目情况，知道自己这段时间究竟做了哪些事情，也有利于自己更好地分配时间</p>
+<div class="note note-info">
+            <p>什么是<a target="_blank" rel="noopener" href="https://wakatime.com/">WakaTime</a>: 它是一个可以统计你日常开发项目具体信息的工具。 在相应的编辑器中安装插件后，您可以获取您过去 7 天的代码信息。 如果您需要获得更多，则需要付费升级到高级版本</p>
+          </div>
+<p><img src="/img/blog/20210629115606.jpg" srcset="/img/loading.gif" lazyload alt="WakaTime"></p>
+<h2 id="开始优化"><a href="#开始优化" class="headerlink" title="开始优化"></a>开始优化</h2><p>但是个人因为用久了觉得之前的图表不能那么方便地显示一些项目具体信息，于是乎对大神原有的项目进行了重构，主要有以下这些功能的改进和增加：</p>
+<h3 id="一、功能增加"><a href="#一、功能增加" class="headerlink" title="一、功能增加"></a>一、功能增加</h3><ol>
+<li>增加日历选择工具，可以选择具体的某段时间，而不是只能选择前 N 天</li>
+<li>增加下载图表功能，可以方便地下载自己的项目图表数据</li>
+<li>在图表数据日期比较多的情况下，可以让用户横向滚动或出现日期筛选滚动条</li>
+<li>增加选择时间内的总的项目使用情况（原有的只是每天的项目情况）</li>
+<li>增加选择时间内的总的编程语言使用情况</li>
+<li>增加选择时间内的开发工具的使用情况</li>
+<li>增加夜间模式</li>
+<li>结合 GIthub Action 随时同步自己的修改到 master 分支，方便 Github Page 直接使用项目</li>
+</ol>
+<h3 id="二、功能去除"><a href="#二、功能去除" class="headerlink" title="二、功能去除"></a>二、功能去除</h3><ol>
+<li>去掉登录功能，直接让用户随时输入 gistid</li>
+<li>去除相关友情链接</li>
+</ol>
+<h2 id="技术栈和构建框架选择"><a href="#技术栈和构建框架选择" class="headerlink" title="技术栈和构建框架选择"></a>技术栈和构建框架选择</h2><p>之前一直想着试试<a target="_blank" rel="noopener" href="https://vitejs.dev/">Vite</a>开发，于是乎这次正好就用上了，主体依然是用<strong>React</strong>开发，但因为之前项目用的图框架是<strong>bizcharts</strong>，所以这次想着直接简单点直接用**<a target="_blank" rel="noopener" href="https://ant.design/">Ant Design</a>+Antd 的<a target="_blank" rel="noopener" href="https://charts.ant.design/">图表框架</a>**，整个项目使用下来，觉得 Vite 确实挺方便的</p>
+<blockquote>
+<p>某些插件用的时候可能会有兼容问题，因为其强制采用了<code>ES Module</code> 来实现模块的加载，所以如果你使用的包有问题，可能要搜一下对应的一些兼容方法</p>
+</blockquote>
+<div class="note note-primary">
+            <p>Antd Charts某些图表的配置并不能通用，在官方文档上没有指出来，还好在Github上有人提供类似的issue，总算找到解决方法，如果大家在自己开发的时候，可以注意一下这点</p>
+          </div>
+
+<h2 id="安装和使用步骤"><a href="#安装和使用步骤" class="headerlink" title="安装和使用步骤"></a>安装和使用步骤</h2><ol>
+<li>登录<a target="_blank" rel="noopener" href="https://wakatime.com/">WakaTime</a>，按照使用方法在你的 IDE 上安装好插件和配置<strong>wakatime key</strong></li>
+<li>利用<a target="_blank" rel="noopener" href="https://github.com/superman66/wakatime-sync">wakatime-sync</a>将你的每天的数据同步到 gist 中（<em>原理是利用<a target="_blank" rel="noopener" href="https://docs.github.com/en/actions">Github Action</a>每天定时请求 wakatime 的免费 api，获取 json 文件后再上传到 gist 中</em>）</li>
+<li>clone 这个项目并安装</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/fangge/wakatime-dashboardpro.git &amp;&amp; <span class="hljs-built_in">cd</span> wakatime-dashboardpro<br>npm i<br></code></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>使用</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm run build &amp;&amp; npm run dev<br></code></pre></td></tr></table></figure>
+
+<h2 id="亮点功能介绍"><a href="#亮点功能介绍" class="headerlink" title="亮点功能介绍"></a>亮点功能介绍</h2><h3 id="1-时间段选择"><a href="#1-时间段选择" class="headerlink" title="1. 时间段选择"></a>1. 时间段选择</h3><p>如果选择具体某段时间，则前面的前 N 天选择则失效，图表可以拖动选择的时间内的某段时间，随时定位到某段具体的时间<br><img src="/img/blog/20210629171957.jpg" srcset="/img/loading.gif" lazyload alt="时间选择"></p>
+<h3 id="2-具体项目每日的时间变化"><a href="#2-具体项目每日的时间变化" class="headerlink" title="2. 具体项目每日的时间变化"></a>2. 具体项目每日的时间变化</h3><p>得益于 antd 图表中的<a target="_blank" rel="noopener" href="https://charts.ant.design/zh-CN/demos/column#%E5%B8%A6%E8%81%94%E5%8A%A8%E5%8C%BA%E5%9F%9F%E7%9A%84%E7%99%BE%E5%88%86%E6%AF%94%E6%9F%B1%E7%8A%B6%E5%9B%BE">联动区域例子</a>，这次鼠标移动到图表中，你可以方便地看到具体某个项目这段时间内的时间变化<br><img src="/img/blog/20210629172546.jpg" srcset="/img/loading.gif" lazyload alt="联动区域"></p>
+<h3 id="3-选择时间内的项目总概况"><a href="#3-选择时间内的项目总概况" class="headerlink" title="3. 选择时间内的项目总概况"></a>3. 选择时间内的项目总概况</h3><p>利用矩形树图直观地展示你选择时间内项目的总体时间占比<br><img src="/img/blog/20210629172928.jpg" srcset="/img/loading.gif" lazyload alt="选择时间内的项目总概况"></p>
+<h3 id="4-编程语言概况"><a href="#4-编程语言概况" class="headerlink" title="4. 编程语言概况"></a>4. 编程语言概况</h3><p>饼图展示选择时间内的编程语言使用情况<br><img src="/img/blog/20210629173757.jpg" srcset="/img/loading.gif" lazyload alt="language"></p>
+<h3 id="5-暗黑模式支持"><a href="#5-暗黑模式支持" class="headerlink" title="5. 暗黑模式支持"></a>5. 暗黑模式支持</h3><p>项目支持根据系统主题色来变化浅色和暗色模式<br><img src="/img/blog/43d1d9bf-9576-4f23-a615-557fece803bd.png" srcset="/img/loading.gif" lazyload alt="暗黑模式"></p>
+<h2 id="计划优化的功能"><a href="#计划优化的功能" class="headerlink" title="计划优化的功能"></a>计划优化的功能</h2><ul>
+<li><input disabled="" type="checkbox"> 优化直方图的展示方式，找到悬浮在具体项目信息上展示联动的时候，可以直接悬浮的是哪个项目，而不用每次都去看图例，不够清晰</li>
+<li><input disabled="" type="checkbox"> 增加使用的操作系统的概况</li>
+</ul>
+<h2 id="项目总结"><a href="#项目总结" class="headerlink" title="项目总结"></a>项目总结</h2><p>这次的折腾，也是逼自己以产品化思维，用户角度去开发一个项目的过程，本质上是为了让自己可以多用代码去做一些自己想做的事情，找回一些写代码的激情，哈哈，代码渣渣欢迎大家fork这个项目并提交你们的改进方案呀~</p>
+<h1 id="项目更新日志"><a href="#项目更新日志" class="headerlink" title="项目更新日志"></a>项目更新日志</h1><ol>
+<li><a href="/2023/04/04/fed11/">2023.4.4更新</a></li>
+<li><a href="/2021/11/20/fed6/">2021.11.20更新</a></li>
+<li><a href="/2021/06/29/fed5/">WakaTime Dashboard Pro</a></li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" class="print-no-link">#前端开发</a>
+      
+        <a href="/tags/HTML/" class="print-no-link">#HTML</a>
+      
+        <a href="/tags/CSS/" class="print-no-link">#CSS</a>
+      
+        <a href="/tags/Javascript/" class="print-no-link">#Javascript</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>WakaTime Dashboard Pro</div>
+      <div>http://example.com/2021/06/29/fed5/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mrfangge</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年6月29日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/11/20/fed6/" title="WakaTime Dashboard Pro - 更新日志">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">WakaTime Dashboard Pro - 更新日志</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/06/13/fed4/" title="Hexo+Github Action构建Github Page博客">
+                        <span class="hidden-mobile">Hexo+Github Action构建Github Page博客</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"ca096b4f24f20ec89959","clientSecret":"c0a4526825a218a7980c1c2e19792b053ba2f858","repo":"gpcomment","owner":"fangge","admin":["fangge"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '50a5db272f7c83b5cdac7102aa9a3e44'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       记录生命足迹 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

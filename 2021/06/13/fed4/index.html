@@ -1,0 +1,813 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.jpg">
+  <link rel="icon" href="/img/icon.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Mrfangge">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="利用Github Action+Hexo 构建github page博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo+Github Action构建Github Page博客">
+<meta property="og:url" content="http://example.com/2021/06/13/fed4/index.html">
+<meta property="og:site_name" content="MrFangge">
+<meta property="og:description" content="利用Github Action+Hexo 构建github page博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/blog/fed4.jpg">
+<meta property="article:published_time" content="2021-06-13T07:17:14.000Z">
+<meta property="article:modified_time" content="2024-03-11T10:18:06.839Z">
+<meta property="article:author" content="Mrfangge">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="Javascript">
+<meta property="article:tag" content="Github">
+<meta property="article:tag" content="Hexo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/blog/fed4.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Hexo+Github Action构建Github Page博客 - MrFangge</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"f455b828229a15d57c7e8fe6f3bddcff","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?f455b828229a15d57c7e8fe6f3bddcff";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Mrfangge</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blog/fed4.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Hexo+Github Action构建Github Page博客"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-06-13 15:17" pubdate>
+          2021年6月13日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          1.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          14 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Hexo+Github Action构建Github Page博客</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2024年3月11日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>最近重拾了Github page，之前有了解到结合<a target="_blank" rel="noopener" href="https://github.com/features/actions"><strong>Github Action</strong></a>这个利器，现在发文章更流畅了，正好这段时间想着重新写写博客，对自己技术做一些反思和沉淀，所以就重新折腾了一次，在这里做一个生成Github Page的总结，可以避免各位踩坑</p>
+<div class="note note-primary">
+            <p>本篇适合基础入门者从头学习怎么建立github page</p>
+          </div>
+
+<h2 id="Github项目"><a href="#Github项目" class="headerlink" title="Github项目"></a>Github项目</h2><ol>
+<li>首先Github建一个<strong>你的github用户名.github.io</strong>的项目，比如我的github是github.com&#x2F;fangge，fangge就是我的用户名，所以要建一个fangge.github.io的项目</li>
+<li>建好后，进入项目中的<strong>Setting</strong>中，点击左侧的<strong>Pages</strong>，选择你要显示的你的Page的分支和目录，保存后你的github page就已经可以访问了，github本身还提供了几款简单的主题供你选择<br><img src="/img/blog/gpsetting.jpg" srcset="/img/loading.gif" lazyload alt="GitHub Page"></li>
+</ol>
+<p>到这里了如果你觉得已经可以满足你的个人需要了，那你就可以尽情在你设置的分支里自己写各种你所需要的html文件，然后githubpage就会自动去读取里面的文件，但我们当然不能止步于此，加油继续折腾</p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><div class="note note-info">
+            <p>Hexo是一款基于Node.js的静态博客框架，依赖少易于安装使用，可以方便的生成静态网页托管在GitHub和Heroku上，是搭建博客的首选框架。。Hexo同时也是GitHub上的开源项目，参见：<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo">hexojs&#x2F;hexo</a> 如果想要更加全面的了解Hexo，可以到其官网 Hexo 了解更多的细节，因为Hexo的创建者是台湾人，对中文的支持很友好，可以选择中文进行查看。</p>
+          </div>
+
+<ul>
+<li><p>毕竟总是手写html不方便，我们写博客，程序员当然最喜欢用Markdown来写，而Hexo就是其中最好的选择之一，我们首先全局安装hexo命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-cli -g<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>然后clone 刚才你建好的github.io的项目，输入命令<code>git branch</code>来建一个新的分支并<code>checkout</code></p>
+<blockquote>
+<p><strong>这一步记得做，之后用Github Action会涉及到</strong></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git branch xxx<br>git checkout xxx<br></code></pre></td></tr></table></figure></li>
+<li><p>在你新建好的<code>xxx</code>目录下，开始初始化hexo博客</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo init<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>初始完成后，直接start命令就可以本地预览你的博客了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo s<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>写作的话都是在<code>source</code>里面的<code>_posts</code>去编辑对应的文章markdown，你可以用方便的hexo命令来生成文章</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new xxx<br></code></pre></td></tr></table></figure>
+<p>xxx就是生成的markdown的文件名，hexo的写作还有一些文档和注意事项，可以在文档<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/writing">Front-matter</a>中查看，如果你希望用不同的模板来新建文章，可以在<code>scaffolds</code>中新建一个markdown模板，然后新建文章的时候，可以直接写<code>(比如aaa就是你新建的aaa.md的模板)</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new aaa xxx<br></code></pre></td></tr></table></figure></li>
+<li><p>预览完毕后，可以直接用generate命令来生成博客，也就是hexo会将你的markdown，生成githubpage所需要的html文件，生成目录是<code>public</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo g<br></code></pre></td></tr></table></figure></li>
+</ul>
+<p>那么到这一步，其实你就可以手动将public中的文件，复制到你的master分支，提交后访问你的Github Page地址，就可以看到Hexo生成好的博客了</p>
+<blockquote>
+<p>复制到你GithubPage设置的分支去，不一定是master</p>
+</blockquote>
+<h2 id="Github-Action"><a href="#Github-Action" class="headerlink" title="Github Action"></a>Github Action</h2><p>但这样每次都要复制也太麻烦了，有没有什么方法可以只要我们提交当前分支，Github就自动帮我们生成博客呢，答案当然是肯定的，下面有请神奇的Github Action</p>
+<blockquote><p>大家知道，持续集成由很多操作组成，比如抓取代码、运行测试、登录远程服务器，发布到第三方服务等等。GitHub 把这些操作就称为 actions。</p>
+<p>很多操作在不同项目里面是类似的，完全可以共享。GitHub 注意到了这一点，想出了一个很妙的点子，允许开发者把每个操作写成独立的脚本文件，存放到代码仓库，使得其他开发者可以引用。</p>
+<p>如果你需要某个 action，不必自己写复杂的脚本，直接引用他人写好的 action 即可，整个持续集成过程，就变成了一个 actions 的组合。这就是 GitHub Actions 最特别的地方。 - 阮一峰</p>
+<footer><strong>Github Action -</strong><cite><a target="_blank" rel="noopener" href="https://github.com/features/actions">github.com/features/actions</a></cite></footer></blockquote>
+
+<p>所以我们现在的目标就是，只要提交我们的hexo代码后，也就是提交到我们的博客分支后，action自动帮我们运行<code>hexo c &amp;&amp; hexo g</code>生成博客文件，然后把生成的产物推送到master分支，那以后我们只要关注我们的markdown代码即可，其他的都是action帮我们处理好，那么现在开始action教程</p>
+<h3 id="新建一个Access-Token"><a href="#新建一个Access-Token" class="headerlink" title="新建一个Access Token"></a>新建一个Access Token</h3><p>进入<a target="_blank" rel="noopener" href="https://github.com/settings/tokens">个人设置页</a>新建一个Access Token<br><img src="/img/blog/ghat.jpg" srcset="/img/loading.gif" lazyload alt="AccessToken"></p>
+<p>直接全选所有选项后，点击<strong>Generate token</strong><br><img src="/img/blog/20210613175425.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>生成后请自行保存好生成的token，如果关掉后就不再显示了</p>
+<h3 id="设置个人Secrets"><a href="#设置个人Secrets" class="headerlink" title="设置个人Secrets"></a>设置个人Secrets</h3><p>回到github.io项目的Settings中，新建一个token，名字是<strong>ACCESS_TOKEN</strong>，值是刚才你保存的access token，如图<br><img src="/img/blog/20210613175950.jpg" srcset="/img/loading.gif" lazyload></p>
+<h3 id="新建action的yml文件"><a href="#新建action的yml文件" class="headerlink" title="新建action的yml文件"></a>新建action的yml文件</h3><p>回到刚才博客源码的那个分支，新建目录<code>.github/workflows</code>，然后新建一个<strong>main.yml</strong>文件，到时候Action就会读取这个文件来做对应的操作，将以下代码复制进去</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">Blog</span> <span class="hljs-string">CI/CD</span><br><br><span class="hljs-comment"># 触发条件：在 push 到 hexo-blog-backup 分支后触发</span><br><span class="hljs-attr">on:</span><br>  <span class="hljs-attr">push:</span><br>    <span class="hljs-attr">branches:</span> <br>      <span class="hljs-bullet">-</span> <span class="hljs-string">hexo-backup</span><br><br><span class="hljs-attr">env:</span><br>  <span class="hljs-attr">TZ:</span> <span class="hljs-string">Asia/Shanghai</span><br><br><span class="hljs-attr">jobs:</span><br>  <span class="hljs-attr">blog-cicd:</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">Hexo</span> <span class="hljs-string">blog</span> <span class="hljs-string">build</span> <span class="hljs-string">&amp;</span> <span class="hljs-string">deploy</span><br>    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span> <span class="hljs-comment"># 使用最新的 Ubuntu 系统作为编译部署的环境</span><br><br>    <span class="hljs-attr">steps:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Checkout</span> <span class="hljs-string">codes</span><br>      <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v2</span><br><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">node</span><br>      <span class="hljs-comment"># 设置 node.js 环境</span><br>      <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-node@v1</span><br>      <span class="hljs-attr">with:</span><br>        <span class="hljs-attr">node-version:</span> <span class="hljs-string">&#x27;12.x&#x27;</span><br><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Cache</span> <span class="hljs-string">node</span> <span class="hljs-string">modules</span><br>      <span class="hljs-comment"># 设置包缓存目录，避免每次下载</span><br>      <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/cache@v1</span><br>      <span class="hljs-attr">with:</span><br>        <span class="hljs-attr">path:</span> <span class="hljs-string">~/.npm</span><br>        <span class="hljs-attr">key:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">runner.os</span> <span class="hljs-string">&#125;&#125;-node-$&#123;&#123;</span> <span class="hljs-string">hashFiles(&#x27;**/package-lock.json&#x27;)</span> <span class="hljs-string">&#125;&#125;</span><br><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Install</span> <span class="hljs-string">hexo</span> <span class="hljs-string">dependencies</span><br>      <span class="hljs-comment"># 下载 hexo-cli 脚手架及相关安装包</span><br>      <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">        npm install -g hexo-cli</span><br><span class="hljs-string">        npm install</span><br><span class="hljs-string"></span><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Generate</span> <span class="hljs-string">files</span><br>      <span class="hljs-comment"># 编译 markdown 文件</span><br>      <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">        hexo clean</span><br><span class="hljs-string">        hexo generate</span><br><span class="hljs-string"></span><br>    <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Deploy</span> <span class="hljs-string">hexo</span> <span class="hljs-string">blog</span><br>      <span class="hljs-attr">env:</span> <br>        <span class="hljs-comment"># Github 仓库</span><br>        <span class="hljs-attr">GITHUB_REPO:</span> <span class="hljs-string">github.com/fangge/fangge.github.io</span><br>      <span class="hljs-comment"># 将编译后的博客文件推送到指定仓库</span><br>      <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">        cd ./public &amp;&amp; git init &amp;&amp; git add .</span><br><span class="hljs-string">        git config user.name &quot;mrfangge&quot;</span><br><span class="hljs-string">        git config user.email &quot;fangge-sun@163.com&quot;</span><br><span class="hljs-string">        git add .</span><br><span class="hljs-string">        git commit -m &quot;GitHub Actions Auto Builder at $(date +&#x27;%Y-%m-%d %H:%M:%S&#x27;)&quot;</span><br><span class="hljs-string">        git push --force --quiet &quot;https://$&#123;&#123; secrets.ACCESS_TOKEN &#125;&#125;@$GITHUB_REPO&quot; master:master</span><br></code></pre></td></tr></table></figure>
+<h3 id="万事俱备，只欠push"><a href="#万事俱备，只欠push" class="headerlink" title="万事俱备，只欠push"></a>万事俱备，只欠push</h3><p>操作万上面所有东西后，你就可以直接push你这个博客源码分支了，然后你可以去项目的action那里看到对应的进程详情，成功与否都能知道是什么问题<br><img src="/img/blog/20210613180630.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>当成功后，master就能看到新生成的blog文件，至此，整个博客的发布流程就完全搞定了，Enjoy it！</p>
+<div class="note note-light">
+            <ol><li><code>hexo server</code>之后发现没有热更新，不太习惯，可以自行安装<code>hexo-browsersync</code></li><li>Hexo有丰富的免费主题库，我自己用的是<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/">Fluid</a>，挺舒服的，大家可以试试</li></ol>
+          </div>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" class="print-no-link">#前端开发</a>
+      
+        <a href="/tags/HTML/" class="print-no-link">#HTML</a>
+      
+        <a href="/tags/CSS/" class="print-no-link">#CSS</a>
+      
+        <a href="/tags/Javascript/" class="print-no-link">#Javascript</a>
+      
+        <a href="/tags/Github/" class="print-no-link">#Github</a>
+      
+        <a href="/tags/Hexo/" class="print-no-link">#Hexo</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Hexo+Github Action构建Github Page博客</div>
+      <div>http://example.com/2021/06/13/fed4/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Mrfangge</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年6月13日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/06/29/fed5/" title="WakaTime Dashboard Pro">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">WakaTime Dashboard Pro</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2017/07/22/fed/" title="标签组件探索">
+                        <span class="hidden-mobile">标签组件探索</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"ca096b4f24f20ec89959","clientSecret":"c0a4526825a218a7980c1c2e19792b053ba2f858","repo":"gpcomment","owner":"fangge","admin":["fangge"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '8a1c7179b9d0b5b411ce8bd8a552c56d'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       记录生命足迹 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
