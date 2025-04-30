@@ -15,6 +15,7 @@ index_img: /img/blog/fed14.png
 banner_img: /img/blog/fed14.png
 excerpt: 利用高德地图和小红书MCP生成旅行规划图
 ---
+![利用高德地图和小红书MCP生成旅行规划图](/img/blog/fed14.png)
 
 最近网上有很多关于MCP实战的例子，我也非常感兴趣，照着网上最火的旅游规划实践例子，也玩了一下，确实非常有趣和方便，下面介绍利用**高德地图**和**小红书**MCP生成旅游规划网页的详细步骤
 
