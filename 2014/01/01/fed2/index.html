@@ -7,8 +7,11 @@
 
 <head>
   <meta charset="UTF-8">
+
   <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.jpg">
   <link rel="icon" href="/img/icon.jpg">
+  
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -21,11 +24,11 @@
     <meta name="description" content="尝试用CSS3的新属性去实现母校校徽">
 <meta property="og:type" content="article">
 <meta property="og:title" content="广工校徽CSS3版">
-<meta property="og:url" content="http://example.com/2014/01/01/fed2/index.html">
+<meta property="og:url" content="https://www.mrfangge.com/2014/01/01/fed2/index.html">
 <meta property="og:site_name" content="MrFangge">
 <meta property="og:description" content="尝试用CSS3的新属性去实现母校校徽">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/blog/6597334748958934052.jpg">
+<meta property="og:image" content="https://www.mrfangge.com/img/blog/6597334748958934052.jpg">
 <meta property="article:published_time" content="2014-01-01T12:46:25.000Z">
 <meta property="article:modified_time" content="2021-06-12T17:01:00.000Z">
 <meta property="article:author" content="Mrfangge">
@@ -33,7 +36,7 @@
 <meta property="article:tag" content="HTML">
 <meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/blog/6597334748958934052.jpg">
+<meta name="twitter:image" content="https://www.mrfangge.com/img/blog/6597334748958934052.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -56,7 +59,7 @@
 <!-- 主题依赖的图标库，不要自行修改 -->
 <!-- Do not modify the link that theme dependent icons -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
 
 
 
@@ -77,7 +80,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"f455b828229a15d57c7e8fe6f3bddcff","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"www.mrfangge.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"f455b828229a15d57c7e8fe6f3bddcff","google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -101,8 +104,6 @@
         })();
       }
     </script>
-  
-
   
 
   
@@ -330,7 +331,7 @@
 
 <p>然后 number 和大多数的 css 简写一样，都是上右下左，大家可以试试看。</p>
 <h2 id="步骤二：写代码"><a href="#步骤二：写代码" class="headerlink" title="步骤二：写代码"></a>步骤二：写代码</h2><p>基本上确定了要怎么画，就开始正式写代码了，过程中最纠结的就是要不断地调角度和高度等这些很微小的数据，因为用到旋转的关系，所以即使你旋转一度，所以定位上都要随之改变一些，当然像我比较懒的话，就直接开一个调试面板（其实也不是懒，如果真心调一下，刷一下，我觉得亲你就没必要继续做下去了，除非你是强迫症），然后直接修改 css 看效果，都修改后一次性改代码就好。</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/fangge/css3logo">项目地址</a><br><a target="_blank" rel="noopener" href="https://www.mrfangge.com/css3logo/css3logo.html">可变颜色效果</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fangge/css3logo">项目地址</a><br><a href="https://www.mrfangge.com/css3logo/css3logo.html">可变颜色效果</a></p>
 <p>DEMO：</p>
 <p class="codepen" data-height="479" data-theme-id="dark" data-default-tab="css,result" data-user="fangge" data-slug-hash="PopygmM" style="height: 479px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="PopygmM">
   <span>See the Pen <a target="_blank" rel="noopener" href="https://codepen.io/fangge/pen/PopygmM">
@@ -390,7 +391,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>广工校徽CSS3版</div>
-      <div>http://example.com/2014/01/01/fed2/</div>
+      <div>https://www.mrfangge.com/2014/01/01/fed2/</div>
     </div>
     <div class="license-meta">
       
@@ -415,7 +416,7 @@
               
                 <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
                   <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                    <i class="iconfont icon-by"></i>
+                    <i class="iconfont icon-cc-by"></i>
                   </span>
                 </a>
               
@@ -593,10 +594,11 @@
       </span>
     
     
-  
-</div>
 
   
+
+</div>
+
   
   
 </div>
