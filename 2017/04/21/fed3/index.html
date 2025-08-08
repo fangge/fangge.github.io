@@ -62,7 +62,7 @@
 
 
 <!-- Variable -->
-<script>window.ASYNC_CONFIG = {"hostname":"www.mrfangge.com","author":"Mrfangge","root":"/","typed_text":null,"theme_version":"2.2.6","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/icon.jpg","icon16":"/img/icon-16.ico","icon32":"/img/icon.ico","apple_touch_icon":"/img/logo.png","webmanifest":null,"visibilitychange":true,"hidden":"/img/icon.jpg","show_text":"(/≧▽≦/)嘿！欢迎回来！","hide_text":"(●—●)喔哟，等你哦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":false,"el":".trm-banner"}};</script>
+<script>window.ASYNC_CONFIG = {"hostname":"www.mrfangge.com","author":"Mrfangge","root":"/","typed_text":["海贼王多年骨粉，热爱摄影，希望用代码改变世界的小码农"],"theme_version":"2.2.6","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/icon.jpg","icon16":"/img/icon-16.ico","icon32":"/img/icon.ico","apple_touch_icon":"/img/logo.png","webmanifest":null,"visibilitychange":true,"hidden":"/img/icon.jpg","show_text":"(/≧▽≦/)嘿！欢迎回来！","hide_text":"(●—●)喔哟，等你哦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"05/09/2014 17:00:00","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":false,"el":".trm-banner"}};</script>
 <script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2021-06-13 01:01:00"};</script>
 
 <!-- Theme mode css -->
@@ -165,8 +165,8 @@
         <ul>
             
             <li class="menu-item-has-children ">
-                <a  href="/" target="">
-                    首页
+                <a  href="/travel" target="">
+                    自由行
                 </a>
                 
             </li>
@@ -277,6 +277,13 @@
         Mrfangge
     </h5>
     
+        <div class="trm-label">
+            我是一个
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
 </div>
 <!-- card header end -->
         <!-- sidebar social -->
@@ -298,6 +305,15 @@
         <!-- info -->
 <div class="trm-divider trm-mb-40 trm-mt-40"></div>
 <ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                码龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                10年
+            </div>
+        </li>
     
         <li>
             <div class="trm-label">
@@ -368,35 +384,7 @@
 
 <p>微信发布了新的 jssdk 后，官方宣称的是大家以后都只能用新的代码了，可是经过测试，上面这一段旧的代码还是可以用的，只要你的页面所在的域名是在微信的“白名单”内，如果加上以上代码后可以正常分享，那么就证明你的域名是在微信的白名单内</p>
 <h2 id="新的-jssdk-使用方法"><a href="#新的-jssdk-使用方法" class="headerlink" title="新的 jssdk 使用方法"></a>新的 jssdk 使用方法</h2><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html">微信 JS-SDK 说明文档</a></p>
-<p>新的方式比之前的方式复杂一些，如果你想要你的页面可以在微信内分享，必须满足以下条件：</p>
-<div class="trm-note info"><div class="trm-note-title">primary</div><ol>
-<li>你有一个已备案的域名</li>
-<li>你有一个微信公众号（服务号或订阅号都行）</li>
-<li>你有相关的后台服务来生成签名（php、java、nodejs 以及 python）</li>
-</ol>
-</div>
-
-<p>前两个比较容易理解，这里我就不展开了，后面所谓的签名到底是什么呢，这里我用一个浅显易懂的流程来向大家说明一下微信 jssdk 是怎么运作的：</p>
-<ol>
-<li>获取当前时间（10 位，精确到秒）、公众号 AppID 和 AppSecret、页面地址、随机字符串</li>
-<li>通过 <a target="_blank" rel="noopener" href="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=**%E5%85%AC%E4%BC%97%E5%8F%B7AppID**&secret=**%E5%85%AC%E4%BC%97%E5%8F%B7AppSecret**%E5%8F%96%E5%BE%97">https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=**公众号AppID**&amp;secret=**公众号AppSecret**取得</a> ACCESS_TOKEN</li>
-<li>通过 <a target="_blank" rel="noopener" href="https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=**ACCESS_TOKEN**&type=jsapi%E5%8F%96%E5%BE%97">https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=**ACCESS_TOKEN**&amp;type=jsapi取得</a> jsapi_ticket（有效期为 7200s，也就是 2h）</li>
-<li>用获得的当前时间、页面地址、随机字符串和 jsapi_ticket 生成签名</li>
-<li>用公众号 AppID、当前时间、随机字符串和签名来配置 jssdk 并使用</li>
-</ol>
-<hr>
-<p>那么来详细解释一下流程中的一些点：</p>
-<h3 id="（一）已备案的域名和公众号"><a href="#（一）已备案的域名和公众号" class="headerlink" title="（一）已备案的域名和公众号"></a>（一）已备案的域名和公众号</h3><p>注册公众号并且认证这里就不展开了，大家直接去<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/">https://mp.weixin.qq.com/</a> 了解即可，可是为什么需要已备案的域名呢？因为如果你需要使用 jssdk，需要登录微信公众平台进入“公众号设置”的“功能设置”里填写“JS 接口安全域名”，这里的域名所需要的是已备案的域名，设置完成后，才能开通相对应的接口权限。</p>
-<blockquote>
-<p>服务号只有两个域名白名单，订阅号有三个</p>
-</blockquote>
-<p>对于权限来说，服务号比订阅号多了一些权限（因为服务号可以验证，订阅号不能），比如微信支付、卡券等等，还有就是读取用户的相关信息等，这个大家可以自行根据需求选择公众号类型</p>
-<h3 id="（二）随机字符串"><a href="#（二）随机字符串" class="headerlink" title="（二）随机字符串"></a>（二）随机字符串</h3><p>可以用以下函数生成任意长度的字符串</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//生成随机字符串</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">randomString</span>(<span class="params">len</span>) &#123;</span><br><span class="line">  len = len || <span class="number">32</span>;</span><br><span class="line">  <span class="keyword">var</span> chars =</span><br><span class="line">    <span class="string">&#x27;ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678&#x27;</span>; <span class="comment">/****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/</span></span><br><span class="line">  <span class="keyword">var</span> maxPos = chars.<span class="property">length</span>;</span><br><span class="line">  <span class="keyword">var</span> pwd = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    pwd += chars.<span class="title function_">charAt</span>(<span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>() * maxPos));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> pwd;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="（三）签名"><a href="#（三）签名" class="headerlink" title="（三）签名"></a>（三）签名</h3><div class="trm-note info"><div class="trm-note-title">INFO</div><p><strong>签名算法</strong>：参与签名的字段包括 noncestr（随机字符串）, 有效的 jsapi_ticket, timestamp（时间戳）, url（当前网页的 URL，不包含#及其后面部分） 。对所有待签名参数按照字段名的 ASCII 码从小到大排序（字典序）后，使用 URL 键值对的格式（即 key1&#x3D;value1&amp;key2&#x3D;value2…）拼接成字符串 string1。这里需要注意的是所有参数名均为小写字符。对 string1 作 sha1 加密，字段名和字段值都采用原始值，不进行 URL 转义。</p>
-</div>
-
+<p>新的方式比之前的方式复杂一些，如果你想要你的页面可以在微信内分享，必须满足以下条件：<br>&lt;!–swig￼3–&gt;</p>
 <p>在上述介绍的 jssdk 运作流程中，2、3、4 步骤其实都是直接放在后台实现的，这也是为什么我说需要后台服务的缘故，具体的后台代码 demo 微信文档里面已经给出了，下面贴一个链接：<br><a target="_blank" rel="noopener" href="http://demo.open.weixin.qq.com/jssdk/sample.zip">http://demo.open.weixin.qq.com/jssdk/sample.zip</a></p>
 <div class="trm-note warning"><div class="trm-note-title">WARNING</div><p>备注：链接中包含 php、java、nodejs 以及 python 的示例代码供第三方参考，第三方切记要对获取的 accesstoken 以及 jsapi_ticket 进行缓存以确保不会触发频率限制，另外注意生成的签名有效时间为 2 小时，2 小时后就要重新生成</p>
 </div>
@@ -531,6 +519,8 @@
         </div>
       
 
+    
+        <div class="trm-footer-item blog-run-long"></div>
      
 
      
@@ -554,7 +544,7 @@
 				</span>
       </div>
       <div class="trm-post-toc-content">
-        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-2" title="旧的分享代码"><a rel="nofollow" class="trm-toc-link" href="#旧的分享代码"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">旧的分享代码</span></a></li><li class="trm-toc-item trm-toc-level-2" title="新的 jssdk 使用方法"><a rel="nofollow" class="trm-toc-link" href="#新的-jssdk-使用方法"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">新的 jssdk 使用方法</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="（一）已备案的域名和公众号"><a rel="nofollow" class="trm-toc-link" href="#（一）已备案的域名和公众号"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">（一）已备案的域名和公众号</span></a></li><li class="trm-toc-item trm-toc-level-3" title="（二）随机字符串"><a rel="nofollow" class="trm-toc-link" href="#（二）随机字符串"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">（二）随机字符串</span></a></li><li class="trm-toc-item trm-toc-level-3" title="（三）签名"><a rel="nofollow" class="trm-toc-link" href="#（三）签名"><span class="trm-toc-number">2.3.</span> <span class="trm-toc-text">（三）签名</span></a></li><li class="trm-toc-item trm-toc-level-3" title="（四）使用 jssdk"><a rel="nofollow" class="trm-toc-link" href="#（四）使用-jssdk"><span class="trm-toc-number">2.4.</span> <span class="trm-toc-text">（四）使用 jssdk</span></a></li></ol></li></ol>
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-2" title="旧的分享代码"><a rel="nofollow" class="trm-toc-link" href="#旧的分享代码"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">旧的分享代码</span></a></li><li class="trm-toc-item trm-toc-level-2" title="新的 jssdk 使用方法"><a rel="nofollow" class="trm-toc-link" href="#新的-jssdk-使用方法"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">新的 jssdk 使用方法</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="（四）使用 jssdk"><a rel="nofollow" class="trm-toc-link" href="#（四）使用-jssdk"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">（四）使用 jssdk</span></a></li></ol></li></ol>
       </div>
     </div>
 
@@ -594,6 +584,8 @@
     
 
     
+        <script src="/js/plugins/typing.js?v=2.2.6"></script>
+    
 
     
 
@@ -616,6 +608,21 @@
     
     <!-- baidu push -->
     
+    <script data-swup-reload-script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
 
 
 <script id="async-script" src="/js/main.js?v=2.2.6"></script>
