@@ -1,10 +1,10 @@
-site:
-  title: Mrangge
-  webmaster: Mrangge
+title: Mrangge
 theme:
   switch: true
 user:
   name: Mrfangge
+  first_name: Fangge
+  last_name: Mr
   email: fangge-sun@163.com
   domain: https://www.mrfangge.com
   avatar: /img/avatar.jpeg
