@@ -67,3 +67,7 @@ footer:
     enable: true
     start_time: 05/09/2014 17:00:00
 baidu_push: true
+wordcount:
+  enable: true
+  count: true
+  time: true
