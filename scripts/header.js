@@ -1,0 +1,1 @@
+hexo.extend.injector.register('head_end', '<meta name="baidu-site-verification" content="codeva-rq5C4DU2TB" />', 'default');

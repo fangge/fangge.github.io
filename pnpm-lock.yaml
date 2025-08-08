@@ -50,9 +50,6 @@ dependencies:
   hexo-theme-async:
     specifier: ^2.2.6
     version: 2.2.6
-  hexo-theme-fluid:
-    specifier: ^1.9.8
-    version: 1.9.8(nunjucks@3.2.4)
   hexo-theme-landscape:
     specifier: ^1.1.0
     version: 1.1.0
@@ -2462,15 +2459,6 @@ packages:
 
   /hexo-theme-async@2.2.6:
     resolution: {integrity: sha512-emdlpA2Cm9Yh4MortN4tI2Hev8j9RMhjafAmF2tHZ/PMIKhVcZavZyIByKx6gcsJjPbjDPMcxmWMoXW/nm+bDQ==}
-    dev: false
-
-  /hexo-theme-fluid@1.9.8(nunjucks@3.2.4):
-    resolution: {integrity: sha512-+HUx8xrBA2WWgJYMhlCy5L69LLgAL8PjsLIyIbh81Ftc0J71V69K04Zqv270VjRSs38rx9djeQPrgidtMdnh3g==}
-    engines: {node: '>=8.10.0'}
-    peerDependencies:
-      nunjucks: ^3.0.0
-    dependencies:
-      nunjucks: 3.2.4
     dev: false
 
   /hexo-theme-landscape@1.1.0:
