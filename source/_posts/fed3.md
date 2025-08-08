@@ -81,7 +81,7 @@ if (document.addEventListener) {
 [微信 JS-SDK 说明文档](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html)
 
 新的方式比之前的方式复杂一些，如果你想要你的页面可以在微信内分享，必须满足以下条件：
-{% note primary %}
+\{% note %\}
 1. 你有一个已备案的域名
 2. 你有一个微信公众号（服务号或订阅号都行）
 3. 你有相关的后台服务来生成签名（php、java、nodejs 以及 python）

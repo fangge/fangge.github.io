@@ -236,7 +236,7 @@ uv sync
 ```
 ### 生成页面
 在编辑器中输入类似内容，让AI生成页面
-![提示词示例](/img/blog/mcp.png)
+![提示词示例](/img/blog/mcp.webp)
 然后就能见证奇迹的发生
 ![Magic！！](/img/blog/qiji.jpeg)
 ### 美化页面

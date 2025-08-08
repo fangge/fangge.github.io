@@ -11,7 +11,7 @@ tags:
   - 自由行
 ---
 
-{% note primary %}
+\{% note %\}
 日本 7 日蜜月游游记连载：
 <a href="/2016/02/08/japan-7th-honeymoon-day0-departure/">Day0：出发</a>
 <a href="/2016/02/11/japans-7-day-honeymoon-day1-tsukiji-edo-tokyo-museum-sensoji-temple-and-sky-tree/"><strong>Day1：筑地市场、江户东京博物馆、浅草寺和天空树</strong></a>

@@ -17,7 +17,7 @@ date: 2021-06-13 15:17:14
 
 最近重拾了Github page，之前有了解到结合[**Github Action**](https://github.com/features/actions)这个利器，现在发文章更流畅了，正好这段时间想着重新写写博客，对自己技术做一些反思和沉淀，所以就重新折腾了一次，在这里做一个生成Github Page的总结，可以避免各位踩坑
 
-{% note primary %}
+\{% note %\}
 本篇适合基础入门者从头学习怎么建立github page
 {% endnote %}
 

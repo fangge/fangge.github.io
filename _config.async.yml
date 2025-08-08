@@ -18,7 +18,12 @@ favicon:
   hidden: /img/icon.jpg
   show_text: (/≧▽≦/)嘿！欢迎回来！
   hide_text: (●—●)喔哟，等你哦！
+top_bars:
+  - title: 自由行
+    url: /travel
 sidebar:
+  typed_text_prefix: 我是一个
+  typed_text: ['海贼王多年骨粉，热爱摄影，希望用代码改变世界的小码农']
   social: # 社交地址
     - name: github
       icon: fab fa-github
@@ -27,6 +32,8 @@ sidebar:
       icon: fas fa-camera-retro
       url: https://www.xiaohongshu.com/user/profile/5837bc3a7fc5b806082907db
   info:
+    - key: 码龄
+      val: 10年
     - key: 职业
       val: 前端开发工程师
     - key: 兴趣爱好
@@ -55,3 +62,8 @@ web_analytics:
   baidu: e31b1a8efc9b56b8d770c960116c405c
 categorie_card:
   enable: false
+footer:
+  live_time:
+    enable: true
+    start_time: 05/09/2014 17:00:00
+baidu_push: true

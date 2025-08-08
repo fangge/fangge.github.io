@@ -13,7 +13,7 @@ date: 2016-02-08 16:01:20
 hide: true
 ---
 
-{% note primary %}
+{% note %}
 日本 7 日蜜月游游记连载：
 <a href="/2016/02/08/japan-7th-honeymoon-day0-departure/"><strong>Day0：出发</strong></a>
 <a href="/2016/02/11/japans-7-day-honeymoon-day1-tsukiji-edo-tokyo-museum-sensoji-temple-and-sky-tree/">Day1：筑地市场、江户东京博物馆、浅草寺和天空树</a>
@@ -58,7 +58,7 @@ hide: true
 <p>我以前吃的寿司，到底是什么玩意儿！<br><img src="/img/japan/MTXX_20160208_231514.jpg" ></p>
 </blockquote>
 <p>味道正宗一流，好吃到爆表，而且寿司师傅会贴心的和你说明需要怎么吃，你也可以一边欣赏他游刃有余的做寿司功夫，真是视觉和味觉的享受</p>
-<p><img src="http://www.mrfangge.com/?wp2pcs=/blog/IMG_1206.jpg" alt=""></p>
+<p><img src="http://www.mrfangge.com/?wp2pcs=/blog/japan/IMG_1206.jpg" alt=""></p>
 <p>吃得让我们两个人流连忘返后，我们就结账了，然后就剧情急转直下了，没错，美味当然是有代价的啦，刷了信用卡，发现我们吃了两万多日元，人民币一千多，当时两个人就傻眼呵呵了，来日本领到的第一个教训：</p>
 <p><strong><span style="color: #3366ff;">出门吃饭记得看清楚价格啊</span></strong></p>
 <p>倒不是说负担不起，主要是第一天第一顿就这么奢侈，不利于后续的行程规划了，不过还好，也确实物有所值，回到酒店总结了一下，我也顺便查了一下汇率还有日本消费的其他坑，然后就给我发现了第二个坑：</p>
