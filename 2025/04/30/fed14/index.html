@@ -1,36 +1,31 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
+<html lang="zh-Hans">
 
 <head>
-  <meta charset="UTF-8">
-
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.jpg">
-  <link rel="icon" href="/img/icon.jpg">
-  
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Mrfangge">
-  <meta name="keywords" content="">
-  
-    <meta name="description" content="利用高德地图和小红书MCP生成旅行规划图">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="利用高德地图和小红书MCP生成旅行规划图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用高德地图和小红书MCP生成旅行规划图">
 <meta property="og:url" content="https://www.mrfangge.com/2025/04/30/fed14/index.html">
 <meta property="og:site_name" content="MrFangge">
 <meta property="og:description" content="利用高德地图和小红书MCP生成旅行规划图">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.mrfangge.com/img/blog/fed14.png">
+<meta property="og:locale">
+<meta property="og:image" content="https://www.mrfangge.com/img/404.jpg">
+<meta property="og:image" content="https://www.mrfangge.com/img/404.jpg">
+<meta property="og:image" content="https://www.mrfangge.com/img/404.jpg">
+<meta property="og:image" content="https://www.mrfangge.com/img/404.jpg">
+<meta property="og:image" content="https://www.mrfangge.com/img/404.jpg">
+<meta property="og:image" content="https://www.mrfangge.com/img/404.jpg">
+<meta property="og:image" content="https://www.mrfangge.com/img/404.jpg">
+<meta property="og:image" content="https://www.mrfangge.com/img/404.jpg">
+<meta property="og:image" content="https://www.mrfangge.com/img/404.jpg">
+<meta property="og:image" content="https://www.mrfangge.com/img/404.jpg">
 <meta property="article:published_time" content="2025-04-30T02:27:51.000Z">
-<meta property="article:modified_time" content="2025-04-30T05:29:38.893Z">
+<meta property="article:modified_time" content="2025-08-08T03:16:52.920Z">
 <meta property="article:author" content="Mrfangge">
 <meta property="article:tag" content="前端开发">
 <meta property="article:tag" content="HTML">
@@ -38,291 +33,349 @@
 <meta property="article:tag" content="Javascript">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="MCP">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://www.mrfangge.com/img/blog/fed14.png">
-  
-  
-    <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  
-  <title>利用高德地图和小红书MCP生成旅行规划图 - MrFangge</title>
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.mrfangge.com/img/404.jpg">
 
 
+<title >利用高德地图和小红书MCP生成旅行规划图</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+<!-- Favicon -->
 
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+    <link href='/img/icon-16.ico?v=2.2.6' rel='icon' type='image/png' sizes='16x16' ></link>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+    <link href='/img/icon.ico?v=2.2.6' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+    <link href='/img/logo.png?v=2.2.6' rel='apple-touch-icon' sizes='180x180' ></link>
 
 
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
+<!-- Plugin -->
 
 
 
 
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"www.mrfangge.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"f455b828229a15d57c7e8fe6f3bddcff","google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
 
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
 
-  
-    <!-- Baidu Analytics -->
-    <script async>
-      if (!Fluid.ctx.dnt) {
-        var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?f455b828229a15d57c7e8fe6f3bddcff";
-          var s = document.getElementsByTagName("script")[0];
-          s.parentNode.insertBefore(hm, s);
-        })();
-      }
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
+    
+    
 
 
 
-  
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"www.mrfangge.com","author":"Mrfangge","root":"/","typed_text":null,"theme_version":"2.2.6","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/icon.jpg","icon16":"/img/icon-16.ico","icon32":"/img/icon.ico","apple_touch_icon":"/img/logo.png","webmanifest":null,"visibilitychange":true,"hidden":"/img/icon.jpg","show_text":"(/≧▽≦/)嘿！欢迎回来！","hide_text":"(●—●)喔哟，等你哦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":false,"el":".trm-banner"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2025-08-08 11:16:52"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.2.6" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+
+
+    
+        <!-- Baidu Analytics -->
+        <script defer>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?e31b1a8efc9b56b8d770c960116c405c";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+     
+
+    
+
+    
+ 
 <meta name="generator" content="Hexo 7.3.0"></head>
 
-
 <body>
-  
 
-  <header>
-    
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
 
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>Mrfangge</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/blog/fed14.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="利用高德地图和小红书MCP生成旅行规划图"></span>
-          
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-04-30 10:27" pubdate>
-          2025年4月30日 上午
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          <!-- compatible with older versions-->
-          2.9k 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          <!-- compatible with older versions-->
-          24 分钟
-        
-      </span>
-    
-
-    
-    
-  </div>
-
-
-        
-      </div>
-
-      
     </div>
-  </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/icon.jpg">
+    
+    
+        <div class="trm-logo-text">
+            Mr<span>Fangge</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/blog/fed14.png">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            利用高德地图和小红书MCP生成旅行规划图
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2025
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/avatar.jpeg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Mrfangge
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com/fangge" title="github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+        <a href="https://www.xiaohongshu.com/user/profile/5837bc3a7fc5b806082907db" title="小红书" rel="nofollow" target="_blank">
+            <i class="iconfont fas fa-camera-retro"></i>
+        </a>
+    
 </div>
 
-</div>
-
-  </header>
-
-  <main>
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
     
-      
+        <li>
+            <div class="trm-label">
+                职业:
+            </div>
+            <div class="trm-label trm-label-light">
+                前端开发工程师
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                兴趣爱好:
+            </div>
+            <div class="trm-label trm-label-light">
+                摄影
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:fangge-sun@163.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
 
     </div>
-
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <h1 id="seo-header">利用高德地图和小红书MCP生成旅行规划图</h1>
+</div>
+                    <!-- main card end -->
+                </div>
             
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    <!-- compatible with older versions-->
-                    本文最后更新于：2025年4月30日 下午
-                  
-                
-              </p>
-            
-            
-              <div class="markdown-body">
-                
-                <p><img src="/img/blog/fed14.png" srcset="/img/loading.gif" lazyload alt="利用高德地图和小红书MCP生成旅行规划图"></p>
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            04/30
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            10:27
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Mrfangge
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <p><img src="/img/blog/fed14.png" alt="利用高德地图和小红书MCP生成旅行规划图"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <p>最近网上有很多关于MCP实战的例子，我也非常感兴趣，照着网上最火的旅游规划实践例子，也玩了一下，确实非常有趣和方便，下面介绍利用<strong>高德地图</strong>和<strong>小红书</strong>MCP生成旅游规划网页的详细步骤</p>
 <blockquote>
 <p>首先感谢<strong>AI产品自由</strong>写的攻略文档<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/SM05H7MKnfvoVynmUfuwTA">AI + 高德MCP：10分钟搞定一份旅行攻略！</a>,本篇是在这个文档的基础上，再锦上添花优化一下配置的步骤</p>
@@ -361,19 +414,19 @@
 <h3 id="安装高德地图MCP"><a href="#安装高德地图MCP" class="headerlink" title="安装高德地图MCP"></a>安装高德地图MCP</h3><ol>
 <li>安装页面：<a target="_blank" rel="noopener" href="https://pypi.org/project/amap-mcp-server/">https://pypi.org/project/amap-mcp-server/</a></li>
 <li>安装命令：<code>pip install amap-mcp-server</code> or <code>pip3 install amap-mcp-server</code></li>
-<li>cline插件添加高德MCP：<br><img src="/img/blog/amapmcp.png" srcset="/img/loading.gif" lazyload alt="高德MCP"><blockquote>
-<p>记得用前期准备建好的Web服务的key<br><img src="/img/blog/amapmcp2.png" srcset="/img/loading.gif" lazyload alt="高德MCP"></p>
+<li>cline插件添加高德MCP：<br><img src="/img/blog/amapmcp.png" alt="高德MCP"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><blockquote>
+<p>记得用前期准备建好的Web服务的key<br><img src="/img/blog/amapmcp2.png" alt="高德MCP"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 </blockquote>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;mcpServers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;amap-mcp-server&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>          <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;uvx&quot;</span><span class="hljs-punctuation">,</span><br>          <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>              <span class="hljs-string">&quot;amap-mcp-server&quot;</span><br>          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>          <span class="hljs-attr">&quot;env&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>              <span class="hljs-attr">&quot;AMAP_MAPS_API_KEY&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;高德Web服务的key&quot;</span><br>          <span class="hljs-punctuation">&#125;</span><br>      <span class="hljs-punctuation">&#125;</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure></li>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;mcpServers&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;amap-mcp-server&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">          <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;uvx&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">              <span class="string">&quot;amap-mcp-server&quot;</span></span><br><span class="line">          <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;env&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">              <span class="attr">&quot;AMAP_MAPS_API_KEY&quot;</span><span class="punctuation">:</span> <span class="string">&quot;高德Web服务的key&quot;</span></span><br><span class="line">          <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 <h3 id="安装小红书MCP"><a href="#安装小红书MCP" class="headerlink" title="安装小红书MCP"></a>安装小红书MCP</h3><p><a target="_blank" rel="noopener" href="https://mcp.so/zh/server/xhs-mcp/jobsonlook">小红书MCP介绍</a></p>
 <ol>
-<li>安装依赖<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> git@github.com:jobsonlook/xhs-mcp.git<br><span class="hljs-built_in">cd</span> xhs-mcp<br>uv <span class="hljs-built_in">sync</span> <br></code></pre></td></tr></table></figure>
+<li>安装依赖<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:jobsonlook/xhs-mcp.git</span><br><span class="line"><span class="built_in">cd</span> xhs-mcp</span><br><span class="line">uv <span class="built_in">sync</span> </span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>如果ssh clone有问题，也可以用<code>git clone https://github.com/jobsonlook/xhs-mcp.git</code></p>
 </blockquote>
 </li>
-<li>cline插件添加小红书MCP<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs prolog">&#123;<br>    <span class="hljs-string">&quot;mcpServers&quot;</span>: &#123;<br>        <span class="hljs-string">&quot;xhs-mcp&quot;</span>: &#123;<br>            <span class="hljs-string">&quot;command&quot;</span>: <span class="hljs-string">&quot;uv&quot;</span>,<br>            <span class="hljs-string">&quot;args&quot;</span>: [<br>                <span class="hljs-string">&quot;--directory&quot;</span>,<br>                <span class="hljs-string">&quot;小红书mcp项目的路径&quot;</span>,<br>                <span class="hljs-string">&quot;run&quot;</span>,<br>                <span class="hljs-string">&quot;main.py&quot;</span><br>            ],<br>            <span class="hljs-string">&quot;env&quot;</span>: &#123;<br>                <span class="hljs-string">&quot;XHS_COOKIE&quot;</span>: <span class="hljs-string">&quot;xxxx&quot;</span><br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<li>cline插件添加小红书MCP<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;mcpServers&quot;: &#123;</span><br><span class="line">        &quot;xhs-mcp&quot;: &#123;</span><br><span class="line">            &quot;command&quot;: &quot;uv&quot;,</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;--directory&quot;,</span><br><span class="line">                &quot;小红书mcp项目的路径&quot;,</span><br><span class="line">                &quot;run&quot;,</span><br><span class="line">                &quot;main.py&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;env&quot;: &#123;</span><br><span class="line">                &quot;XHS_COOKIE&quot;: &quot;xxxx&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 小红书mcp项目的路径的获取分系统</li>
 </ol>
 <ul>
@@ -385,21 +438,21 @@
 </ol>
 <ul>
 <li>打开<a target="_blank" rel="noopener" href="https://www.xiaohongshu.com/explore">小红书web端</a></li>
-<li>登陆<br><img src="/img/blog/xhs.png" srcset="/img/loading.gif" lazyload alt="小红书web端"></li>
+<li>登陆<br><img src="/img/blog/xhs.png" alt="小红书web端"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></li>
 <li>登陆成功后，按F12，或鼠标右键检查，打开控制台，然后刷新一下页面</li>
 <li>选择Network选项，然后筛选处选Fetch&#x2F;XHR,任意选择一个请求，点击后查看里面的Cookies，复制到配置中的<code>XHS_COOKIE</code></li>
 </ul>
-<p><img src="/img/blog/xhs2.png" srcset="/img/loading.gif" lazyload alt="小红书Cookie获取"></p>
+<p><img src="/img/blog/xhs2.png" alt="小红书Cookie获取"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <h2 id="检测MCP是否安装成功"><a href="#检测MCP是否安装成功" class="headerlink" title="检测MCP是否安装成功"></a>检测MCP是否安装成功</h2><p>直接cline提问即可，比如你直接提问，看看是否能成功调用mcp服务即可</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">根据小红书mcp，获取关于海贼王的最热门的前5个帖子<br>根据高德地图mcp，获取广州塔的具体经纬度<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">根据小红书mcp，获取关于海贼王的最热门的前5个帖子</span><br><span class="line">根据高德地图mcp，获取广州塔的具体经纬度</span><br></pre></td></tr></table></figure>
 
-<p>同时mcp服务如果运行正常，插件也会有类似的绿色提示<br><img src="/img/blog/mcp3.png" srcset="/img/loading.gif" lazyload alt="MCP"></p>
+<p>同时mcp服务如果运行正常，插件也会有类似的绿色提示<br><img src="/img/blog/mcp3.png" alt="MCP"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <h2 id="三、生成规划旅行网页"><a href="#三、生成规划旅行网页" class="headerlink" title="三、生成规划旅行网页"></a>三、生成规划旅行网页</h2><blockquote>
 <p>参考AI产品自由写的提示词：<a target="_blank" rel="noopener" href="https://o90p05z3t4.feishu.cn/wiki/Lfmuwq3jjiSozQkglU6cFEOAnjc">旅行规划提示词</a>，我在原有提示词上做了更新</p>
 </blockquote>
 <h3 id="新建提示词文档"><a href="#新建提示词文档" class="headerlink" title="新建提示词文档"></a>新建提示词文档</h3><p>在项目根目录新建<code>提示词.md</code>的markdown文件，粘贴以下内容</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># 风格说明</span><br><br>你是一位国际顶尖的数字杂志艺术总监和前端开发专家，曾为Vogue、Elle等时尚杂志设计过数字版面，擅长将奢华杂志美学与现代网页设计完美融合，创造出令人惊艳的视觉体验。<br><br>请设计高级时尚杂志风格的手机app旅行攻略，将旅行信息以精致奢华的杂志编排呈现，让用户感受到如同翻阅高端杂志般的视觉享受。<br><br><span class="hljs-strong">**可选设计风格：**</span><br><br>构成主义风格 (Constructivism)<br>采用构成主义风格设计，体现20世纪早期俄国前卫艺术运动的革命性美学。必须使用大胆的几何形状和对角线元素创造动态张力，强调结构与构成。色彩应限制在红、黑两色为主，可辅以少量白色或灰色，体现革命色彩。排版是关键元素，文字应成为设计的一部分而非简单的内容载体，可使用不同大小、粗细和方向的文字创造视觉层次，标题应大胆且具冲击力，可斜向排列或分割成多行。必须使用几何形状如三角形、圆形、直线和对角线作为主要视觉元素，这些元素应相互重叠和交织。照片或图像应使用锐利的对比度和几何化处理，可使用照片蒙太奇技术。整体构图应不对称且充满张力，仿佛元素间存在力的相互作用。可添加工业元素如齿轮、工厂或机械部件的抽象表现。整体设计应呈现出前卫、动态且具有政治宣传性质的视觉效果，参考亚历山大·罗德琴科(Alexander Rodchenko)和埃尔·利西茨基(El Lissitzky)的海报设计，体现&quot;艺术进入生活&quot;的设计理念。<br><br><span class="hljs-strong">**每种风格都应包含以下元素，但视觉表现各不相同：**</span><br><br><span class="hljs-bullet">1.</span> <span class="hljs-strong">**行程标题区**</span>：<br><span class="hljs-bullet">   -</span> 目的地名称（主标题，醒目位置）<br><span class="hljs-bullet">   -</span> 旅行日期和总天数<br><span class="hljs-bullet">   -</span> 旅行者姓名/团队名称（可选）<br><span class="hljs-bullet">   -</span> 天气信息摘要<br><br><span class="hljs-bullet">2.</span> <span class="hljs-strong">**行程概览区**</span>：<br><span class="hljs-bullet">   -</span> 按日期分区的行程简表<br><span class="hljs-bullet">   -</span> 每天主要活动/景点的概览<br><span class="hljs-bullet">   -</span> 使用图标标识不同类型的活动<br><br><span class="hljs-bullet">3.</span> <span class="hljs-strong">**详细时间表区**</span>：<br><span class="hljs-bullet">   -</span> 以表格或时间轴形式呈现详细行程<br><span class="hljs-bullet">   -</span> 包含时间、地点、活动描述<br><span class="hljs-bullet">   -</span> 每个景点的停留时间<br><span class="hljs-bullet">   -</span> 标注门票价格和必要预订信息<br><br><span class="hljs-bullet">4.</span> <span class="hljs-strong">**交通信息区**</span>：<br><span class="hljs-bullet">   -</span> 主要交通换乘点及方式<br><span class="hljs-bullet">   -</span> 地铁/公交线路和站点信息<br><span class="hljs-bullet">   -</span> 预计交通时间<br><span class="hljs-bullet">   -</span> 使用箭头或连线表示行程路线<br><br><span class="hljs-bullet">5.</span> <span class="hljs-strong">**住宿与餐饮区**</span>：<br><span class="hljs-bullet">   -</span> 酒店/住宿地址和联系方式<br><span class="hljs-bullet">   -</span> 入住和退房时间<br><span class="hljs-bullet">   -</span> 推荐餐厅列表（标注特色菜和价格区间）<br><span class="hljs-bullet">   -</span> 附近便利设施（如超市、药店等）<br><br><span class="hljs-bullet">6.</span> <span class="hljs-strong">**实用信息区**</span>：<br><span class="hljs-bullet">   -</span> 紧急联系电话<br><span class="hljs-bullet">   -</span> 重要提示和注意事项<br><span class="hljs-bullet">   -</span> 预算摘要<br><span class="hljs-bullet">   -</span> 行李清单提醒<br><br><span class="hljs-section"># 示例内容（基于上海一日游）</span><br><br><span class="hljs-strong">**目的地**</span>：上海一日游<br><span class="hljs-strong">**日期**</span>：2025年3月30日（星期日）<br><span class="hljs-strong">**天气**</span>：阴，13°C/7°C，东风1-3级<br><br><span class="hljs-strong">**时间表**</span>：<br>| 时间 | 活动 | 地点 | 备注 |<br>|------|------|------|------|<br>| 09:00-11:00 | 游览豫园 | 福佑路168号 | 门票：40元 |<br>| 11:00-12:30 | 城隍庙午餐 | 城隍庙商圈 | 推荐：南翔小笼包 |<br>| 13:30-15:00 | 参观东方明珠 | 世纪大道1号 | 门票：80元起 |<br>| 15:30-17:30 | 漫步陆家嘴 | 陆家嘴金融区 | 免费活动 |<br>| 18:30-21:00 | 黄浦江夜游 | 码头位置 | 夜游票：120元 |<br><br><span class="hljs-strong">**交通路线**</span>：<br><span class="hljs-bullet">-</span> 豫园→东方明珠：地铁14号线（豫园站→陆家嘴站），约25分钟<br><span class="hljs-bullet">-</span> 东方明珠→黄浦江夜游码头：步行15分钟<br><br><span class="hljs-strong">**实用提示**</span>：<br><span class="hljs-bullet">-</span> 携带雨伞，天气多变<br><span class="hljs-bullet">-</span> 避开东方明珠午间高峰<br><span class="hljs-bullet">-</span> 准备移动支付<br><span class="hljs-bullet">-</span> 注意保管随身物品<br><br><span class="hljs-strong">**重要电话**</span>：<br><span class="hljs-bullet">-</span> 旅游咨询：021-12301<br><span class="hljs-bullet">-</span> 紧急求助：110/120<br><br><span class="hljs-strong">**小红书攻略推荐**</span><br><span class="hljs-bullet">-</span> 搜索和旅行规划主题相关的观看人数最多的5篇小红书文章，并列举出来<br><br>请创建一个美观且易于在手机上浏览的旅行规划长图，帮助用户清晰了解整个行程安排。长图设计应确保在手机上阅读舒适，信息层次分明。<br><br><span class="hljs-section"># 技术规范：</span><br><br><span class="hljs-bullet">*</span> 使用HTML5、Font Awesome、Tailwind CSS和必要的JavaScript<br><span class="hljs-bullet">  *</span> Font Awesome: [<span class="hljs-string">https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/font-awesome/6.0.0/css/all.min.css</span>](<span class="hljs-link">https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/font-awesome/6.0.0/css/all.min.css</span>)<br><span class="hljs-bullet">  *</span> Tailwind CSS: [<span class="hljs-string">https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/tailwindcss/2.2.19/tailwind.min.css</span>](<span class="hljs-link">https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/tailwindcss/2.2.19/tailwind.min.css</span>)<br><span class="hljs-bullet">  *</span> 中文字体: [<span class="hljs-string">https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap</span>](<span class="hljs-link">https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap</span>)<br><span class="hljs-bullet">*</span> 确保代码简洁高效，注重性能和可维护性<br><span class="hljs-bullet">*</span> 使用CSS变量管理颜色和间距，便于风格统一<br><br><span class="hljs-section"># 输出要求：</span><br><br><span class="hljs-bullet">*</span> 提供一个完整的HTML文件，包含所有设计风格的卡片<br><span class="hljs-bullet">*</span> 代码应当优雅且符合最佳实践，CSS应体现出对细节的极致追求<br><span class="hljs-bullet">*</span> 网页应使用响应式布局，在web端和移动端都有良好的视觉效果<br><span class="hljs-bullet">*</span> 行程的规划需要根据用户提供的时间的对应的天气信息进行规划，比如下雨天就尽量安排室内活动<br><span class="hljs-bullet">*</span> 每一个地点需要利用高德地图的MCP生成地点链接，点击后可以直接跳转到高德地图导航<br><span class="hljs-bullet">*</span> 每一天的时间行程需要增加一个高德地图的在线预览，将当前天的所有行程地图连接起来，方便查看今日行程，利用高德地图的js api，直接在网页上显示，不需要跳转<br><span class="hljs-bullet">*</span> 小红书的文章要给出具体帖子的链接，不需要搜索的链接<br><span class="hljs-bullet">*</span> 设计的宽度根据手机宽度自适应<br><span class="hljs-bullet">*</span> 永远用中文输出<br><span class="hljs-bullet">*</span> 注意文字的可阅读性，保持文字背景干净和字体颜色不一致<br><span class="hljs-bullet">*</span> 保证信息的完整性<br><br>请以国际顶尖杂志艺术总监的眼光和审美标准，创造风格迥异但同样令人惊艳的手机app旅行攻略，让用户感受到&quot;这不是普通的信息卡片，而是一件可收藏的数字艺术品&quot;。<br></code></pre></td></tr></table></figure>
-<h3 id="生成页面"><a href="#生成页面" class="headerlink" title="生成页面"></a>生成页面</h3><p>在编辑器中输入类似内容，让AI生成页面<br><img src="/img/blog/mcp.png" srcset="/img/loading.gif" lazyload alt="提示词示例"><br>然后就能见证奇迹的发生<br><img src="/img/blog/qiji.jpeg" srcset="/img/loading.gif" lazyload alt="Magic！！"></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 风格说明</span></span><br><span class="line"></span><br><span class="line">你是一位国际顶尖的数字杂志艺术总监和前端开发专家，曾为Vogue、Elle等时尚杂志设计过数字版面，擅长将奢华杂志美学与现代网页设计完美融合，创造出令人惊艳的视觉体验。</span><br><span class="line"></span><br><span class="line">请设计高级时尚杂志风格的手机app旅行攻略，将旅行信息以精致奢华的杂志编排呈现，让用户感受到如同翻阅高端杂志般的视觉享受。</span><br><span class="line"></span><br><span class="line"><span class="strong">**可选设计风格：**</span></span><br><span class="line"></span><br><span class="line">构成主义风格 (Constructivism)</span><br><span class="line">采用构成主义风格设计，体现20世纪早期俄国前卫艺术运动的革命性美学。必须使用大胆的几何形状和对角线元素创造动态张力，强调结构与构成。色彩应限制在红、黑两色为主，可辅以少量白色或灰色，体现革命色彩。排版是关键元素，文字应成为设计的一部分而非简单的内容载体，可使用不同大小、粗细和方向的文字创造视觉层次，标题应大胆且具冲击力，可斜向排列或分割成多行。必须使用几何形状如三角形、圆形、直线和对角线作为主要视觉元素，这些元素应相互重叠和交织。照片或图像应使用锐利的对比度和几何化处理，可使用照片蒙太奇技术。整体构图应不对称且充满张力，仿佛元素间存在力的相互作用。可添加工业元素如齿轮、工厂或机械部件的抽象表现。整体设计应呈现出前卫、动态且具有政治宣传性质的视觉效果，参考亚历山大·罗德琴科(Alexander Rodchenko)和埃尔·利西茨基(El Lissitzky)的海报设计，体现&quot;艺术进入生活&quot;的设计理念。</span><br><span class="line"></span><br><span class="line"><span class="strong">**每种风格都应包含以下元素，但视觉表现各不相同：**</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> <span class="strong">**行程标题区**</span>：</span><br><span class="line"><span class="bullet">   -</span> 目的地名称（主标题，醒目位置）</span><br><span class="line"><span class="bullet">   -</span> 旅行日期和总天数</span><br><span class="line"><span class="bullet">   -</span> 旅行者姓名/团队名称（可选）</span><br><span class="line"><span class="bullet">   -</span> 天气信息摘要</span><br><span class="line"></span><br><span class="line"><span class="bullet">2.</span> <span class="strong">**行程概览区**</span>：</span><br><span class="line"><span class="bullet">   -</span> 按日期分区的行程简表</span><br><span class="line"><span class="bullet">   -</span> 每天主要活动/景点的概览</span><br><span class="line"><span class="bullet">   -</span> 使用图标标识不同类型的活动</span><br><span class="line"></span><br><span class="line"><span class="bullet">3.</span> <span class="strong">**详细时间表区**</span>：</span><br><span class="line"><span class="bullet">   -</span> 以表格或时间轴形式呈现详细行程</span><br><span class="line"><span class="bullet">   -</span> 包含时间、地点、活动描述</span><br><span class="line"><span class="bullet">   -</span> 每个景点的停留时间</span><br><span class="line"><span class="bullet">   -</span> 标注门票价格和必要预订信息</span><br><span class="line"></span><br><span class="line"><span class="bullet">4.</span> <span class="strong">**交通信息区**</span>：</span><br><span class="line"><span class="bullet">   -</span> 主要交通换乘点及方式</span><br><span class="line"><span class="bullet">   -</span> 地铁/公交线路和站点信息</span><br><span class="line"><span class="bullet">   -</span> 预计交通时间</span><br><span class="line"><span class="bullet">   -</span> 使用箭头或连线表示行程路线</span><br><span class="line"></span><br><span class="line"><span class="bullet">5.</span> <span class="strong">**住宿与餐饮区**</span>：</span><br><span class="line"><span class="bullet">   -</span> 酒店/住宿地址和联系方式</span><br><span class="line"><span class="bullet">   -</span> 入住和退房时间</span><br><span class="line"><span class="bullet">   -</span> 推荐餐厅列表（标注特色菜和价格区间）</span><br><span class="line"><span class="bullet">   -</span> 附近便利设施（如超市、药店等）</span><br><span class="line"></span><br><span class="line"><span class="bullet">6.</span> <span class="strong">**实用信息区**</span>：</span><br><span class="line"><span class="bullet">   -</span> 紧急联系电话</span><br><span class="line"><span class="bullet">   -</span> 重要提示和注意事项</span><br><span class="line"><span class="bullet">   -</span> 预算摘要</span><br><span class="line"><span class="bullet">   -</span> 行李清单提醒</span><br><span class="line"></span><br><span class="line"><span class="section"># 示例内容（基于上海一日游）</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**目的地**</span>：上海一日游</span><br><span class="line"><span class="strong">**日期**</span>：2025年3月30日（星期日）</span><br><span class="line"><span class="strong">**天气**</span>：阴，13°C/7°C，东风1-3级</span><br><span class="line"></span><br><span class="line"><span class="strong">**时间表**</span>：</span><br><span class="line">| 时间 | 活动 | 地点 | 备注 |</span><br><span class="line">|------|------|------|------|</span><br><span class="line">| 09:00-11:00 | 游览豫园 | 福佑路168号 | 门票：40元 |</span><br><span class="line">| 11:00-12:30 | 城隍庙午餐 | 城隍庙商圈 | 推荐：南翔小笼包 |</span><br><span class="line">| 13:30-15:00 | 参观东方明珠 | 世纪大道1号 | 门票：80元起 |</span><br><span class="line">| 15:30-17:30 | 漫步陆家嘴 | 陆家嘴金融区 | 免费活动 |</span><br><span class="line">| 18:30-21:00 | 黄浦江夜游 | 码头位置 | 夜游票：120元 |</span><br><span class="line"></span><br><span class="line"><span class="strong">**交通路线**</span>：</span><br><span class="line"><span class="bullet">-</span> 豫园→东方明珠：地铁14号线（豫园站→陆家嘴站），约25分钟</span><br><span class="line"><span class="bullet">-</span> 东方明珠→黄浦江夜游码头：步行15分钟</span><br><span class="line"></span><br><span class="line"><span class="strong">**实用提示**</span>：</span><br><span class="line"><span class="bullet">-</span> 携带雨伞，天气多变</span><br><span class="line"><span class="bullet">-</span> 避开东方明珠午间高峰</span><br><span class="line"><span class="bullet">-</span> 准备移动支付</span><br><span class="line"><span class="bullet">-</span> 注意保管随身物品</span><br><span class="line"></span><br><span class="line"><span class="strong">**重要电话**</span>：</span><br><span class="line"><span class="bullet">-</span> 旅游咨询：021-12301</span><br><span class="line"><span class="bullet">-</span> 紧急求助：110/120</span><br><span class="line"></span><br><span class="line"><span class="strong">**小红书攻略推荐**</span></span><br><span class="line"><span class="bullet">-</span> 搜索和旅行规划主题相关的观看人数最多的5篇小红书文章，并列举出来</span><br><span class="line"></span><br><span class="line">请创建一个美观且易于在手机上浏览的旅行规划长图，帮助用户清晰了解整个行程安排。长图设计应确保在手机上阅读舒适，信息层次分明。</span><br><span class="line"></span><br><span class="line"><span class="section"># 技术规范：</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> 使用HTML5、Font Awesome、Tailwind CSS和必要的JavaScript</span><br><span class="line"><span class="bullet">  *</span> Font Awesome: [<span class="string">https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/font-awesome/6.0.0/css/all.min.css</span>](<span class="link">https://lf6-cdn-tos.bytecdntp.com/cdn/expire-100-M/font-awesome/6.0.0/css/all.min.css</span>)</span><br><span class="line"><span class="bullet">  *</span> Tailwind CSS: [<span class="string">https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/tailwindcss/2.2.19/tailwind.min.css</span>](<span class="link">https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/tailwindcss/2.2.19/tailwind.min.css</span>)</span><br><span class="line"><span class="bullet">  *</span> 中文字体: [<span class="string">https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap</span>](<span class="link">https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap</span>)</span><br><span class="line"><span class="bullet">*</span> 确保代码简洁高效，注重性能和可维护性</span><br><span class="line"><span class="bullet">*</span> 使用CSS变量管理颜色和间距，便于风格统一</span><br><span class="line"></span><br><span class="line"><span class="section"># 输出要求：</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">*</span> 提供一个完整的HTML文件，包含所有设计风格的卡片</span><br><span class="line"><span class="bullet">*</span> 代码应当优雅且符合最佳实践，CSS应体现出对细节的极致追求</span><br><span class="line"><span class="bullet">*</span> 网页应使用响应式布局，在web端和移动端都有良好的视觉效果</span><br><span class="line"><span class="bullet">*</span> 行程的规划需要根据用户提供的时间的对应的天气信息进行规划，比如下雨天就尽量安排室内活动</span><br><span class="line"><span class="bullet">*</span> 每一个地点需要利用高德地图的MCP生成地点链接，点击后可以直接跳转到高德地图导航</span><br><span class="line"><span class="bullet">*</span> 每一天的时间行程需要增加一个高德地图的在线预览，将当前天的所有行程地图连接起来，方便查看今日行程，利用高德地图的js api，直接在网页上显示，不需要跳转</span><br><span class="line"><span class="bullet">*</span> 小红书的文章要给出具体帖子的链接，不需要搜索的链接</span><br><span class="line"><span class="bullet">*</span> 设计的宽度根据手机宽度自适应</span><br><span class="line"><span class="bullet">*</span> 永远用中文输出</span><br><span class="line"><span class="bullet">*</span> 注意文字的可阅读性，保持文字背景干净和字体颜色不一致</span><br><span class="line"><span class="bullet">*</span> 保证信息的完整性</span><br><span class="line"></span><br><span class="line">请以国际顶尖杂志艺术总监的眼光和审美标准，创造风格迥异但同样令人惊艳的手机app旅行攻略，让用户感受到&quot;这不是普通的信息卡片，而是一件可收藏的数字艺术品&quot;。</span><br></pre></td></tr></table></figure>
+<h3 id="生成页面"><a href="#生成页面" class="headerlink" title="生成页面"></a>生成页面</h3><p>在编辑器中输入类似内容，让AI生成页面<br><img src="/img/blog/mcp.png" alt="提示词示例"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br>然后就能见证奇迹的发生<br><img src="/img/blog/qiji.jpeg" alt="Magic！！"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <h3 id="美化页面"><a href="#美化页面" class="headerlink" title="美化页面"></a>美化页面</h3><ol>
 <li>再次感谢大佬整理的风格提示词：<a target="_blank" rel="noopener" href="https://o90p05z3t4.feishu.cn/wiki/LBSDwq4z1iTUWqkEjoNcFGHvnsc">旅行规划设计主题提示词</a>，可以选择喜欢的风格，然后粘贴到提示词文档里面的<strong>可选设计风格</strong>部分</li>
 <li>高德地图的js api，在页面生成后，如果发现在线地图预览有问题，则需要修改地图的js引入<blockquote>
@@ -407,442 +460,205 @@
 </blockquote>
 </li>
 </ol>
-<p>就用你刚开始高德控制后台新建的<strong>Web端</strong>的key，取key和安全密钥分别填到一下代码中，然后再继续地图的相关初始化代码<br><img src="/img/blog/amap.png" srcset="/img/loading.gif" lazyload alt="高德地图JS API初始化"></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">  <span class="hljs-variable language_">window</span>.<span class="hljs-property">_AMapSecurityConfig</span> = &#123;</span><br><span class="language-javascript">    <span class="hljs-attr">securityJsCode</span>: <span class="hljs-string">&quot;「你申请的安全密钥」&quot;</span>,</span><br><span class="language-javascript">  &#125;;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span></span><br><span class="hljs-tag">  <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://webapi.amap.com/maps?v=2.0&amp;key=你申请的key值&quot;</span></span><br><span class="hljs-tag">&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<p>例如我生成的页面中，最下面的代码就是地图的js初始化<br><img src="/img/blog/amap2.png" srcset="/img/loading.gif" lazyload alt="高德地图JS API初始化"></p>
+<p>就用你刚开始高德控制后台新建的<strong>Web端</strong>的key，取key和安全密钥分别填到一下代码中，然后再继续地图的相关初始化代码<br><img src="/img/blog/amap.png" alt="高德地图JS API初始化"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">window</span>.<span class="property">_AMapSecurityConfig</span> = &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="attr">securityJsCode</span>: <span class="string">&quot;「你申请的安全密钥」&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">  &#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span></span></span><br><span class="line"><span class="tag">  <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">src</span>=<span class="string">&quot;https://webapi.amap.com/maps?v=2.0&amp;key=你申请的key值&quot;</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>例如我生成的页面中，最下面的代码就是地图的js初始化<br><img src="/img/blog/amap2.png" alt="高德地图JS API初始化"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
 <h2 id="四、完成规划"><a href="#四、完成规划" class="headerlink" title="四、完成规划"></a>四、完成规划</h2><p>最后再根据生成好的页面，进行相应的行程调整和规划，然后将生成好的html文件，丢到任意可以在线预览网页的服务器即可，恭喜你完成了你的旅行规划！！</p>
 
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
+</article>
     
-      <span class="category-chain">
+    <div class="trm-reward">
         
-  <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%89%8D%E7%AB%AF/AI/" class="category-chain-item">AI</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" class="print-no-link">#前端开发</a>
-      
-        <a href="/tags/HTML/" class="print-no-link">#HTML</a>
-      
-        <a href="/tags/CSS/" class="print-no-link">#CSS</a>
-      
-        <a href="/tags/Javascript/" class="print-no-link">#Javascript</a>
-      
-        <a href="/tags/AI/" class="print-no-link">#AI</a>
-      
-        <a href="/tags/MCP/" class="print-no-link">#MCP</a>
-      
-    </div>
-  
-</div>
-
-
-              
-  
-
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div>利用高德地图和小红书MCP生成旅行规划图</div>
-      <div>https://www.mrfangge.com/2025/04/30/fed14/</div>
-    </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>作者</div>
-          <div>Mrfangge</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>发布于</div>
-          <div>2025年4月30日</div>
-        </div>
-      
-      
-      
-        <div class="license-meta-item">
-          <div>许可协议</div>
-          <div>
+            <span class="trm-reward-btn trm-glow" onclick='var qr = document.getElementById("qr"); qr.style.display = (qr.style.display === "none") ? "block" : "none";'>
+                <i class="iconfont fas fa-hand-holding-usd"></i>
+            </span>
+        
+        <p class="trm-reward-comment">支持我，让我有更多动力写出更好的文章</p>
+        <div id="qr" style="display:none;">
             
-              
-              
-                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                    <i class="iconfont icon-cc-by"></i>
-                  </span>
-                </a>
-              
-            
-          </div>
-        </div>
-      
-    </div>
-    <div class="license-icon iconfont"></div>
-  </div>
-
-
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2024/07/11/fed13/" title="分享一个可爱的loading小仓鼠">
-                        <span class="hidden-mobile">分享一个可爱的loading小仓鼠</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
+                <div style="display:inline-block">
+                    <a rel="noopener noreferrer" href='/img/pay.jpg' target='_blank' >
+                       <img src="/img/pay.jpg" alt="支付宝" loading="lazy">
+                    </a>
+                    <p>支付宝</p>
                 </div>
-              
+            
+        </div>
+    </div>
+
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/2024/07/11/fed13/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/blog/petloading.png">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E5%89%8D%E7%AB%AF/">
+                    前端
+                </a>
             </div>
+            <h5>
+                <a href="/2024/07/11/fed13/" class="trm-anima-link">
+                    分享一个可爱的loading小仓鼠
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>24/07/11</li>
+                <li>18:29</li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-footer-card trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v7.3.0
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.2.6
+            </span>
+        </div>
+      
+
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
 
             
-  
-  
-    <article id="comments" lazyload>
-      
-  <div id="gitalk-container"></div>
-  <script type="text/javascript">
-    Fluid.utils.loadComments('#gitalk-container', function() {
-      Fluid.utils.createCssLink('/css/gitalk.css')
-      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js', function() {
-        var options = Object.assign(
-          {"clientID":"ca096b4f24f20ec89959","clientSecret":"c0a4526825a218a7980c1c2e19792b053ba2f858","repo":"gpcomment","owner":"fangge","admin":["fangge"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
-          {
-            id: '1200d045701d86398387be7d1e5a8a88'
-          }
-        )
-        var gitalk = new Gitalk(options);
-        gitalk.render('gitalk-container');
-      });
-    });
-  </script>
-  <noscript>Please enable JavaScript to view the comments</noscript>
 
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        目录导航
+				<span id="post-toc-top">
+					置顶
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-2" title="一、前期准备"><a rel="nofollow" class="trm-toc-link" href="#一、前期准备"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">一、前期准备</span></a></li><li class="trm-toc-item trm-toc-level-2" title="二、安装MCP"><a rel="nofollow" class="trm-toc-link" href="#二、安装MCP"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">二、安装MCP</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="安装高德地图MCP"><a rel="nofollow" class="trm-toc-link" href="#安装高德地图MCP"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">安装高德地图MCP</span></a></li><li class="trm-toc-item trm-toc-level-3" title="安装小红书MCP"><a rel="nofollow" class="trm-toc-link" href="#安装小红书MCP"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">安装小红书MCP</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="检测MCP是否安装成功"><a rel="nofollow" class="trm-toc-link" href="#检测MCP是否安装成功"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">检测MCP是否安装成功</span></a></li><li class="trm-toc-item trm-toc-level-2" title="三、生成规划旅行网页"><a rel="nofollow" class="trm-toc-link" href="#三、生成规划旅行网页"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">三、生成规划旅行网页</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="新建提示词文档"><a rel="nofollow" class="trm-toc-link" href="#新建提示词文档"><span class="trm-toc-number">4.1.</span> <span class="trm-toc-text">新建提示词文档</span></a></li><li class="trm-toc-item trm-toc-level-3" title="生成页面"><a rel="nofollow" class="trm-toc-link" href="#生成页面"><span class="trm-toc-number">4.2.</span> <span class="trm-toc-text">生成页面</span></a></li><li class="trm-toc-item trm-toc-level-3" title="美化页面"><a rel="nofollow" class="trm-toc-link" href="#美化页面"><span class="trm-toc-number">4.3.</span> <span class="trm-toc-text">美化页面</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="四、完成规划"><a rel="nofollow" class="trm-toc-link" href="#四、完成规划"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">四、完成规划</span></a></li></ol>
+      </div>
+    </div>
 
-    </article>
-  
-
-
-          </article>
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="目录">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
         </div>
       </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
+      <!-- scroll container end -->
   </div>
-</div>
-
-
-
-
+  <!-- app wrapper end -->
 
   
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
+  <!-- Plugin -->
 
 
 
 
     
-
     
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 
     
 
     
-  </main>
 
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       记录生命足迹 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
-    
-      <span id="busuanzi_container_site_pv" style="display: none">
-        总访问量 
-        <span id="busuanzi_value_site_pv"></span>
-         次
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        总访客数 
-        <span id="busuanzi_value_site_uv"></span>
-         人
-      </span>
-    
     
 
-  
+    <!-- 数学公式 -->
+    
 
-</div>
+    <!-- 评论插件 -->
+    
+        
 
-  
-  
-</div>
+        
+    
 
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
+		
 
 
 
 
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/js/main.js?v=2.2.6"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
 
 
 
-
-  
-<script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
-
-
-  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script>Fluid.plugins.imageCaption();</script>
-
-  <script  src="/js/local-search.js" ></script>
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
 </body>
+
 </html>
