@@ -8,9 +8,9 @@ tags:
   - CSS
   - Javascript
 date: 2022-04-06 15:11:25
-index_img: /img/blog/tab.png
-banner_img: /img/blog/tab.png
-excerpt: 日常UI练手
+
+cover: /img/blog/tab.png
+description: 日常UI练手
 ---
 
 在网上看到了一个这样的Tab组件效果，非常喜欢，于是想着用代码把它实现出来

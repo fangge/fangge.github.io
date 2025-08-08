@@ -11,9 +11,9 @@ tags:
   - AI
   - MCP
 date: 2025-04-30 10:27:51
-index_img: /img/blog/fed14.png
-banner_img: /img/blog/fed14.png
-excerpt: 利用高德地图和小红书MCP生成旅行规划图
+
+cover: /img/blog/fed14.png
+description: 利用高德地图和小红书MCP生成旅行规划图
 ---
 ![利用高德地图和小红书MCP生成旅行规划图](/img/blog/fed14.png)
 

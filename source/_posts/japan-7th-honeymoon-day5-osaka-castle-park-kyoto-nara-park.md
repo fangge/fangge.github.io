@@ -1,8 +1,8 @@
 ---
 title: 日本7日蜜月游 – Day5：大阪城公园、京都奈良公园
-excerpt: 日本自由行系列六
-index_img: /img/japan/banner.jpg
-banner_img: /img/japan/banner.jpg
+description: 日本自由行系列六
+
+cover: /img/japan/banner.jpg
 categories:
   - 前端
 tags:

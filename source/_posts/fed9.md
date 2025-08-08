@@ -7,9 +7,9 @@ tags:
   - 面试
   - Javascript
 date: 2022-04-11 01:29:34
-index_img: /img/blog/fed9.webp
-banner_img: /img/blog/fed9.webp
-excerpt: 面试复盘总结
+
+cover: /img/blog/fed9.webp
+description: 面试复盘总结
 ---
 
 最近想走出舒适圈，所以重启了一下求职之路，其实做前端这么久，自己明白自己的基础很薄弱，可能整个职业生涯也比较佛，大部分时间都是得过且过，觉得不能再浪费生命了，还是得支棱起来，好好地努力一下，争取一下更好的生活，闲话不说，主要说一下面试遇到的一些问题，还有面试官给的一些题目

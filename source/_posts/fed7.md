@@ -8,9 +8,9 @@ tags:
   - CSS
   - Javascript
 date: 2022-03-03 00:43:40
-index_img: /img/blog/nvm.jpeg
-banner_img: /img/blog/nvm.jpeg
-excerpt: 如何在MacOS 上安装nvm包管理器
+
+cover: /img/blog/nvm.jpeg
+description: 如何在MacOS 上安装nvm包管理器
 ---
 
 首先介绍一下自己电脑和系统的情况

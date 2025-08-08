@@ -1,8 +1,8 @@
 ---
 title: 日本7日蜜月游 – Day2：代代木公园、明治神宫、秋叶原和东京塔
-excerpt: 日本自由行系列三
-index_img: /img/japan/banner.jpg
-banner_img: /img/japan/banner.jpg
+description: 日本自由行系列三
+
+cover: /img/japan/banner.jpg
 categories:
   - 前端
 tags:

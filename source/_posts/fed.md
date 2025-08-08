@@ -1,9 +1,9 @@
 ---
 title: 标签组件探索
 date: 2017/07/22  20:46:25
-excerpt: 一个简单标签插件的思考....
-index_img: /img/blog/tag.jpg
-banner_img: /img/blog/tag.jpg
+description: 一个简单标签插件的思考....
+
+cover: /img/blog/tag.jpg
 categories:
   - 前端
 tags:

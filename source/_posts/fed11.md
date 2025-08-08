@@ -8,9 +8,9 @@ tags:
   - CSS
   - Javascript
 date: 2023-04-04 14:17:10
-index_img: /img/blog/fed5.jpg
-banner_img: /img/blog/fed5.jpg
-excerpt: 利用WakaTime 数据打造自己的开发数据图表
+
+cover: /img/blog/fed5.jpg
+description: 利用WakaTime 数据打造自己的开发数据图表
 ---
 ![wakatime-dashboard-pro](/img/blog/fed11.png)
 [项目地址](https://github.com/fangge/wakatime-dashboard-pro)

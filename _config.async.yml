@@ -1,0 +1,57 @@
+site:
+  title: Mrangge
+  webmaster: Mrangge
+theme:
+  switch: true
+user:
+  name: Mrfangge
+  email: fangge-sun@163.com
+  domain: https://www.mrfangge.com
+  avatar: /img/avatar.jpeg
+  describe: 你不能把这个世界，让给你所鄙视的人
+favicon:
+  logo: /img/icon.jpg
+  icon16: /img/icon-16.ico
+  icon32: /img/icon.ico
+  apple_touch_icon: /img/logo.png
+  visibilitychange: true
+  hidden: /img/icon.jpg
+  show_text: (/≧▽≦/)嘿！欢迎回来！
+  hide_text: (●—●)喔哟，等你哦！
+sidebar:
+  social: # 社交地址
+    - name: github
+      icon: fab fa-github
+      url: https://github.com/fangge
+    - name: 小红书
+      icon: fas fa-camera-retro
+      url: https://www.xiaohongshu.com/user/profile/5837bc3a7fc5b806082907db
+  info:
+    - key: 职业
+      val: 前端开发工程师
+    - key: 兴趣爱好
+      val: 摄影
+reward:
+  enable: true
+  comment: 支持我，让我有更多动力写出更好的文章
+  methods:
+    - name: 支付宝
+      path: /img/pay.jpg
+toc:
+  enable: true
+  list_number: true
+  post_title: false
+  max_depth: 3
+  min_depth: 1
+banner:
+  use_cover: true
+  index:
+    type: img
+    bgurl: /img/bg.jpg
+    banner_title: 你不能把这个世界，<br />让给你所鄙视的人
+    banner_text: 欢迎来到我的小窝~
+web_analytics:
+  enable: true
+  baidu: e31b1a8efc9b56b8d770c960116c405c
+categorie_card:
+  enable: false

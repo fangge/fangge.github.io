@@ -1,8 +1,8 @@
 ---
 title: 日本7日蜜月游 - Day1：筑地市场、江户东京博物馆、浅草寺和天空树2016-0
-excerpt: 日本自由行系列二
-index_img: /img/japan/banner.jpg
-banner_img: /img/japan/banner.jpg
+description: 日本自由行系列二
+
+cover: /img/japan/banner.jpg
 categories:
   - 前端
 tags:

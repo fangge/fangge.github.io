@@ -8,9 +8,9 @@ tags:
   - CSS
   - Javascript
 date: 2024-07-11 18:29:40
-index_img: /img/blog/petloading.png
-banner_img: /img/blog/petloading.png
-excerpt: 分享一个可爱的loading小仓鼠
+
+cover: /img/blog/petloading.png
+description: 分享一个可爱的loading小仓鼠
 ---
 > 来源：https://uiverse.io/Nawsome/wet-mayfly-23
 

@@ -1,8 +1,8 @@
 ---
 title: 日本7日蜜月游 - Day0：出发
-excerpt: 日本自由行系列一
-index_img: /img/japan/banner.jpg
-banner_img: /img/japan/banner.jpg
+description: 日本自由行系列一
+
+cover: /img/japan/banner.jpg
 categories:
   - 前端
 tags:

@@ -1,8 +1,8 @@
 ---
 title: Hexo+Github Action构建Github Page博客
-index_img: /img/blog/fed4.jpg
-banner_img: /img/blog/fed4.jpg
-excerpt: 利用Github Action+Hexo 构建github page博客
+
+cover: /img/blog/fed4.jpg
+description: 利用Github Action+Hexo 构建github page博客
 categories:
   - 前端
 tags:

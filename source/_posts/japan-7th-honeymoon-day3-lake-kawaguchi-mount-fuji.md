@@ -1,8 +1,8 @@
 ---
 title: 日本7日蜜月游 – Day3：河口湖、富士山
-excerpt: 日本自由行系列四
-index_img: /img/japan/banner.jpg
-banner_img: /img/japan/banner.jpg
+description: 日本自由行系列四
+
+cover: /img/japan/banner.jpg
 categories:
   - 前端
 tags:

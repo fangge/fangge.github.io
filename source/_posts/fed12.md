@@ -10,9 +10,9 @@ tags:
   - canvas
   - input
 date: 2024-03-05 23:25:50
-index_img: /img/blog/fed11.jpg
-banner_img: /img/blog/fed11.jpg
-excerpt: 纯前端压缩方案的探讨
+cover: /img/blog/fed11.jpg
+
+description: 纯前端压缩方案的探讨
 ---
 
 > 文章灵感：感谢张鑫旭大大的[【做了个纯前端 JPG/PNG 尺寸缩放+压缩的在线工具】](https://www.zhangxinxu.com/wordpress/2023/09/js-jpg-png-compress-tinyimg-mini/)

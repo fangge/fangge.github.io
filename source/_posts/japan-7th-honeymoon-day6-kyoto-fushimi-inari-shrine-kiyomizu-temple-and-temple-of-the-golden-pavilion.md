@@ -1,8 +1,8 @@
 ---
 title: 日本7日蜜月游 – Day6：京都伏见稻荷大社、清水寺和金阁寺
-excerpt: 日本自由行系列七
-index_img: /img/japan/banner.jpg
-banner_img: /img/japan/banner.jpg
+description: 日本自由行系列七
+
+cover: /img/japan/banner.jpg
 categories:
   - 前端
 tags:

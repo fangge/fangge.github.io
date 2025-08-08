@@ -1,9 +1,9 @@
 ---
 title: {{ title }}
 date: {{ date }}
-index_img: 
-banner_img: 
-excerpt: 
+banner: 
+cover: 
+description: 
 categories:
   - 前端
 tags:

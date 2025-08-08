@@ -1,7 +1,7 @@
 ---
 title: 自由行记录
 date: 2021-06-14 15:46:49
-banner_img: /img/bg.jpg
+cover: /img/bg.jpg
 banner_img_height: 60
 banner_mask_alpha: 0.5
 ---

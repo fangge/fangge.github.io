@@ -6,9 +6,9 @@ tags:
   - 前端开发
   - Javascript
 date: 2022-04-22 15:58:33
-index_img: /img/blog/git.jpg
-banner_img: /img/blog/git.jpg
-excerpt: window环境设置git快捷命令，且修改Vscode的默认终端
+
+cover: /img/blog/git.jpg
+description: window环境设置git快捷命令，且修改Vscode的默认终端
 ---
 
 笔者最近想着设置一下git的快捷命令，之前在mac环境就直接设置``.gitconfig``文件即可，然后来到windows发现找到同样的文件后设置没有反应，后来搜了相关教程，踩了一些坑，终于找到对的方法了，和大家分享一下

@@ -2,9 +2,10 @@
 title: 微信jssdk使用流程
 date: 2017/04/21 09:46:25
 updated: 2021/06/13 01:01:00
-excerpt: 本篇适合从没有接触过微信jssdk的同学
-index_img: /img/blog/banner.jpg
-banner_img: /img/blog/banner.jpg
+description: 本篇适合从没有接触过微信jssdk的同学
+
+cover: /img/blog/banner.jpg
+
 categories:
   - 前端
 tags:

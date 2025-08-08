@@ -2,9 +2,9 @@
 title: 广工校徽CSS3版
 date: 2014/01/1  20:46:25
 updated: 2021/06/13 01:01:00
-excerpt: 尝试用CSS3的新属性去实现母校校徽
-index_img: /img/blog/6597334748958934052.jpg
-banner_img: /img/blog/6597334748958934052.jpg
+description: 尝试用CSS3的新属性去实现母校校徽
+
+cover: /img/blog/6597334748958934052.jpg
 categories:
   - 前端
 tags:
