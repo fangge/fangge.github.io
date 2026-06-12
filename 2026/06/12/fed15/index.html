@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="时隔了这么久，终于再次踏上了投简历面试的旅程了，总体来说这一次的面试自我评价比较差，一来是面试企业是外企，自己的英文水平现在真的是渣渣，要多练口语才行，二来还是对一些前端的基础知识掌握的非常不牢固，这次把面试官咨询的题目都总结一下，给自己一个温故知新的备忘  简单介绍一下React常用的hook useState: 管理组件的内部状态，实现视图的更新+视图的重渲染 useEffect: 处理副作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试备忘">
+<meta property="og:url" content="https://www.mrfangge.com/2026/06/12/fed15/index.html">
+<meta property="og:site_name" content="MrFangge">
+<meta property="og:description" content="时隔了这么久，终于再次踏上了投简历面试的旅程了，总体来说这一次的面试自我评价比较差，一来是面试企业是外企，自己的英文水平现在真的是渣渣，要多练口语才行，二来还是对一些前端的基础知识掌握的非常不牢固，这次把面试官咨询的题目都总结一下，给自己一个温故知新的备忘  简单介绍一下React常用的hook useState: 管理组件的内部状态，实现视图的更新+视图的重渲染 useEffect: 处理副作">
+<meta property="og:locale">
+<meta property="og:image" content="https://www.mrfangge.com/img/404.jpg">
+<meta property="article:published_time" content="2026-06-12T03:46:00.000Z">
+<meta property="article:modified_time" content="2026-06-12T08:30:48.011Z">
+<meta property="article:author" content="Mrfangge">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="Javascript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.mrfangge.com/img/404.jpg">
+
+
+<title >面试备忘</title>
+
+<!-- Favicon -->
+
+    <link href='/img/icon-16.ico?v=2.2.7' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/icon.ico?v=2.2.7' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+    <link href='/img/logo.png?v=2.2.7' rel='apple-touch-icon' sizes='180x180' ></link>
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"www.mrfangge.com","author":"Mrfangge","root":"/","typed_text":["海贼王多年骨粉，热爱摄影，希望用代码改变世界的小码农"],"theme_version":"2.2.7","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/icon.jpg","icon16":"/img/icon-16.ico","icon32":"/img/icon.ico","apple_touch_icon":"/img/logo.png","webmanifest":null,"visibilitychange":true,"hidden":"/img/icon.jpg","show_text":"(/≧▽≦/)嘿！欢迎回来！","hide_text":"(●—●)喔哟，等你哦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"05/09/2014 17:00:00","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":false,"el":".trm-banner"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2026-06-12 16:30:48"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.2.7" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+
+
+    
+        <!-- Baidu Analytics -->
+        <script defer>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?e31b1a8efc9b56b8d770c960116c405c";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+     
+
+    
+
+    
+ 
+<!-- hexo injector head_end start --><meta name="baidu-site-verification" content="codeva-rq5C4DU2TB" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/icon.jpg">
+    
+    
+        <div class="trm-logo-text">
+            Mr<span>Fangge</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/travel" target="">
+                    自由行
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/banner.png">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            面试备忘
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2026
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/avatar.jpeg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Mrfangge
+    </h5>
+    
+        <div class="trm-label">
+            我是一个
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com/fangge" title="github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+        <a href="https://www.xiaohongshu.com/user/profile/5837bc3a7fc5b806082907db" title="小红书" rel="nofollow" target="_blank">
+            <i class="iconfont fas fa-camera-retro"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                码龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                10年
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                职业:
+            </div>
+            <div class="trm-label trm-label-light">
+                前端开发工程师
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                兴趣爱好:
+            </div>
+            <div class="trm-label trm-label-light">
+                摄影
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:fangge-sun@163.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            06/12
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            11:46
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Mrfangge
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <blockquote>
+<p>时隔了这么久，终于再次踏上了投简历面试的旅程了，总体来说这一次的面试自我评价比较差，一来是面试企业是外企，自己的英文水平现在真的是渣渣，要多练口语才行，二来还是对一些前端的基础知识掌握的非常不牢固，这次把面试官咨询的题目都总结一下，给自己一个温故知新的备忘</p>
+</blockquote>
+<h2 id="简单介绍一下React常用的hook"><a href="#简单介绍一下React常用的hook" class="headerlink" title="简单介绍一下React常用的hook"></a>简单介绍一下React常用的hook</h2><ul>
+<li><strong>useState</strong>: 管理组件的内部状态，实现视图的更新+视图的重渲染</li>
+<li><strong>useEffect</strong>: 处理副作用（请求接口、定时器、DOM操作、订阅等）<ul>
+<li>空依赖：每次渲染都执行</li>
+<li>空数组依赖：仅挂载和卸载执行</li>
+<li>依赖项：依赖变化的时候执行</li>
+</ul>
+</li>
+<li><strong>useContext</strong>: 跨层级共享数据</li>
+<li><strong>useRef</strong>: <ul>
+<li>获取DOM的实例</li>
+<li>存储不变，更新不触发重渲染的变量</li>
+</ul>
+</li>
+<li><strong>useMemo</strong>：缓存计算的结果，避免昂贵的重复计算</li>
+<li><strong>useCallback</strong>: 缓存函数，防止子组件不必要的渲染</li>
+</ul>
+<h2 id="React-hook能否在循环或者if中使用"><a href="#React-hook能否在循环或者if中使用" class="headerlink" title="React hook能否在循环或者if中使用"></a>React hook能否在循环或者if中使用</h2><p>不可以，React Hook 严格禁止在 if、for、while、循环、条件判断、嵌套函数 中调用。<br>React 靠调用顺序识别每一个 Hook，条件 &#x2F; 循环会改变执行顺序，导致状态错乱、Bug 难以排查。<br>Hook 必须保证：每次组件渲染，Hook 执行顺序、数量完全一致。</p>
+<h2 id="React-开发中，有哪些常用的优化方式"><a href="#React-开发中，有哪些常用的优化方式" class="headerlink" title="React 开发中，有哪些常用的优化方式"></a>React 开发中，有哪些常用的优化方式</h2><ol>
+<li><p><strong>React.memo 组件 memo 化</strong><br>作用：包裹函数组件，对 props 做浅比较，如果 props 未变化则跳过组件重渲染，等价于类组件的 PureComponent。<br>适用场景：纯展示组件、频繁被父组件渲染的子组件、长列表的列表项。<br>注意：仅浅比较引用类型，若 props 传入新的对象 &#x2F; 函数，memo 会失效，需配合 useCallback &#x2F; useMemo 使用。</p>
+</li>
+<li><p><strong>useCallback 缓存函数引用</strong><br>作用：缓存函数的引用地址，避免每次渲染生成新函数，导致子组件 memo 失效。<br>适用场景：传递给子组件的回调函数、作为 useEffect 依赖的函数。<br>误区：不是所有函数都需要包裹，它本身有内存开销，只在配合 memo &#x2F; 依赖项时才有实际收益。</p>
+</li>
+<li><p><strong>useRef 存储非渲染数据</strong><br>作用：存储不需要触发视图更新的变量（如定时器 ID、DOM 引用、上一次的状态值、缓存数据）。<br>优势：修改 .current 不会触发组件重渲染，相比 useState 更适合存放与渲染无关的中间值。</p>
+</li>
+</ol>
+<h3 id="列表与大数据渲染优化-重点"><a href="#列表与大数据渲染优化-重点" class="headerlink" title="列表与大数据渲染优化(重点)"></a>列表与大数据渲染优化(重点)</h3><p>长列表是前端最常见的性能瓶颈场景，核心优化思路是「只渲染可视区域」。</p>
+<ol>
+<li><strong>正确使用 key 属性</strong><br>必须使用唯一稳定的 id 作为 key，禁止使用数组 index（尤其是列表会增删、排序时）。<br>错误的 key 会导致 DOM 节点错误复用、状态错乱、增加 DOM 操作开销。</li>
+<li><strong>虚拟滚动（长列表核心方案）</strong><br>原理：只渲染视口内的列表项，非可视区域仅保留占位，大幅减少 DOM 节点数量。<br>常用库：react-window（轻量）、react-virtualized（功能全面）。<br>适用场景：数百条以上的长列表、表格、无限滚动。</li>
+<li><strong>列表项 memo 化</strong><br>列表容器渲染时，默认所有子项都会重渲染。用 React.memo 包裹列表项组件，仅当单条 item 数据变化时才更新对应项。</li>
+</ol>
+<h2 id="介绍一下typescript中的泛型"><a href="#介绍一下typescript中的泛型" class="headerlink" title="介绍一下typescript中的泛型"></a>介绍一下typescript中的泛型</h2><p>一句话总结：泛型 &#x3D; 类型占位符，让代码复用、类型安全，不用写多份重复代码，又不像 any 丢失类型校验</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &lt;T&gt; 声明泛型 T</span></span><br><span class="line"><span class="keyword">function</span> fn&lt;T&gt;(<span class="attr">arg</span>: T): T &#123;</span><br><span class="line">  <span class="keyword">return</span> arg;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用时自动推导类型</span></span><br><span class="line"><span class="title function_">fn</span>(<span class="number">10</span>)       <span class="comment">// T = number</span></span><br><span class="line"><span class="title function_">fn</span>(<span class="string">&quot;hello&quot;</span>)  <span class="comment">// T = string</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>格式：<T> 声明泛型，T 是类型占位符</li>
+<li>核心：类型复用 + 类型安全，替代 any</li>
+<li>约束：extends 限制泛型范围</li>
+<li>场景：函数、接口、类、React 组件 &#x2F; 状态</li>
+<li>重点掌握：Partial&#x2F;Pick&#x2F;Omit&#x2F;Record 四大内置工具泛型</li>
+</ol>
+<h3 id="TS-内置很多常用泛型工具，日常开发大量使用："><a href="#TS-内置很多常用泛型工具，日常开发大量使用：" class="headerlink" title="TS 内置很多常用泛型工具，日常开发大量使用："></a>TS 内置很多常用泛型工具，日常开发大量使用：</h3><ul>
+<li>Partial<T>：把 T 所有属性变为可选</li>
+<li>Required<T>：把 T 所有属性变为必选</li>
+<li>Readonly<T>：所有属性只读</li>
+<li>Pick&lt;T, K&gt;：从 T 中挑选部分属性</li>
+<li>Omit&lt;T, K&gt;：从 T 中剔除部分属性</li>
+<li>Record&lt;K, T&gt;：构造键值对对象（最常用）</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">  <span class="attr">age</span>: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Partial 可选</span></span><br><span class="line"><span class="keyword">type</span> <span class="variable constant_">P1</span> = <span class="title class_">Partial</span>&lt;<span class="title class_">Person</span>&gt;; </span><br><span class="line"></span><br><span class="line"><span class="comment">// Pick 挑选 name</span></span><br><span class="line"><span class="keyword">type</span> <span class="variable constant_">P2</span> = <span class="title class_">Pick</span>&lt;<span class="title class_">Person</span>, <span class="string">&quot;name&quot;</span>&gt;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Omit 剔除 age</span></span><br><span class="line"><span class="keyword">type</span> <span class="variable constant_">P3</span> = <span class="title class_">Omit</span>&lt;<span class="title class_">Person</span>, <span class="string">&quot;age&quot;</span>&gt;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Record 快速定义对象结构</span></span><br><span class="line"><span class="keyword">type</span> <span class="title class_">Obj</span> = <span class="title class_">Record</span>&lt;<span class="built_in">string</span>, <span class="built_in">number</span>&gt;;</span><br><span class="line"><span class="keyword">const</span> <span class="attr">obj</span>: <span class="title class_">Obj</span> = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="前端单元测试"><a href="#前端单元测试" class="headerlink" title="前端单元测试"></a>前端单元测试</h2><blockquote>
+<p>因为简历里面写了我日常维护了相关npm包，所有面试官特意问我维护npm包的过程中，是否使用了单元测试</p>
+</blockquote>
+<ol>
+<li><strong>概念</strong><br>单元测试：对代码中最小独立单元（函数、组件、工具方法）单独测试，验证逻辑是否符合预期，提前发现 BUG。</li>
+<li><strong>主流框架 &#x2F; 工具</strong><br>Jest：最主流，零配置友好，集成断言、模拟、覆盖率，React&#x2F;Vue&#x2F; 原生通用<br>Vitest：Vite 生态首选，API 兼容 Jest，速度更快<br>Testing Library：配合 Jest&#x2F;Vitest，测试组件行为（推荐，贴近用户使用）<br>Enzyme：老牌组件测试库，现在使用变少</li>
+<li><strong>核心作用</strong></li>
+</ol>
+<ul>
+<li>保障代码修改后原有功能不失效（防改崩）</li>
+<li>快速回归测试，减少人工重复验证</li>
+<li>倒逼代码拆分、解耦，提升可维护性</li>
+<li>生成测试覆盖率，直观查看未测代码</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 待测试函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 单元测试用例</span></span><br><span class="line"><span class="title function_">test</span>(<span class="string">&#x27;两数相加&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">expect</span>(<span class="title function_">add</span>(<span class="number">1</span>, <span class="number">2</span>)).<span class="title function_">toBe</span>(<span class="number">3</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>简单原则</li>
+</ol>
+<ul>
+<li>一个用例只测一个逻辑点</li>
+<li>输入、输出、边界值（空、异常、极值）都覆盖</li>
+<li>外部依赖（接口、定时器）使用Mock 模拟</li>
+</ul>
+<h2 id="低代码平台相关"><a href="#低代码平台相关" class="headerlink" title="低代码平台相关"></a>低代码平台相关</h2><h3 id="组件之间的数据沟通和交互"><a href="#组件之间的数据沟通和交互" class="headerlink" title="组件之间的数据沟通和交互"></a>组件之间的数据沟通和交互</h3><p>利用了订阅库的机制，来进行互通数据和调用组件之间的逻辑<br>具体方法可以参考<a target="_blank" rel="noopener" href="https://deepwiki.com/developit/mitt">https://deepwiki.com/developit/mitt</a><br><img src="/../img/blog/fed15-mitt.png" alt="mitt核心逻辑"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<table>
+<thead>
+<tr>
+<th>方法&#x2F;属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mitt()</td>
+<td>创建一个新的事件订阅实例的工厂函数</td>
+</tr>
+<tr>
+<td>emitter.all</td>
+<td>存储事件类型到处理器数组的映射</td>
+</tr>
+<tr>
+<td>emitter.on()</td>
+<td>为特定事件类型注册事件处理函数</td>
+</tr>
+<tr>
+<td>emitter.off()</td>
+<td>移除特定事件类型的事件处理函数</td>
+</tr>
+<tr>
+<td>emitter.emit()</td>
+<td>触发指定事件类型的所有处理函数</td>
+</tr>
+</tbody></table>
+<h3 id="微前端"><a href="#微前端" class="headerlink" title="微前端"></a>微前端</h3><blockquote>
+<p>之前工作主要接触的微前端形式：用Web Component标签,然后请求url拿到代码数据后，填充到web component中去，面试官特意问了我，在平常工作中，使用微前端最常遇到的问题是什么，是怎么解决的，我自己答的还是不够完善</p>
+</blockquote>
+<p>这种「自定义 Web Component 标签 + 远程请求 URL + 把 HTML&#x2F;JS 插入组件内部」的方案，本质是简易版的微前端实现，核心依赖 Shadow DOM 做样式隔离，但缺少完整的沙箱、路由、生命周期等配套能力。如果是手写原生实现，会存在以下几类明显缺点：</p>
+<ol>
+<li><p><strong>全局变量完全共享</strong><br>子应用的脚本直接在主应用的 window 上执行，所有全局变量、全局方法（如挂载在 window 上的工具库、全局配置）会互相覆盖。多个子应用同时存在时，极易出现变量冲突、状态串扰。</p>
+</li>
+<li><p><strong>全局事件 &#x2F; 定时器无法自动清理</strong><br>子应用绑定的 window 事件、setInterval、订阅监听等，在组件销毁 &#x2F; 子应用卸载时不会自动清除，极易造成内存泄漏，重复进入还会导致事件重复绑定、逻辑执行多次。</p>
+</li>
+<li><p><strong>DOM 查询失效</strong><br>如果使用 Shadow DOM 封闭内部 DOM，子应用代码里的 document.getElementById、document.querySelector 等全局查询会全部失效 —— 因为 Shadow DOM 内部节点对全局 document 不可见，需要改造为从 Shadow Root 下查询，旧系统改造成本极高。</p>
+</li>
+</ol>
+<h2 id="手写代码题目"><a href="#手写代码题目" class="headerlink" title="手写代码题目"></a>手写代码题目</h2><blockquote>
+<p>需求是顶部有一个checkbox，可以全选或不全选列表项，列表条目也有一个checkbox，来勾选是否需要勾选对应列表项，然后页面底部显示已选择的列表项</p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;useState,useEffect&#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Comps</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">interface</span> <span class="title class_">ListItem</span> &#123;</span><br><span class="line">      <span class="attr">id</span>:<span class="built_in">string</span>,</span><br><span class="line">      <span class="attr">name</span>:<span class="built_in">string</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="attr">listdata</span>:<span class="title class_">ListItem</span>[] = [</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="string">&#x27;1&#x27;</span>, <span class="attr">name</span>: <span class="string">&#x27;张三&#x27;</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="string">&#x27;2&#x27;</span>, <span class="attr">name</span>: <span class="string">&#x27;李四&#x27;</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">id</span>: <span class="string">&#x27;3&#x27;</span>, <span class="attr">name</span>: <span class="string">&#x27;王五&#x27;</span> &#125;,</span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> [chooseItems,setchooseItems] = useState&lt;<span class="title class_">ListItem</span>[]&gt;([]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> isCheckAll = listdata.<span class="property">length</span> &gt; <span class="number">0</span>  &amp;&amp; chooseItems.<span class="property">length</span> === listdata.<span class="property">length</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">chooseAllList</span> = (<span class="params">e</span>)=&gt;&#123;</span><br><span class="line">    <span class="title function_">setchooseItems</span>(e.<span class="property">target</span>.<span class="property">checked</span>?[...listdata]:[])</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">chooseList</span> = (<span class="params"><span class="attr">checked</span>:<span class="built_in">boolean</span>,<span class="attr">item</span>:<span class="title class_">ListItem</span></span>)=&gt;&#123;</span><br><span class="line">      <span class="keyword">if</span>(checked)&#123;</span><br><span class="line">        <span class="title function_">setchooseItems</span>([item,...chooseItems])</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="title function_">setchooseItems</span>(chooseItems.<span class="title function_">filter</span>(<span class="function"><span class="params">lisitem</span>=&gt;</span>lisitem.<span class="property">id</span>!==item.<span class="property">id</span>))</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      是否全选列表</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">checked</span>=<span class="string">&#123;isCheckAll&#125;</span> <span class="attr">onChange</span>=<span class="string">&#123;chooseAllList&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      列表选择</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123;listdata.map(item=&gt;<span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;item.id&#125;</span>&gt;</span>&#123;item.name&#125;<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">checked</span>=<span class="string">&#123;chooseItems.some(choseitem</span>=&gt;</span>choseitem.id===item.id)&#125; onChange=&#123;(e)=&gt;&#123;chooseList(e.target.checked,item)&#125;&#125; /&gt;<span class="tag">&lt;/<span class="name">li</span>&gt;</span>)&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      已选择的列表</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123;chooseItems.map(item=&gt;<span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;item.name&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span>)&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</article>
+    
+    <div class="trm-reward">
+        
+            <span class="trm-reward-btn trm-glow" onclick='var qr = document.getElementById("qr"); qr.style.display = (qr.style.display === "none") ? "block" : "none";'>
+                <i class="iconfont fas fa-hand-holding-usd"></i>
+            </span>
+        
+        <p class="trm-reward-comment">支持我，让我有更多动力写出更好的文章</p>
+        <div id="qr" style="display:none;">
+            
+                <div style="display:inline-block">
+                    <a rel="noopener noreferrer" href='/img/pay.jpg' target='_blank' >
+                       <img src="/img/pay.jpg" alt="支付宝" loading="lazy">
+                    </a>
+                    <p>支付宝</p>
+                </div>
+            
+        </div>
+    </div>
+
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/2025/04/30/fed14/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/blog/fed14.png">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E5%89%8D%E7%AB%AF/">
+                    前端
+                </a>
+            </div>
+            <h5>
+                <a href="/2025/04/30/fed14/" class="trm-anima-link">
+                    利用高德地图和小红书MCP生成旅行规划图
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>25/04/30</li>
+                <li>10:27</li>
+                
+                    <li>2.9k</li>
+                
+                
+                    <li>11</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-footer-card trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v7.3.0
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.2.7
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        目录导航
+				<span id="post-toc-top">
+					置顶
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-2" title="简单介绍一下React常用的hook"><a rel="nofollow" class="trm-toc-link" href="#简单介绍一下React常用的hook"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">简单介绍一下React常用的hook</span></a></li><li class="trm-toc-item trm-toc-level-2" title="React hook能否在循环或者if中使用"><a rel="nofollow" class="trm-toc-link" href="#React-hook能否在循环或者if中使用"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">React hook能否在循环或者if中使用</span></a></li><li class="trm-toc-item trm-toc-level-2" title="React 开发中，有哪些常用的优化方式"><a rel="nofollow" class="trm-toc-link" href="#React-开发中，有哪些常用的优化方式"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">React 开发中，有哪些常用的优化方式</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="列表与大数据渲染优化(重点)"><a rel="nofollow" class="trm-toc-link" href="#列表与大数据渲染优化-重点"><span class="trm-toc-number">3.1.</span> <span class="trm-toc-text">列表与大数据渲染优化(重点)</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="介绍一下typescript中的泛型"><a rel="nofollow" class="trm-toc-link" href="#介绍一下typescript中的泛型"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">介绍一下typescript中的泛型</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="TS 内置很多常用泛型工具，日常开发大量使用："><a rel="nofollow" class="trm-toc-link" href="#TS-内置很多常用泛型工具，日常开发大量使用："><span class="trm-toc-number">4.1.</span> <span class="trm-toc-text">TS 内置很多常用泛型工具，日常开发大量使用：</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="前端单元测试"><a rel="nofollow" class="trm-toc-link" href="#前端单元测试"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">前端单元测试</span></a></li><li class="trm-toc-item trm-toc-level-2" title="低代码平台相关"><a rel="nofollow" class="trm-toc-link" href="#低代码平台相关"><span class="trm-toc-number">6.</span> <span class="trm-toc-text">低代码平台相关</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="组件之间的数据沟通和交互"><a rel="nofollow" class="trm-toc-link" href="#组件之间的数据沟通和交互"><span class="trm-toc-number">6.1.</span> <span class="trm-toc-text">组件之间的数据沟通和交互</span></a></li><li class="trm-toc-item trm-toc-level-3" title="微前端"><a rel="nofollow" class="trm-toc-link" href="#微前端"><span class="trm-toc-number">6.2.</span> <span class="trm-toc-text">微前端</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="手写代码题目"><a rel="nofollow" class="trm-toc-link" href="#手写代码题目"><span class="trm-toc-number">7.</span> <span class="trm-toc-text">手写代码题目</span></a></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="目录">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.2.7"></script>
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+    <script data-swup-reload-script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+
+<script id="async-script" src="/js/main.js?v=2.2.7"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

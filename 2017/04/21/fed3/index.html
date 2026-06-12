@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="本篇适合从没有接触过微信jssdk的同学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信jssdk使用流程">
+<meta property="og:url" content="https://www.mrfangge.com/2017/04/21/fed3/index.html">
+<meta property="og:site_name" content="MrFangge">
+<meta property="og:description" content="本篇适合从没有接触过微信jssdk的同学">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-04-21T01:46:25.000Z">
+<meta property="article:modified_time" content="2021-06-12T17:01:00.000Z">
+<meta property="article:author" content="Mrfangge">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="Javascript">
+<meta name="twitter:card" content="summary">
+
+
+<title >微信jssdk使用流程</title>
+
+<!-- Favicon -->
+
+    <link href='/img/icon-16.ico?v=2.2.7' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/icon.ico?v=2.2.7' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+    <link href='/img/logo.png?v=2.2.7' rel='apple-touch-icon' sizes='180x180' ></link>
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"www.mrfangge.com","author":"Mrfangge","root":"/","typed_text":["海贼王多年骨粉，热爱摄影，希望用代码改变世界的小码农"],"theme_version":"2.2.7","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/icon.jpg","icon16":"/img/icon-16.ico","icon32":"/img/icon.ico","apple_touch_icon":"/img/logo.png","webmanifest":null,"visibilitychange":true,"hidden":"/img/icon.jpg","show_text":"(/≧▽≦/)嘿！欢迎回来！","hide_text":"(●—●)喔哟，等你哦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"05/09/2014 17:00:00","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":false,"el":".trm-banner"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2021-06-13 01:01:00"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.2.7" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+
+
+    
+        <!-- Baidu Analytics -->
+        <script defer>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?e31b1a8efc9b56b8d770c960116c405c";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+     
+
+    
+
+    
+ 
+<!-- hexo injector head_end start --><meta name="baidu-site-verification" content="codeva-rq5C4DU2TB" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/icon.jpg">
+    
+    
+        <div class="trm-logo-text">
+            Mr<span>Fangge</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/travel" target="">
+                    自由行
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/blog/banner.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            微信jssdk使用流程
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2017
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/avatar.jpeg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Mrfangge
+    </h5>
+    
+        <div class="trm-label">
+            我是一个
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com/fangge" title="github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+        <a href="https://www.xiaohongshu.com/user/profile/5837bc3a7fc5b806082907db" title="小红书" rel="nofollow" target="_blank">
+            <i class="iconfont fas fa-camera-retro"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                码龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                10年
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                职业:
+            </div>
+            <div class="trm-label trm-label-light">
+                前端开发工程师
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                兴趣爱好:
+            </div>
+            <div class="trm-label trm-label-light">
+                摄影
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:fangge-sun@163.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            04/21
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            09:46
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Mrfangge
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <blockquote>
+<p>本篇适合从没有接触过微信 jssdk 的同学</p>
+</blockquote>
+<h2 id="旧的分享代码"><a href="#旧的分享代码" class="headerlink" title="旧的分享代码"></a>旧的分享代码</h2><p>在经历了一段时间普通用户的鬼哭狼嚎后（微信的分享突然不能用了），微信终于推出了正式的 jssdk，再重新贴一下旧的微信的分享代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给微信设置分享文案</span></span><br><span class="line"><span class="keyword">var</span> onBridgeReady = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> appId = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="comment">// 发送给好友;</span></span><br><span class="line">  <span class="title class_">WeixinJSBridge</span>.<span class="title function_">on</span>(<span class="string">&#x27;menu:share:appmessage&#x27;</span>, <span class="keyword">function</span> (<span class="params">argv</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> imgUrl = sharePic;</span><br><span class="line">    <span class="keyword">var</span> link = shareUrl;</span><br><span class="line">    <span class="keyword">var</span> title = shareTitle;</span><br><span class="line">    <span class="keyword">var</span> shareDesc = shareTxt;</span><br><span class="line">    <span class="title class_">WeixinJSBridge</span>.<span class="title function_">invoke</span>(</span><br><span class="line">      <span class="string">&#x27;sendAppMessage&#x27;</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">img_url</span>: imgUrl,</span><br><span class="line">        <span class="attr">img_width</span>: <span class="string">&#x27;640&#x27;</span>,</span><br><span class="line">        <span class="attr">img_height</span>: <span class="string">&#x27;640&#x27;</span>,</span><br><span class="line">        <span class="attr">link</span>: link,</span><br><span class="line">        <span class="attr">desc</span>: shareDesc,</span><br><span class="line">        <span class="attr">title</span>: title,</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="keyword">function</span> (<span class="params">res</span>) &#123;</span><br><span class="line">        <span class="comment">//分享成功后回调函数</span></span><br><span class="line">      &#125;</span><br><span class="line">    );</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">// 分享到朋友圈;</span></span><br><span class="line">  <span class="title class_">WeixinJSBridge</span>.<span class="title function_">on</span>(<span class="string">&#x27;menu:share:timeline&#x27;</span>, <span class="keyword">function</span> (<span class="params">argv</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> imgUrl = sharePic;</span><br><span class="line">    <span class="keyword">var</span> link = shareUrl;</span><br><span class="line">    <span class="keyword">var</span> title = shareTitle;</span><br><span class="line">    <span class="keyword">var</span> shareDesc = shareTxt;</span><br><span class="line">    <span class="title class_">WeixinJSBridge</span>.<span class="title function_">invoke</span>(</span><br><span class="line">      <span class="string">&#x27;shareTimeline&#x27;</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">img_url</span>: imgUrl,</span><br><span class="line">        <span class="attr">img_width</span>: <span class="string">&#x27;640&#x27;</span>,</span><br><span class="line">        <span class="attr">img_height</span>: <span class="string">&#x27;640&#x27;</span>,</span><br><span class="line">        <span class="attr">link</span>: link,</span><br><span class="line">        <span class="attr">desc</span>: shareDesc,</span><br><span class="line">        <span class="attr">title</span>: shareDesc,</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="keyword">function</span> (<span class="params">res</span>) &#123;</span><br><span class="line">        <span class="comment">//分享成功后回调函数</span></span><br><span class="line">      &#125;</span><br><span class="line">    );</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">addEventListener</span>) &#123;</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;WeixinJSBridgeReady&#x27;</span>, onBridgeReady, <span class="literal">false</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">attachEvent</span>) &#123;</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">attachEvent</span>(<span class="string">&#x27;WeixinJSBridgeReady&#x27;</span>, onBridgeReady);</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">attachEvent</span>(<span class="string">&#x27;onWeixinJSBridgeReady&#x27;</span>, onBridgeReady);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>微信发布了新的 jssdk 后，官方宣称的是大家以后都只能用新的代码了，可是经过测试，上面这一段旧的代码还是可以用的，只要你的页面所在的域名是在微信的“白名单”内，如果加上以上代码后可以正常分享，那么就证明你的域名是在微信的白名单内</p>
+<h2 id="新的-jssdk-使用方法"><a href="#新的-jssdk-使用方法" class="headerlink" title="新的 jssdk 使用方法"></a>新的 jssdk 使用方法</h2><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html">微信 JS-SDK 说明文档</a></p>
+<p>新的方式比之前的方式复杂一些，如果你想要你的页面可以在微信内分享，必须满足以下条件：<br>&lt;!–swig￼3–&gt;</p>
+<p>在上述介绍的 jssdk 运作流程中，2、3、4 步骤其实都是直接放在后台实现的，这也是为什么我说需要后台服务的缘故，具体的后台代码 demo 微信文档里面已经给出了，下面贴一个链接：<br><a target="_blank" rel="noopener" href="http://demo.open.weixin.qq.com/jssdk/sample.zip">http://demo.open.weixin.qq.com/jssdk/sample.zip</a></p>
+<div class="trm-note warning"><div class="trm-note-title">WARNING</div><p>备注：链接中包含 php、java、nodejs 以及 python 的示例代码供第三方参考，第三方切记要对获取的 accesstoken 以及 jsapi_ticket 进行缓存以确保不会触发频率限制，另外注意生成的签名有效时间为 2 小时，2 小时后就要重新生成</p>
+</div>
+
+<h3 id="（四）使用-jssdk"><a href="#（四）使用-jssdk" class="headerlink" title="（四）使用 jssdk"></a>（四）使用 jssdk</h3><p>配置的代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wx.<span class="title function_">config</span>(&#123;</span><br><span class="line">    <span class="attr">debug</span>: <span class="literal">true</span>, <span class="comment">// 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。</span></span><br><span class="line">    <span class="attr">appId</span>: <span class="string">&#x27;&#x27;</span>, <span class="comment">// 必填，公众号的唯一标识</span></span><br><span class="line">    <span class="attr">timestamp</span>: , <span class="comment">// 必填，生成签名的时间戳</span></span><br><span class="line">    <span class="attr">nonceStr</span>: <span class="string">&#x27;&#x27;</span>, <span class="comment">// 必填，生成签名的随机串</span></span><br><span class="line">    <span class="attr">signature</span>: <span class="string">&#x27;&#x27;</span>,<span class="comment">// 必填，签名，见附录1</span></span><br><span class="line">    <span class="attr">jsApiList</span>: [] <span class="comment">// 必填，需要使用的JS接口列表，所有JS接口列表见附录2</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>jsApiList 请大家直接在<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html">微信 JS-SDK 说明文档</a>里面找到对应的使用方法即可，这里就不再赘述</p>
+
+</article>
+    
+    <div class="trm-reward">
+        
+            <span class="trm-reward-btn trm-glow" onclick='var qr = document.getElementById("qr"); qr.style.display = (qr.style.display === "none") ? "block" : "none";'>
+                <i class="iconfont fas fa-hand-holding-usd"></i>
+            </span>
+        
+        <p class="trm-reward-comment">支持我，让我有更多动力写出更好的文章</p>
+        <div id="qr" style="display:none;">
+            
+                <div style="display:inline-block">
+                    <a rel="noopener noreferrer" href='/img/pay.jpg' target='_blank' >
+                       <img src="/img/pay.jpg" alt="支付宝" loading="lazy">
+                    </a>
+                    <p>支付宝</p>
+                </div>
+            
+        </div>
+    </div>
+
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/2017/07/22/fed/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/blog/tag.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E5%89%8D%E7%AB%AF/">
+                    前端
+                </a>
+            </div>
+            <h5>
+                <a href="/2017/07/22/fed/" class="trm-anima-link">
+                    标签组件探索
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>17/07/22</li>
+                <li>20:46</li>
+                
+                    <li>879</li>
+                
+                
+                    <li>3</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/2016/02/23/japan-7th-honeymoon-day6-kyoto-fushimi-inari-shrine-kiyomizu-temple-and-temple-of-the-golden-pavilion/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/japan/banner.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E5%89%8D%E7%AB%AF/">
+                    前端
+                </a>
+            </div>
+            <h5>
+                <a href="/2016/02/23/japan-7th-honeymoon-day6-kyoto-fushimi-inari-shrine-kiyomizu-temple-and-temple-of-the-golden-pavilion/" class="trm-anima-link">
+                    日本7日蜜月游 – Day6：京都伏见稻荷大社、清水寺和金阁寺
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>16/02/23</li>
+                <li>00:01</li>
+                
+                    <li>0</li>
+                
+                
+                    <li>1</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-footer-card trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v7.3.0
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.2.7
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        目录导航
+				<span id="post-toc-top">
+					置顶
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-2" title="旧的分享代码"><a rel="nofollow" class="trm-toc-link" href="#旧的分享代码"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">旧的分享代码</span></a></li><li class="trm-toc-item trm-toc-level-2" title="新的 jssdk 使用方法"><a rel="nofollow" class="trm-toc-link" href="#新的-jssdk-使用方法"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">新的 jssdk 使用方法</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="（四）使用 jssdk"><a rel="nofollow" class="trm-toc-link" href="#（四）使用-jssdk"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">（四）使用 jssdk</span></a></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="目录">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.2.7"></script>
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+    <script data-swup-reload-script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+
+<script id="async-script" src="/js/main.js?v=2.2.7"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="利用WakaTime 数据打造自己的开发数据图表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WakaTime Dashboard Pro">
+<meta property="og:url" content="https://www.mrfangge.com/2021/06/29/fed5/index.html">
+<meta property="og:site_name" content="MrFangge">
+<meta property="og:description" content="利用WakaTime 数据打造自己的开发数据图表">
+<meta property="og:locale">
+<meta property="og:image" content="https://www.mrfangge.com/img/404.jpg">
+<meta property="og:image" content="https://www.mrfangge.com/img/404.jpg">
+<meta property="article:published_time" content="2021-06-29T02:43:35.000Z">
+<meta property="article:modified_time" content="2026-06-12T01:46:56.827Z">
+<meta property="article:author" content="Mrfangge">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="Javascript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.mrfangge.com/img/404.jpg">
+
+
+<title >WakaTime Dashboard Pro</title>
+
+<!-- Favicon -->
+
+    <link href='/img/icon-16.ico?v=2.2.7' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/icon.ico?v=2.2.7' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+    <link href='/img/logo.png?v=2.2.7' rel='apple-touch-icon' sizes='180x180' ></link>
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"www.mrfangge.com","author":"Mrfangge","root":"/","typed_text":["海贼王多年骨粉，热爱摄影，希望用代码改变世界的小码农"],"theme_version":"2.2.7","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/icon.jpg","icon16":"/img/icon-16.ico","icon32":"/img/icon.ico","apple_touch_icon":"/img/logo.png","webmanifest":null,"visibilitychange":true,"hidden":"/img/icon.jpg","show_text":"(/≧▽≦/)嘿！欢迎回来！","hide_text":"(●—●)喔哟，等你哦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"05/09/2014 17:00:00","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":false,"el":".trm-banner"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2026-06-12 09:46:56"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.2.7" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+
+
+    
+        <!-- Baidu Analytics -->
+        <script defer>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?e31b1a8efc9b56b8d770c960116c405c";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+     
+
+    
+
+    
+ 
+<!-- hexo injector head_end start --><meta name="baidu-site-verification" content="codeva-rq5C4DU2TB" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/icon.jpg">
+    
+    
+        <div class="trm-logo-text">
+            Mr<span>Fangge</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/travel" target="">
+                    自由行
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/blog/fed5.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            WakaTime Dashboard Pro
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2021
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/avatar.jpeg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Mrfangge
+    </h5>
+    
+        <div class="trm-label">
+            我是一个
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com/fangge" title="github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+        <a href="https://www.xiaohongshu.com/user/profile/5837bc3a7fc5b806082907db" title="小红书" rel="nofollow" target="_blank">
+            <i class="iconfont fas fa-camera-retro"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                码龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                10年
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                职业:
+            </div>
+            <div class="trm-label trm-label-light">
+                前端开发工程师
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                兴趣爱好:
+            </div>
+            <div class="trm-label trm-label-light">
+                摄影
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:fangge-sun@163.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            06/29
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            10:43
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Mrfangge
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <p><img src="/img/blog/b9cc66cd-cb04-4900-afbe-3daf8d0ff0e5.png" alt="wakatime-dashboard-pro"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'><br><a target="_blank" rel="noopener" href="https://github.com/fangge/wakatime-dashboard-pro">项目地址</a><br><a target="_blank" rel="noopener" href="https://wakatime.mrfangge.com/">项目 Demo</a></p>
+<hr>
+<p>之前一直有使用一个开源项目， <strong>superman66</strong>大神的<a target="_blank" rel="noopener" href="https://github.com/superman66/wakatime-dashboard">wakatime-dashboard</a> ，大致介绍一下这个项目，就是利用另一个同步的项目：<a target="_blank" rel="noopener" href="https://github.com/superman66/wakatime-sync">wakatime-sync</a>，每天将你的 WakaTime 的数据同步到你的 github 的 gist 上，然后再读取 gist 上的 json 数据，用图表去展示你的代码使用情况，非常喜欢 wakatime 这个统计工具，是因为自己很喜欢回顾之前做的项目情况，知道自己这段时间究竟做了哪些事情，也有利于自己更好地分配时间</p>
+<div class="trm-note info"><div class="trm-note-title">INFO</div><p>什么是<a target="_blank" rel="noopener" href="https://wakatime.com/">WakaTime</a>: 它是一个可以统计你日常开发项目具体信息的工具。 在相应的编辑器中安装插件后，您可以获取您过去 7 天的代码信息。 如果您需要获得更多，则需要付费升级到高级版本</p>
+</div>
+<p><img src="/img/blog/20210629115606.jpg" alt="WakaTime"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<h2 id="开始优化"><a href="#开始优化" class="headerlink" title="开始优化"></a>开始优化</h2><p>但是个人因为用久了觉得之前的图表不能那么方便地显示一些项目具体信息，于是乎对大神原有的项目进行了重构，主要有以下这些功能的改进和增加：</p>
+<h3 id="一、功能增加"><a href="#一、功能增加" class="headerlink" title="一、功能增加"></a>一、功能增加</h3><ol>
+<li>增加日历选择工具，可以选择具体的某段时间，而不是只能选择前 N 天</li>
+<li>增加下载图表功能，可以方便地下载自己的项目图表数据</li>
+<li>在图表数据日期比较多的情况下，可以让用户横向滚动或出现日期筛选滚动条</li>
+<li>增加选择时间内的总的项目使用情况（原有的只是每天的项目情况）</li>
+<li>增加选择时间内的总的编程语言使用情况</li>
+<li>增加选择时间内的开发工具的使用情况</li>
+<li>增加夜间模式</li>
+<li>结合 GIthub Action 随时同步自己的修改到 master 分支，方便 Github Page 直接使用项目</li>
+</ol>
+<h3 id="二、功能去除"><a href="#二、功能去除" class="headerlink" title="二、功能去除"></a>二、功能去除</h3><ol>
+<li>去掉登录功能，直接让用户随时输入 gistid</li>
+<li>去除相关友情链接</li>
+</ol>
+<h2 id="技术栈和构建框架选择"><a href="#技术栈和构建框架选择" class="headerlink" title="技术栈和构建框架选择"></a>技术栈和构建框架选择</h2><p>之前一直想着试试<a target="_blank" rel="noopener" href="https://vitejs.dev/">Vite</a>开发，于是乎这次正好就用上了，主体依然是用<strong>React</strong>开发，但因为之前项目用的图框架是<strong>bizcharts</strong>，所以这次想着直接简单点直接用**<a target="_blank" rel="noopener" href="https://ant.design/">Ant Design</a>+Antd 的<a target="_blank" rel="noopener" href="https://charts.ant.design/">图表框架</a>**，整个项目使用下来，觉得 Vite 确实挺方便的</p>
+<blockquote>
+<p>某些插件用的时候可能会有兼容问题，因为其强制采用了<code>ES Module</code> 来实现模块的加载，所以如果你使用的包有问题，可能要搜一下对应的一些兼容方法</p>
+</blockquote>
+<p>\</p>
+
+</article>
+    
+    <div class="trm-reward">
+        
+            <span class="trm-reward-btn trm-glow" onclick='var qr = document.getElementById("qr"); qr.style.display = (qr.style.display === "none") ? "block" : "none";'>
+                <i class="iconfont fas fa-hand-holding-usd"></i>
+            </span>
+        
+        <p class="trm-reward-comment">支持我，让我有更多动力写出更好的文章</p>
+        <div id="qr" style="display:none;">
+            
+                <div style="display:inline-block">
+                    <a rel="noopener noreferrer" href='/img/pay.jpg' target='_blank' >
+                       <img src="/img/pay.jpg" alt="支付宝" loading="lazy">
+                    </a>
+                    <p>支付宝</p>
+                </div>
+            
+        </div>
+    </div>
+
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/2021/11/20/fed6/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/blog/fed5.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E5%89%8D%E7%AB%AF/">
+                    前端
+                </a>
+            </div>
+            <h5>
+                <a href="/2021/11/20/fed6/" class="trm-anima-link">
+                    WakaTime Dashboard Pro - 更新日志
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>21/11/20</li>
+                <li>23:51</li>
+                
+                    <li>578</li>
+                
+                
+                    <li>2</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/2021/06/13/fed4/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/blog/fed4.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E5%89%8D%E7%AB%AF/">
+                    前端
+                </a>
+            </div>
+            <h5>
+                <a href="/2021/06/13/fed4/" class="trm-anima-link">
+                    Hexo+Github Action构建Github Page博客
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>21/06/13</li>
+                <li>15:17</li>
+                
+                    <li>1.4k</li>
+                
+                
+                    <li>5</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-footer-card trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v7.3.0
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.2.7
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        目录导航
+				<span id="post-toc-top">
+					置顶
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-2" title="开始优化"><a rel="nofollow" class="trm-toc-link" href="#开始优化"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">开始优化</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="一、功能增加"><a rel="nofollow" class="trm-toc-link" href="#一、功能增加"><span class="trm-toc-number">1.1.</span> <span class="trm-toc-text">一、功能增加</span></a></li><li class="trm-toc-item trm-toc-level-3" title="二、功能去除"><a rel="nofollow" class="trm-toc-link" href="#二、功能去除"><span class="trm-toc-number">1.2.</span> <span class="trm-toc-text">二、功能去除</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="技术栈和构建框架选择"><a rel="nofollow" class="trm-toc-link" href="#技术栈和构建框架选择"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">技术栈和构建框架选择</span></a></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="目录">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.2.7"></script>
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+    <script data-swup-reload-script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+
+<script id="async-script" src="/js/main.js?v=2.2.7"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>
