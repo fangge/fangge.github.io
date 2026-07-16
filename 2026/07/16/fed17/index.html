@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="1. Vue 和 React 的主要区别   对比维度 Vue React    核心设计思想 渐进式框架，主打 MVVM 双向绑定，官方 API 开箱即用，上手门槛低 专注视图层的 UI 库，推崇单向数据流与函数式编程，核心理念为 UI &#x3D; f(state)   数据绑定方式 双向数据绑定（v-model 语法糖），视图修改自动同步到数据 严格单向数据流，视图变更需通过事件回调手动更新状态">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试备忘2">
+<meta property="og:url" content="https://www.mrfangge.com/2026/07/16/fed17/index.html">
+<meta property="og:site_name" content="MrFangge">
+<meta property="og:description" content="1. Vue 和 React 的主要区别   对比维度 Vue React    核心设计思想 渐进式框架，主打 MVVM 双向绑定，官方 API 开箱即用，上手门槛低 专注视图层的 UI 库，推崇单向数据流与函数式编程，核心理念为 UI &#x3D; f(state)   数据绑定方式 双向数据绑定（v-model 语法糖），视图修改自动同步到数据 严格单向数据流，视图变更需通过事件回调手动更新状态">
+<meta property="og:locale">
+<meta property="article:published_time" content="2026-07-16T03:46:00.000Z">
+<meta property="article:modified_time" content="2026-07-16T08:47:28.320Z">
+<meta property="article:author" content="Mrfangge">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="Javascript">
+<meta name="twitter:card" content="summary">
+
+
+<title >面试备忘2</title>
+
+<!-- Favicon -->
+
+    <link href='/img/icon-16.ico?v=2.2.7' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/img/icon.ico?v=2.2.7' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+    <link href='/img/logo.png?v=2.2.7' rel='apple-touch-icon' sizes='180x180' ></link>
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"www.mrfangge.com","author":"Mrfangge","root":"/","typed_text":["海贼王多年骨粉，热爱摄影，希望用代码改变世界的小码农"],"theme_version":"2.2.7","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/icon.jpg","icon16":"/img/icon-16.ico","icon32":"/img/icon.ico","apple_touch_icon":"/img/logo.png","webmanifest":null,"visibilitychange":true,"hidden":"/img/icon.jpg","show_text":"(/≧▽≦/)嘿！欢迎回来！","hide_text":"(●—●)喔哟，等你哦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":false},"live_time":{"start_time":"05/09/2014 17:00:00","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":false,"el":".trm-banner"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2026-07-16 16:47:28"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.2.7" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+
+
+    
+        <!-- Baidu Analytics -->
+        <script defer>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?e31b1a8efc9b56b8d770c960116c405c";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+     
+
+    
+
+    
+ 
+<!-- hexo injector head_end start --><meta name="baidu-site-verification" content="codeva-rq5C4DU2TB" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/img/icon.jpg">
+    
+    
+        <div class="trm-logo-text">
+            Mr<span>Fangge</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/travel" target="">
+                    自由行
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/banner.png">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            面试备忘2
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2026
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/img/avatar.jpeg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        Mrfangge
+    </h5>
+    
+        <div class="trm-label">
+            我是一个
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com/fangge" title="github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+        <a href="https://www.xiaohongshu.com/user/profile/5837bc3a7fc5b806082907db" title="小红书" rel="nofollow" target="_blank">
+            <i class="iconfont fas fa-camera-retro"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                码龄:
+            </div>
+            <div class="trm-label trm-label-light">
+                10年
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                职业:
+            </div>
+            <div class="trm-label trm-label-light">
+                前端开发工程师
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                兴趣爱好:
+            </div>
+            <div class="trm-label trm-label-light">
+                摄影
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:fangge-sun@163.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            07/16
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            11:46
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Mrfangge
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h2 id="1-Vue-和-React-的主要区别"><a href="#1-Vue-和-React-的主要区别" class="headerlink" title="1. Vue 和 React 的主要区别"></a>1. Vue 和 React 的主要区别</h2><table>
+<thead>
+<tr>
+<th>对比维度</th>
+<th>Vue</th>
+<th>React</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>核心设计思想</strong></td>
+<td>渐进式框架，主打 MVVM 双向绑定，官方 API 开箱即用，上手门槛低</td>
+<td>专注视图层的 UI 库，推崇<strong>单向数据流</strong>与函数式编程，核心理念为 <code>UI = f(state)</code></td>
+</tr>
+<tr>
+<td><strong>数据绑定方式</strong></td>
+<td>双向数据绑定（<code>v-model</code> 语法糖），视图修改自动同步到数据</td>
+<td>严格单向数据流，视图变更需通过事件回调手动更新状态</td>
+</tr>
+<tr>
+<td><strong>响应式原理</strong></td>
+<td>Vue2 基于 <code>Object.defineProperty</code>，Vue3 基于 <code>Proxy</code> 劫持数据，精准追踪依赖</td>
+<td>基于<strong>不可变数据</strong>，通过 <code>setState</code> &#x2F; <code>useState</code> 手动触发重渲染，靠引用变化判断更新</td>
+</tr>
+<tr>
+<td><strong>模板写法</strong></td>
+<td>采用 <code>&lt;template&gt;</code> 模板语法，贴近原生 HTML，学习成本低</td>
+<td>采用 <code>JSX</code> 语法，完全基于 JavaScript 编写 UI，灵活度更高，与 JS 生态融合更好</td>
+</tr>
+<tr>
+<td><strong>Diff 算法</strong></td>
+<td>采用双端对比的虚拟 DOM Diff 算法</td>
+<td>React 16 后引入<strong>Fiber 架构</strong>，以链表结构实现可中断、可优先级调度的 Diff 过程</td>
+</tr>
+<tr>
+<td><strong>生态与灵活性</strong></td>
+<td>官方提供 Router、Pinia 等完整全家桶，方案统一规范</td>
+<td>生态开放灵活，状态管理、路由等均为社区方案，适合复杂大型项目定制化开发</td>
+</tr>
+</tbody></table>
+<h2 id="2-JS-的事件循环机制"><a href="#2-JS-的事件循环机制" class="headerlink" title="2. JS 的事件循环机制"></a>2. JS 的事件循环机制</h2><p>JavaScript 是单线程语言，事件循环（Event Loop）是其处理异步任务的核心机制，用于保证代码执行不阻塞，核心围绕<strong>调用栈</strong>和<strong>任务队列</strong>运行。</p>
+<h3 id="核心规则"><a href="#核心规则" class="headerlink" title="核心规则"></a>核心规则</h3><ol>
+<li>同步代码直接进入调用栈依次执行，执行完毕后栈被清空。</li>
+<li>异步代码会被挂起，等到触发时机（定时器到期、网络请求返回等），对应的回调函数会被推入任务队列。</li>
+<li>当调用栈为空时，先清空所有微任务，再取出一个宏任务执行，如此循环往复。</li>
+</ol>
+<h3 id="任务分类"><a href="#任务分类" class="headerlink" title="任务分类"></a>任务分类</h3><ul>
+<li><strong>宏任务</strong>：整体 script 代码、<code>setTimeout</code>、<code>setInterval</code>、I&#x2F;O 操作、UI 渲染</li>
+<li><strong>微任务</strong>：<code>Promise.then/catch/finally</code>、<code>queueMicrotask</code>、<code>MutationObserver</code></li>
+</ul>
+<h3 id="完整执行顺序"><a href="#完整执行顺序" class="headerlink" title="完整执行顺序"></a>完整执行顺序</h3><ol>
+<li>执行全局同步代码（属于第一个宏任务）</li>
+<li>同步代码执行完毕，调用栈清空</li>
+<li>依次执行当前所有微任务，直到微任务队列清空</li>
+<li>浏览器执行 UI 渲染（可选步骤）</li>
+<li>取出下一个宏任务执行，回到步骤 2 循环</li>
+</ol>
+<h2 id="3-React-局部状态管理方式"><a href="#3-React-局部状态管理方式" class="headerlink" title="3. React 局部状态管理方式"></a>3. React 局部状态管理方式</h2><p>局部状态指仅在单个组件或小范围组件树内生效的状态，不依赖全局状态库，常见方式如下：</p>
+<ul>
+<li><p><strong>组件基础内部状态</strong></p>
+<ul>
+<li>类组件：<code>this.state + this.setState()</code></li>
+<li>函数组件：<code>useState</code>，最常用的局部状态 Hook，适合简单单一状态</li>
+</ul>
+</li>
+<li><p><strong>复杂局部状态</strong></p>
+<ul>
+<li><code>useReducer</code>：适合状态逻辑复杂、多个子状态互相关联、下一个状态依赖上一个状态的场景，通过 reducer 函数统一管理状态更新逻辑</li>
+</ul>
+</li>
+<li><p><strong>非渲染型局部状态</strong></p>
+<ul>
+<li><code>useRef</code>：存储不需要触发组件重渲染的变量（如定时器 ID、DOM 引用、上一次的值等），值变更不会引发重渲染</li>
+</ul>
+</li>
+<li><p><strong>组件树局部共享状态</strong></p>
+<ul>
+<li><strong>状态提升</strong>：将多个子组件的共享状态提升到最近的共同父组件，通过 props 向下传递，适合层级较浅的共享场景</li>
+<li><strong>Context API + useState&#x2F;useReducer</strong>：在指定组件树范围内提供状态，避免 props 层层透传，属于局部范围的状态共享方案</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-React-性能优化手段"><a href="#4-React-性能优化手段" class="headerlink" title="4. React 性能优化手段"></a>4. React 性能优化手段</h2><p>核心优化方向为<strong>减少不必要的重渲染</strong>和<strong>降低渲染计算量</strong>，常见手段如下：</p>
+<h3 id="渲染层面优化"><a href="#渲染层面优化" class="headerlink" title="渲染层面优化"></a>渲染层面优化</h3><ul>
+<li>类组件：使用 <code>PureComponent</code> 或自定义 <code>shouldComponentUpdate</code>，通过浅比较 props 和 state 跳过不必要的更新</li>
+<li>函数组件：用 <code>React.memo</code> 包裹组件，对 props 做浅比较，缓存组件渲染结果</li>
+<li>缓存计算与函数<ul>
+<li><code>useMemo</code>：缓存复杂计算的结果，避免每次渲染都重新计算</li>
+<li><code>useCallback</code>：缓存函数引用，配合 <code>React.memo</code> 使用，避免子组件因函数引用变化而重渲染</li>
+</ul>
+</li>
+<li>状态拆分：把不相关的状态拆分为独立的 state，避免单个状态变更引发全组件重渲染</li>
+</ul>
+<h3 id="结构与交互优化"><a href="#结构与交互优化" class="headerlink" title="结构与交互优化"></a>结构与交互优化</h3><ul>
+<li>组件粒度拆分：将大组件拆分为职责单一的小组件，精准控制渲染范围</li>
+<li>正确使用 key：列表渲染时使用唯一稳定的 key，提升 Diff 算法效率，禁止用数组 index 作为 key</li>
+<li>长列表优化：使用 <code>react-window</code> &#x2F; <code>react-virtualized</code> 实现虚拟滚动，只渲染可视区域节点</li>
+<li>代码分割：用 <code>React.lazy + Suspense</code> 实现路由&#x2F;组件的按需懒加载，减少首屏包体积</li>
+<li>React 18 并发优化：使用 <code>useTransition</code>、<code>useDeferredValue</code> 区分紧急更新和非紧急更新，避免低优先级任务阻塞 UI 交互</li>
+</ul>
+<h3 id="编码习惯优化"><a href="#编码习惯优化" class="headerlink" title="编码习惯优化"></a>编码习惯优化</h3><ul>
+<li>避免在组件渲染函数中直接创建内联对象、内联函数作为 props</li>
+<li>避免在渲染过程中执行副作用，统一放到 <code>useEffect</code> 中</li>
+<li>合理使用 <code>useRef</code> 存储频繁变更且不需要触发渲染的值</li>
+</ul>
+<h2 id="5-React-子组件方法暴露给父组件调用的方式"><a href="#5-React-子组件方法暴露给父组件调用的方式" class="headerlink" title="5. React 子组件方法暴露给父组件调用的方式"></a>5. React 子组件方法暴露给父组件调用的方式</h2><p>核心思路是通过 <strong>ref</strong> 或<strong>回调注册</strong>让父组件拿到子组件的方法引用，常用方案有三种：</p>
+<ol>
+<li><p><strong>ref 直接获取（仅适用于类组件）</strong><br>类组件存在实例对象，父组件通过 <code>createRef</code> 创建 ref 并绑定到子组件上，即可通过 <code>ref.current</code> 直接调用子组件实例上的方法。</p>
+</li>
+<li><p><strong><code>forwardRef + useImperativeHandle</code>（函数组件官方标准方案）</strong><br>函数组件没有实例，不能直接通过 ref 获取方法，需两步实现：</p>
+<ul>
+<li>子组件用 <code>forwardRef</code> 包裹，接收父组件传入的 ref</li>
+<li>子组件内部用 <code>useImperativeHandle</code> 自定义暴露给父组件的方法和属性<br>该方案可控性强，是函数组件场景下的最推荐方案。</li>
+</ul>
+</li>
+<li><p><strong>props 回调注册法</strong><br>父组件通过 props 传递一个注册函数给子组件，子组件在挂载时（<code>useEffect</code>）将自身的方法作为参数传入该回调，父组件保存方法引用后即可调用。适合场景简单、不想使用 ref 的情况。</p>
+</li>
+</ol>
+<h3 id="React-Fiber-简单介绍"><a href="#React-Fiber-简单介绍" class="headerlink" title="React Fiber 简单介绍"></a>React Fiber 简单介绍</h3><p>Fiber 是 React 16 推出的<strong>全新协调引擎（Reconciler）</strong>，核心目标是解决旧版同步渲染阻塞主线程的卡顿问题，让 React 的更新过程变得<strong>可中断、可恢复、可按优先级调度</strong>。</p>
+<h3 id="1-诞生背景"><a href="#1-诞生背景" class="headerlink" title="1. 诞生背景"></a>1. 诞生背景</h3><p>React 15 及更早版本采用「Stack Reconciler」，通过递归遍历虚拟 DOM 树做 Diff 比对，整个更新过程是<strong>同步且不可中断</strong>的。一旦组件树庞大、更新计算耗时过长，就会阻塞浏览器主线程，导致用户输入、动画、页面滚动出现掉帧和卡顿。</p>
+<h3 id="2-核心设计与实现"><a href="#2-核心设计与实现" class="headerlink" title="2. 核心设计与实现"></a>2. 核心设计与实现</h3><ul>
+<li><p><strong>任务分片 + 链表结构</strong><br>将整个渲染更新任务拆分为一个个细小的「Fiber 工作单元」，每个 Fiber 节点对应一个组件，以链表形式组织（包含 <code>child</code> 子节点、<code>sibling</code> 兄弟节点、<code>return</code> 父节点三个指针），替代了原本的递归遍历。任务可以随时暂停，后续从中断点继续执行，不再依赖浏览器调用栈。</p>
+</li>
+<li><p><strong>时间片调度</strong><br>配合 Scheduler 调度器，在浏览器的空闲时间片内执行 Fiber 任务；时间片耗尽后立刻暂停工作，把主线程交还给浏览器处理用户交互、UI 渲染等高优先级操作，避免页面假死。</p>
+</li>
+<li><p><strong>双缓存机制</strong><br>同时维护两棵 Fiber 树：当前屏幕正在显示的 <code>current</code> 树，和后台正在计算更新的 <code>workInProgress</code> 树。所有更新计算完成后，才会一次性替换两棵树的引用，保证用户不会看到中间的不完整渲染状态。</p>
+</li>
+<li><p><strong>优先级调度</strong><br>给不同更新赋予不同优先级（比如用户点击&#x2F;输入是高优先级，异步数据加载更新是低优先级），高优先级任务可以打断正在进行的低优先级任务，优先响应用户感知强的交互。</p>
+</li>
+</ul>
+<h3 id="3-核心价值"><a href="#3-核心价值" class="headerlink" title="3. 核心价值"></a>3. 核心价值</h3><p>Fiber 把原本同步阻塞的渲染流程，改造为<strong>异步可调度的协作式任务系统</strong>，在不改变 React 开发体验的前提下，大幅提升了复杂大型应用的页面流畅度和交互响应性。</p>
+<h2 id="Redux-的核心作用"><a href="#Redux-的核心作用" class="headerlink" title="Redux 的核心作用"></a>Redux 的核心作用</h2><p>Redux 是一款<strong>可预测的 JavaScript 状态容器</strong>，是 React 生态中最主流的全局状态管理方案，核心用于集中管理应用的共享状态，规范状态更新流程，提升大型项目的可维护性。</p>
+<h3 id="1-集中管理全局共享状态"><a href="#1-集中管理全局共享状态" class="headerlink" title="1. 集中管理全局共享状态"></a>1. 集中管理全局共享状态</h3><p>解决 React 组件间跨层级通信、兄弟组件状态共享的痛点，避免 <code>props</code> 层层透传（Prop Drilling）问题。<br>将应用中通用的全局状态（如用户登录信息、主题配置、购物车数据、全局弹窗状态等）统一存储在唯一的 <code>Store</code> 中，项目内任意组件均可直接订阅、读取状态。</p>
+<h3 id="2-规范状态更新，保证可预测性"><a href="#2-规范状态更新，保证可预测性" class="headerlink" title="2. 规范状态更新，保证可预测性"></a>2. 规范状态更新，保证可预测性</h3><p>遵循严格的<strong>单向数据流</strong>原则，状态更新必须遵循固定流程：<br><code>dispatch(action) → reducer 纯函数计算 → 返回新 state</code><br>禁止直接修改状态，所有状态变更都有迹可循；配合 Redux DevTools 可以回溯、复现每一次状态变化，大幅降低复杂业务的调试成本。</p>
+<h3 id="3-解耦状态逻辑与-UI-组件"><a href="#3-解耦状态逻辑与-UI-组件" class="headerlink" title="3. 解耦状态逻辑与 UI 组件"></a>3. 解耦状态逻辑与 UI 组件</h3><p>将业务状态逻辑、副作用逻辑从组件中抽离，统一放到 action、reducer、中间件中维护。<br>组件仅负责「订阅状态渲染UI」和「触发action更新状态」，职责更单一，在大型项目中更易拆分、测试与迭代。</p>
+<h3 id="4-生态适配复杂业务场景"><a href="#4-生态适配复杂业务场景" class="headerlink" title="4. 生态适配复杂业务场景"></a>4. 生态适配复杂业务场景</h3><p>通过配套中间件扩展能力，覆盖复杂业务需求：</p>
+<ul>
+<li>异步处理：通过 <code>redux-thunk</code> &#x2F; <code>redux-saga</code> 管理接口请求等异步副作用</li>
+<li>工程简化：官方推荐的 <code>Redux Toolkit (RTK)</code> 大幅减少样板代码，内置不可变更新、状态切片、数据缓存（RTK Query）等能力</li>
+<li>中间件扩展：支持日志、持久化、权限拦截等自定义扩展能力</li>
+</ul>
+
+</article>
+    
+    <div class="trm-reward">
+        
+            <span class="trm-reward-btn trm-glow" onclick='var qr = document.getElementById("qr"); qr.style.display = (qr.style.display === "none") ? "block" : "none";'>
+                <i class="iconfont fas fa-hand-holding-usd"></i>
+            </span>
+        
+        <p class="trm-reward-comment">支持我，让我有更多动力写出更好的文章</p>
+        <div id="qr" style="display:none;">
+            
+                <div style="display:inline-block">
+                    <a rel="noopener noreferrer" href='/img/pay.jpg' target='_blank' >
+                       <img src="/img/pay.jpg" alt="支付宝" loading="lazy">
+                    </a>
+                    <p>支付宝</p>
+                </div>
+            
+        </div>
+    </div>
+
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/2026/06/29/fed16/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/img/blog/gaokao.jpeg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /categories/%E5%89%8D%E7%AB%AF/">
+                    前端
+                </a>
+            </div>
+            <h5>
+                <a href="/2026/06/29/fed16/" class="trm-anima-link">
+                    广东高考投档位次查询与择校分析系统
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>26/06/29</li>
+                <li>17:24</li>
+                
+                    <li>1.3k</li>
+                
+                
+                    <li>4</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-footer-card trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v7.3.0
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.2.7
+            </span>
+        </div>
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        目录导航
+				<span id="post-toc-top">
+					置顶
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-2" title="1. Vue 和 React 的主要区别"><a rel="nofollow" class="trm-toc-link" href="#1-Vue-和-React-的主要区别"><span class="trm-toc-number">1.</span> <span class="trm-toc-text">1. Vue 和 React 的主要区别</span></a></li><li class="trm-toc-item trm-toc-level-2" title="2. JS 的事件循环机制"><a rel="nofollow" class="trm-toc-link" href="#2-JS-的事件循环机制"><span class="trm-toc-number">2.</span> <span class="trm-toc-text">2. JS 的事件循环机制</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="核心规则"><a rel="nofollow" class="trm-toc-link" href="#核心规则"><span class="trm-toc-number">2.1.</span> <span class="trm-toc-text">核心规则</span></a></li><li class="trm-toc-item trm-toc-level-3" title="任务分类"><a rel="nofollow" class="trm-toc-link" href="#任务分类"><span class="trm-toc-number">2.2.</span> <span class="trm-toc-text">任务分类</span></a></li><li class="trm-toc-item trm-toc-level-3" title="完整执行顺序"><a rel="nofollow" class="trm-toc-link" href="#完整执行顺序"><span class="trm-toc-number">2.3.</span> <span class="trm-toc-text">完整执行顺序</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="3. React 局部状态管理方式"><a rel="nofollow" class="trm-toc-link" href="#3-React-局部状态管理方式"><span class="trm-toc-number">3.</span> <span class="trm-toc-text">3. React 局部状态管理方式</span></a></li><li class="trm-toc-item trm-toc-level-2" title="4. React 性能优化手段"><a rel="nofollow" class="trm-toc-link" href="#4-React-性能优化手段"><span class="trm-toc-number">4.</span> <span class="trm-toc-text">4. React 性能优化手段</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="渲染层面优化"><a rel="nofollow" class="trm-toc-link" href="#渲染层面优化"><span class="trm-toc-number">4.1.</span> <span class="trm-toc-text">渲染层面优化</span></a></li><li class="trm-toc-item trm-toc-level-3" title="结构与交互优化"><a rel="nofollow" class="trm-toc-link" href="#结构与交互优化"><span class="trm-toc-number">4.2.</span> <span class="trm-toc-text">结构与交互优化</span></a></li><li class="trm-toc-item trm-toc-level-3" title="编码习惯优化"><a rel="nofollow" class="trm-toc-link" href="#编码习惯优化"><span class="trm-toc-number">4.3.</span> <span class="trm-toc-text">编码习惯优化</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="5. React 子组件方法暴露给父组件调用的方式"><a rel="nofollow" class="trm-toc-link" href="#5-React-子组件方法暴露给父组件调用的方式"><span class="trm-toc-number">5.</span> <span class="trm-toc-text">5. React 子组件方法暴露给父组件调用的方式</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="React Fiber 简单介绍"><a rel="nofollow" class="trm-toc-link" href="#React-Fiber-简单介绍"><span class="trm-toc-number">5.1.</span> <span class="trm-toc-text">React Fiber 简单介绍</span></a></li><li class="trm-toc-item trm-toc-level-3" title="1. 诞生背景"><a rel="nofollow" class="trm-toc-link" href="#1-诞生背景"><span class="trm-toc-number">5.2.</span> <span class="trm-toc-text">1. 诞生背景</span></a></li><li class="trm-toc-item trm-toc-level-3" title="2. 核心设计与实现"><a rel="nofollow" class="trm-toc-link" href="#2-核心设计与实现"><span class="trm-toc-number">5.3.</span> <span class="trm-toc-text">2. 核心设计与实现</span></a></li><li class="trm-toc-item trm-toc-level-3" title="3. 核心价值"><a rel="nofollow" class="trm-toc-link" href="#3-核心价值"><span class="trm-toc-number">5.4.</span> <span class="trm-toc-text">3. 核心价值</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="Redux 的核心作用"><a rel="nofollow" class="trm-toc-link" href="#Redux-的核心作用"><span class="trm-toc-number">6.</span> <span class="trm-toc-text">Redux 的核心作用</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="1. 集中管理全局共享状态"><a rel="nofollow" class="trm-toc-link" href="#1-集中管理全局共享状态"><span class="trm-toc-number">6.1.</span> <span class="trm-toc-text">1. 集中管理全局共享状态</span></a></li><li class="trm-toc-item trm-toc-level-3" title="2. 规范状态更新，保证可预测性"><a rel="nofollow" class="trm-toc-link" href="#2-规范状态更新，保证可预测性"><span class="trm-toc-number">6.2.</span> <span class="trm-toc-text">2. 规范状态更新，保证可预测性</span></a></li><li class="trm-toc-item trm-toc-level-3" title="3. 解耦状态逻辑与 UI 组件"><a rel="nofollow" class="trm-toc-link" href="#3-解耦状态逻辑与-UI-组件"><span class="trm-toc-number">6.3.</span> <span class="trm-toc-text">3. 解耦状态逻辑与 UI 组件</span></a></li><li class="trm-toc-item trm-toc-level-3" title="4. 生态适配复杂业务场景"><a rel="nofollow" class="trm-toc-link" href="#4-生态适配复杂业务场景"><span class="trm-toc-number">6.4.</span> <span class="trm-toc-text">4. 生态适配复杂业务场景</span></a></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="目录">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.2.7"></script>
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+    <script data-swup-reload-script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+
+<script id="async-script" src="/js/main.js?v=2.2.7"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>
